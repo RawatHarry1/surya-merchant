@@ -1,0 +1,499 @@
+<div class="branding">
+    <div class="branding_header">
+        <div class="header_left">
+            <h3 class="branding_heading">BRANDING</h3>
+        </div>
+    </div>
+    <div class="branding_tabs">
+        <div class="row">
+            <!-- Web App Tab -->
+            <div class="col-sm-3">
+                <div class="branding_web" (click)="toggleContent('web')"
+                    [ngClass]="{'active-dropdown': activeContent === 'web'}">
+                    <div class="icon">
+                        <img class="img" src="/images/presention-chart.png" alt="Icon">
+                    </div>
+                    <div class="branding_heading">
+                        <h6 class="branding_heading_text">Web App</h6>
+                    </div>
+                    <div class="branding_info">
+                        <p class="branding_info_text">Select the Delivery modes that will be available on your platform.
+                        </p>
+                    </div>
+                    <div class="branding_dropdown_btn">
+                        <mat-icon>{{ activeContent === 'web' ? 'expand_less' : 'expand_more' }}</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <!-- Dashboard Tab -->
+            <div class="col-sm-3">
+                <div class="branding_dashboard" (click)="toggleContent('dashboard')"
+                    [ngClass]="{'active-dropdown': activeContent === 'dashboard'}">
+                    <div class="icon">
+                        <img class="img" src="/images/presention-chart.png" alt="Icon">
+                    </div>
+                    <div class="branding_heading">
+                        <h6 class="branding_heading_text">Dashboard</h6>
+                    </div>
+                    <div class="branding_info">
+                        <p class="branding_info_text">Select the Delivery modes that will be available on your platform.
+                        </p>
+                    </div>
+                    <div class="branding_dropdown_btn">
+                        <mat-icon>{{ activeContent === 'dashboard' ? 'expand_less' : 'expand_more' }}</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <!-- Custom Design Tab -->
+            <div class="col-sm-3">
+                <div class="branding_design" (click)="toggleContent('design')"
+                    [ngClass]="{'active-dropdown': activeContent === 'design'}">
+                    <div class="icon">
+                        <img class="img" src="/images/presention-chart.png" alt="Icon">
+                    </div>
+                    <div class="branding_heading">
+                        <h6 class="branding_heading_text">Custom Design</h6>
+                    </div>
+                    <div class="branding_info">
+                        <p class="branding_info_text">Select the Delivery modes that will be available on your platform.
+                        </p>
+                    </div>
+                    <div class="branding_dropdown_btn">
+                        <mat-icon>{{ activeContent === 'design' ? 'expand_less' : 'expand_more' }}</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <!-- Add Domain Tab -->
+            <div class="col-sm-3">
+                <div class="branding_domain" (click)="toggleContent('domain')"
+                    [ngClass]="{'active-dropdown': activeContent === 'domain'}">
+                    <div class="icon">
+                        <img class="img" src="/images/presention-chart.png" alt="Icon">
+                    </div>
+                    <div class="branding_heading">
+                        <h6 class="branding_heading_text">Add Domain</h6>
+                    </div>
+                    <div class="branding_info">
+                        <p class="branding_info_text">Select the Delivery modes that will be available on your platform.
+                        </p>
+                    </div>
+                    <div class="branding_dropdown_btn">
+                        <mat-icon>{{ activeContent === 'domain' ? 'expand_less' : 'expand_more' }}</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="branding_content">
+        <div class="branding_content_web" *ngIf="activeContent === 'web'">
+
+            <!-- Web Logo Section -->
+            <div class="web_logo">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="web_logo_heading">
+                            <h6 class="web_logo_heading_text">Web Logo (67<sup>*</sup>35px)</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="upload-file">
+                            <!-- Selected Images Preview for Web Logo -->
+                            <div class="preview" *ngIf="webLogoFiles.length > 0">
+                                <div *ngFor="let file of webLogoFiles; let i = index" class="image-container">
+                                    <span class="delete-icon" (click)="removeLogoFile(i,'web')">
+                                        <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                    </span>
+                                    <img class="preview-images" [src]="file.url" alt="Web Logo" />
+                                </div>
+                            </div>
+                            <!-- File Input for Web Logo -->
+                            <input type="file" (change)="onLogoSelected($event,'web')" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fav Logo Section -->
+            <div class="fav_logo">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="fav_logo_heading">
+                            <h6 class="fav_logo_heading_text">Fav Logo (35<sup>*</sup>35px)</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="upload-file">
+                            <!-- Selected Images Preview for Fav Logo -->
+                            <div class="preview" *ngIf="favLogoFiles.length > 0">
+                                <div *ngFor="let file of favLogoFiles; let i = index" class="image-container">
+                                    <span class="delete-icon" (click)="removeLogoFile(i,'fav')">
+                                        <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                    </span>
+                                    <img class="preview-images" [src]="file.url" alt="Fav Logo" />
+                                </div>
+                            </div>
+                            <!-- File Input for Fav Logo -->
+                            <input type="file" (change)="onLogoSelected($event,'fav')" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mailer_email">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="mailer_email_heading">
+                            <h6 class="mailer_email_heading_text">
+                                Mailer Email
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="mailer_email_input">
+                            <mat-form-field>
+                                <input matInput type="text" placeholder="Enter" formControlName="mailerEmail">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mailer_signature">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="mailer_signature_heading">
+                            <h6 class="mailer_signature_heading_text">
+                                Mailer Signature
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="mailer_email_input">
+                            <mat-form-field>
+                                <input matInput type="text" placeholder="Enter" formControlName="mailerEmail">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="branding_content_dashboard" *ngIf="activeContent === 'dashboard'">
+            <!-- Web Logo Section -->
+            <div class="dashboard_logo">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="dashboard_logo_heading">
+                            <h6 class="dashboard_logo_heading_text">Dashboard Logo (67<sup>*</sup>35px)</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="upload-file">
+                            <!-- Selected Images Preview for Web Logo -->
+                            <div class="preview" *ngIf="dashboardLogoFiles.length > 0">
+                                <div *ngFor="let file of dashboardLogoFiles; let i = index" class="image-container">
+                                    <span class="delete-icon" (click)="removeLogoFile(i,'dashboard')">
+                                        <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                    </span>
+                                    <img class="preview-images" [src]="file.url" alt="Web Logo" />
+                                </div>
+                            </div>
+                            <!-- File Input for Web Logo -->
+                            <input type="file" (change)="onLogoSelected($event,'dashboard')" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Fav Logo Section -->
+            <div class="dashboard_fav_logo">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="dashboard_fav_logo_heading">
+                            <h6 class="dashboard_fav_logo_heading_text">Fav Logo (35<sup>*</sup>35px)</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="upload-file">
+                            <!-- Selected Images Preview for Fav Logo -->
+                            <div class="preview" *ngIf="dashboardFavLogoFiles.length > 0">
+                                <div *ngFor="let file of dashboardFavLogoFiles; let i = index" class="image-container">
+                                    <span class="delete-icon" (click)="removeLogoFile(i,'dashboardFav')">
+                                        <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                    </span>
+                                    <img class="preview-images" [src]="file.url" alt="Fav Logo" />
+                                </div>
+                            </div>
+                            <!-- File Input for Fav Logo -->
+                            <input type="file" (change)="onLogoSelected($event,'dashboardFav')" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Login Logo (67*35px) Section -->
+            <div class="login_logo">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="login_logo_heading">
+                            <h6 class="login_logo_heading_text">Login Logo (67<sup>*</sup>35px)</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="upload-file">
+                            <!-- Selected Images Preview for Fav Logo -->
+                            <div class="preview" *ngIf="loginLogoFiles.length > 0">
+                                <div *ngFor="let file of loginLogoFiles; let i = index" class="image-container">
+                                    <span class="delete-icon" (click)="removeLogoFile(i,'loginLogo')">
+                                        <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                    </span>
+                                    <img class="preview-images" [src]="file.url" alt="Fav Logo" />
+                                </div>
+                            </div>
+                            <!-- File Input for Fav Logo -->
+                            <input type="file" (change)="onLogoSelected($event,'loginLogo')" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Login Page Section -->
+            <div class="login_page">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="login_page_heading">
+                            <h6 class="login_page_heading_text">Login Page Image (1920<sup>*</sup>1280px)</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="upload-file">
+                            <!-- Selected Images Preview for Fav Logo -->
+                            <div class="preview" *ngIf="loginPageFiles.length > 0">
+                                <div *ngFor="let file of loginPageFiles; let i = index" class="image-container">
+                                    <span class="delete-icon" (click)="removeLogoFile(i,'loginPage')">
+                                        <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                    </span>
+                                    <img class="preview-images" [src]="file.url" alt="Fav Logo" />
+                                </div>
+                            </div>
+                            <!-- File Input for Fav Logo -->
+                            <input type="file" (change)="onLogoSelected($event,'loginPage')" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard_title">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="dashboard_title_heading">
+                            <h6 class="dashboard_title_heading_text">
+                                Dashboard Title
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="dashboard_title_input">
+                            <mat-form-field>
+                                <input matInput type="text" placeholder="Enter" formControlName="dashboardTitle">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="theme_color">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="theme_color_heading">
+                            <h6 class="theme_color_heading_text">
+                                Theme Color
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="theme_color_input">
+                            <mat-form-field>
+                                <input matInput type="text" placeholder="Enter" formControlName="themeColor">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="branding_content_design" *ngIf="activeContent === 'design'">
+            <!-- Web Logo Section -->
+            <div class="dashboard_logo">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="dashboard_logo_heading">
+                            <h6 class="dashboard_logo_heading_text">Dashboard Logo (67<sup>*</sup>35px)</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="upload-file">
+                            <!-- Selected Images Preview for Web Logo -->
+                            <div class="preview" *ngIf="customDashboardLogoFiles.length > 0">
+                                <div *ngFor="let file of customDashboardLogoFiles; let i = index"
+                                    class="image-container">
+                                    <span class="delete-icon" (click)="removeLogoFile(i,'customDashboard')">
+                                        <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                    </span>
+                                    <img class="preview-images" [src]="file.url" alt="Web Logo" />
+                                </div>
+                            </div>
+                            <!-- File Input for Web Logo -->
+                            <input type="file" (change)="onLogoSelected($event,'customDashboard')" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Fav Logo Section -->
+            <div class="dashboard_fav_logo">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="dashboard_fav_logo_heading">
+                            <h6 class="dashboard_fav_logo_heading_text">Fav Logo (35<sup>*</sup>35px)</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="upload-file">
+                            <!-- Selected Images Preview for Fav Logo -->
+                            <div class="preview" *ngIf="customDashboardFavLogoFiles.length > 0">
+                                <div *ngFor="let file of customDashboardFavLogoFiles; let i = index"
+                                    class="image-container">
+                                    <span class="delete-icon" (click)="removeLogoFile(i,'customDashboardFav')">
+                                        <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                    </span>
+                                    <img class="preview-images" [src]="file.url" alt="Fav Logo" />
+                                </div>
+                            </div>
+                            <!-- File Input for Fav Logo -->
+                            <input type="file" (change)="onLogoSelected($event,'customDashboardFav')"
+                                accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Login Logo (67*35px) Section -->
+            <div class="login_logo">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="login_logo_heading">
+                            <h6 class="login_logo_heading_text">Login Logo (67<sup>*</sup>35px)</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="upload-file">
+                            <!-- Selected Images Preview for Fav Logo -->
+                            <div class="preview" *ngIf="customLoginLogoFiles.length > 0">
+                                <div *ngFor="let file of customLoginLogoFiles; let i = index" class="image-container">
+                                    <span class="delete-icon" (click)="removeLogoFile(i,'customLoginLogo')">
+                                        <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                    </span>
+                                    <img class="preview-images" [src]="file.url" alt="Fav Logo" />
+                                </div>
+                            </div>
+                            <!-- File Input for Fav Logo -->
+                            <input type="file" (change)="onLogoSelected($event,'customLoginLogo')" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Login Page Section -->
+            <div class="login_page">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="login_page_heading">
+                            <h6 class="login_page_heading_text">Login Page Image (1920<sup>*</sup>1280px)</h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="upload-file">
+                            <!-- Selected Images Preview for Fav Logo -->
+                            <div class="preview" *ngIf="customLoginPageFiles.length > 0">
+                                <div *ngFor="let file of customLoginPageFiles; let i = index" class="image-container">
+                                    <span class="delete-icon" (click)="removeLogoFile(i,'customLoginPage')">
+                                        <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                    </span>
+                                    <img class="preview-images" [src]="file.url" alt="Fav Logo" />
+                                </div>
+                            </div>
+                            <!-- File Input for Fav Logo -->
+                            <input type="file" (change)="onLogoSelected($event,'customLoginPage')" accept="image/*" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard_title">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="dashboard_title_heading">
+                            <h6 class="dashboard_title_heading_text">
+                                Dashboard Title
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="dashboard_title_input">
+                            <mat-form-field>
+                                <input matInput type="text" placeholder="Enter" formControlName="dashboardTitle">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="theme_color">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="theme_color_heading">
+                            <h6 class="theme_color_heading_text">
+                                Theme Color
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="theme_color_input">
+                            <mat-form-field>
+                                <input matInput type="text" placeholder="Enter" formControlName="themeColor">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="branding_content_domain" *ngIf="activeContent === 'domain'">
+            <div class="add_domain">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="domain">
+                            <div class="domain_heading">
+                                <h6 class="domain_heading_text">Domain</h6>
+                            </div>
+                            <div class="domain_info">
+                                <p class="domain_info_text">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+                                    1500s,
+                                    when
+                                    an unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book.
+                                    It
+                                    has survived not only five centuries, but also the leap into electronic typesetting,
+                                    remaining essentially unchanged.</p>
+                            </div>
+                        </div>
+                        <div class="connect_domain">
+                            <div class="connect_domain_heading">
+                                <h6 class="connect_domain_heading_text">Buy or Connect a Domain</h6>
+                            </div>
+                            <div class="connect_existing_domain">
+                                <h6 class="connect_existing_domain_heading_text">Connect Existing Domain</h6>
+                                <div class="form-actions">
+                                    <button type="submit" class="add-button">Buy New domain</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <img src="/images/www-domain.png" alt="www.domain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

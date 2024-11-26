@@ -1,0 +1,171 @@
+.orders {
+    padding: 0 30px;
+    height: 90vh;
+
+    .orders-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .orders-heading {
+            padding: 5px 0 0 0px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-right {
+            display: flex;
+            position: absolute;
+            align-items: center;
+            right: 0px;
+
+            .status_drop {
+                margin: 0 5px;
+            }
+
+            .entries-info {
+                display: flex;
+                justify-content: space-between;
+                margin: 0px 5px;
+            }
+
+            .btn-export button {
+                border: none;
+                color: var(--primary-color-white-shade);
+                font-weight: 500;
+                border-radius: 6px;
+                margin: 0 5px;
+                padding: 8px 6px;
+                background-color: var(--button-background-color-shade);
+            }
+
+            .btn-import button {
+                border: none;
+                color: var(--primary-color-white-shade);
+                font-weight: 500;
+                border-radius: 6px;
+                margin: 0 5px;
+                padding: 8px 6px;
+                background-color: var(--secondary-color-orange-shade);
+            }
+
+            .btn-add {
+                margin: 0 0 0 40px;
+
+                .add {
+                    border: none;
+                    color: var(--primary-color-white-shade);
+                    font-weight: 500;
+                    border-radius: 6px;
+                    margin: 0 0 0 5px;
+                    padding: 8px 6px;
+                    background-color: var(--button-background-color-shade);
+                }
+            }
+        }
+    }
+
+    .table-data {
+        position: relative;
+
+        .orders-data {
+
+            .mat-elevation-z8 {
+                overflow-x: auto;
+
+
+
+            }
+
+            .table-container {
+                overflow-y: auto;
+            }
+
+            .agent-edit-btn {
+                background-color: transparent;
+                border: none;
+                display: flex;
+                border-radius: 50%;
+                width: 38px;
+                height: 38px;
+                justify-content: center;
+                align-items: center;
+
+
+            }
+
+            .product_img {
+                height: 80px !important;
+                padding: 4px;
+            }
+        }
+
+        .orders-footer {
+            position: sticky;
+            /* Sticky position */
+            bottom: 0;
+            /* Stick to the bottom */
+            z-index: 10;
+            /* Ensure the pagination is above other content */
+
+        }
+
+        /* Blue for 'Ordered' */
+        .status-placed {
+            color: var(--blue-ordered-color);
+            font-weight: bold;
+        }
+
+        /* Yellow for 'Shipped' */
+        .status-shipped {
+            color: var(--orange-shipped-color);
+            /* or yellow */
+            font-weight: bold;
+        }
+
+        /* Green for 'Delivered' */
+        .status-delivered {
+            color: var(--green-delivered-color);
+            font-weight: bold;
+        }
+
+        /* Default for unknown statuses */
+        .status-unknown {
+            color: gray;
+            font-weight: bold;
+        }
+    }
+}
+
+//Order Status DropDown 
+
+::ng-deep .status_drop .mat-mdc-form-field-infix {
+    padding: 8px 10px !important;
+    min-height: unset !important;
+    width: 135px;
+}
+
+::ng-deep .status_drop .mat-mdc-text-field-wrapper.mdc-text-field.mdc-text-field--filled.mdc-text-field--no-label {
+    background-color: var(--drowpdown-background-color-shade) !important;
+    border-radius: 10px;
+
+    // .mat-mdc-select-value-text {
+    //     color: (var(--primary-color-white-shade));
+    // }
+
+    // .mat-mdc-select-arrow {
+    //     color: (var(--primary-color-white-shade));
+    // }
+}
+
+::ng-deep .mat-mdc-select-panel {
+    background-color: var(--primary-color-white-shade) !important;
+}
+
+::ng-deep .status_drop .mat-mdc-select-value {
+    display: flex;
+    justify-content: center;
+}

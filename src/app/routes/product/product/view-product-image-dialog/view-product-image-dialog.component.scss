@@ -1,0 +1,69 @@
+/*  Style to make the catalouge Borde-radius --0 */
+::ng-deep .mdc-dialog--open .mat-mdc-dialog-surface,
+.mdc-dialog--closing .mat-mdc-dialog-surface {
+    border-radius: 0;
+}
+
+::ng-deep .cdk-overlay-pane.mat-mdc-dialog-panel {
+    max-width: 80vw !important;
+    min-width: 35vw !important;
+}
+
+/*----------------Common Styling---------------- */
+.close-button {
+    font-size: 1.8rem;
+    color: var(--primary-color-white-shade);
+    padding: 0 14px 6px 0;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+/*  Heading of the Add Merchant Dialog*/
+.promotions-header {
+    width: 50vw;
+    max-height: 95vh;
+
+    .promotions-header-spacer {
+
+
+        .dialog-header {
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            color: var(--primary-color-white-shade);
+
+            .heading_h2 {
+                font-size: 1.5rem;
+                position: relative;
+                left: 30px;
+                // width: fit-content;
+                box-sizing: border-box;
+                padding: 10px 5px;
+            }
+        }
+
+        .promotions-form {
+            margin: 0 20px;
+        }
+    }
+
+    .promotion-name,
+    .discount,
+    .discription,
+    .start_date,
+    .end_date,
+    .max-discount,
+    .allowed-users,
+    .minimum-order,
+    .per_day_users,
+    .promotion-code-permission {
+        margin-top: 25px;
+    }
+}
+
+.product-image {
+    max-width: 100%;
+    height: 80vh;
+    margin: auto;
+}

@@ -1,0 +1,84 @@
+.banners {
+    padding: 0 30px;
+    height: 90vh;
+
+    .banners-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .banners-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-right {
+            display: flex;
+            position: absolute;
+            right: 0px;
+
+            .btn-add {
+                margin: 0 0 0 40px;
+
+                .add {
+                    border: none;
+                    color: var(--primary-color-white-shade);
+                    font-weight: 500;
+                    border-radius: 6px;
+                    margin: 0 0 0 5px;
+                    padding: 8px 6px;
+                    background-color: var(--button-background-color-shade);
+                }
+            }
+        }
+    }
+
+    .main-banners-container {
+        .heading-main-banners-container {
+            display: flex;
+
+            h4.heading-main-banners {
+                font-size: 1.2rem;
+                min-width: 12%;
+                margin: 0 15px 0 0;
+            }
+        }
+    }
+}
+
+
+
+
+
+/*--------------Table Css Over Ride-------*/
+::ng-deep .banners .mat-mdc-header-cell {
+    background-color: black !important;
+    color: var(--primary-color-white-shade);
+}
+
+::ng-deep .banners .mat-sort-header-arrow {
+    color: var(--primary-color-white-shade);
+
+}
+
+
+/*   This is the Pagination css to over ride the Mat UI*/
+
+::ng-deep.banners-pagination .mat-mdc-paginator-container {
+    justify-content: space-between !important;
+    width: 100% !important;
+}
+
+
+::ng-deep.banners-pagination .mat-mdc-icon-button {
+    background-color: var(--secondary-color-orange-shade);
+    border-radius: 10px !important;
+    margin: 0 4px 0 0;
+}
+
+::ng-deep.banners-pagination .mat-mdc-paginator-icon {
+    fill: var(--primary-color-white-shade) !important;
+}

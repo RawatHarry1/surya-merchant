@@ -1,0 +1,110 @@
+<div class="create-orders">
+    <div class="create-orders_spacer">
+        <div class="create-orders-header">
+
+            <h3 class="create-orders-heading">Create Orders</h3>
+
+            <div class="header-right">
+                <div class="btn-export">
+                    <button class="export">Export CSV
+                        <img src="images/export.png" alt="image">
+                    </button>
+                </div>
+                <div class="btn-import">
+                    <button class="import">Import CSV
+                        <img src="images/import.png" alt="image">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="create-customer-container">
+            <h3 class="delivery-heading">Select Customer</h3>
+            <div class="container-first-row">
+                <div class="mat-form">
+                    <mat-form-field class="customer-custom-form" appearance="outline">
+                        <mat-label>Select Customer</mat-label>
+                        <input matInput id="selectCustomer" type="search" placeholder="Enter"
+                            formControlName="selectCustomer" />
+                    </mat-form-field>
+                </div>
+                <div class="btn-add">
+                    <button class="add" (click)="onAddOpen()">
+                        <img src="images/add-circle-trans.png" alt="image">
+                    </button>
+                </div>
+            </div>
+            <div class="container-second-row ">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="select-delivery-method">
+                            <h3 class="delivery-heading">Select Delivery Method</h3>
+                            <div class="delivery-method-checkbox">
+                                <div class="checkbox-bg">
+                                    <mat-checkbox>Take Away</mat-checkbox>
+                                </div>
+                                <div class="checkbox-bg">
+                                    <mat-checkbox>Home Delivery</mat-checkbox>
+                                </div>
+                                <div class="checkbox-bg">
+                                    <mat-checkbox>Pickup & Drop</mat-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="select-delivery-option">
+                            <h3 class="delivery-heading">Select Delivery Option</h3>
+                            <div class="delivery-Option-checkbox">
+                                <div class="checkbox-bg">
+                                    <mat-checkbox>On demand</mat-checkbox>
+                                </div>
+                                <div class="checkbox-bg">
+                                    <mat-checkbox>Scheduling</mat-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-third-row ">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="select-customer">
+                            <h3 class="delivery-heading">Select Store</h3>
+                            <mat-form-field class="customer-custom-form" appearance="outline">
+                                <mat-label>Select Store</mat-label>
+                                <input matInput id="selectStore" type="text" placeholder="Enter"
+                                    formControlName="selectStore" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="search-appliances">
+                            <h3 class="delivery-heading">Search Appliances</h3>
+                            <mat-form-field class="customer-custom-form" appearance="outline">
+                                <mat-label>Search Appliances</mat-label>
+                                <input matInput id="searchAppliances" type="search" placeholder="Enter"
+                                    formControlName="searchAppliances" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fourth-row">
+                <h3 class="delivery-heading">Any Suggestions?</h3>
+                <div class="mat-form">
+                    <mat-form-field class="suggestions-form" appearance="outline">
+                        <mat-label>Any Suggestions?</mat-label>
+                        <textarea matInput id="suggestions" type="text" placeholder="Enter"
+                            formControlName="suggestions"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="btn-invoice">
+                <button class="invoice">Invoices</button>
+            </div>
+        </div>
+    </div>
+</div>

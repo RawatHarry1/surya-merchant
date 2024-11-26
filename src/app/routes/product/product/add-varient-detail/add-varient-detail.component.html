@@ -1,0 +1,71 @@
+<div class="filter-header">
+    <div class="filter-header-spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2">Add Variant Details</h2>
+
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+
+    </div>
+    <form [formGroup]="varientDetailForm">
+        <div class="filter-container">
+            <div class="filter-section">
+                <div class="category-spacer">
+                    <div class="category_name_image">
+                        <div class="row">
+                            <div class="">
+                                <div class="category_name_input">
+                                    <h6 class="category_name_input_heading">Price <span class="text-danger h4">*</span>
+                                    </h6>
+                                    <mat-form-field>
+                                        <input formControlName="price" type="text" matInput id="category_name_input"
+                                            placeholder="Enter Price" />
+                                        <!-- formControlName="categoryName" /> -->
+                                    </mat-form-field>
+                                    <mat-error *ngIf="price?.hasError('required') && price?.touched">
+                                        Price is required.
+                                    </mat-error>
+                                </div>
+                            </div>
+
+                            <div class=""></div>
+                            <div class="category_name_input">
+                                <h6 class="category_name_input_heading">Discount <span class="text-danger h4">*</span>
+                                </h6>
+                                <mat-form-field>
+                                    <input formControlName="discount" type="text" matInput id="category_name_input"
+                                        placeholder="Enter Discount" />
+                                    <!-- formControlName="categoryName" /> -->
+                                </mat-form-field>
+                                <mat-error *ngIf="discount?.hasError('required') && discount?.touched">
+                                    Discount is required.
+                                </mat-error>
+                            </div>
+                        </div>
+
+                        <div class=""></div>
+                        <div class="category_name_input">
+                            <h6 class="category_name_input_heading">Inventory <span class="text-danger h4">*</span></h6>
+                            <mat-form-field>
+                                <input formControlName="inventory" type="text" matInput id="category_name_input"
+                                    placeholder="Enter Inventory" />
+                                <!-- formControlName="categoryName" /> -->
+                            </mat-form-field>
+                            <mat-error *ngIf="inventory?.hasError('required') && inventory?.touched">
+                                Inventory is required.
+                            </mat-error>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="save_filter_button">
+                    <button class="Save"
+                        (click)="updateProductVarient()">Add</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

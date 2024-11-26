@@ -1,0 +1,158 @@
+/*  Style to make the catalouge Borde-radius --0 */
+::ng-deep .mdc-dialog--open .mat-mdc-dialog-surface,
+.mdc-dialog--closing .mat-mdc-dialog-surface {
+    border-radius: 0;
+}
+
+::ng-deep .cdk-overlay-pane.mat-mdc-dialog-panel {
+    max-width: 80vw !important;
+    min-width: 35vw !important;
+}
+
+/*----------------Common Styling---------------- */
+.close-button {
+    font-size: 1.8rem;
+    color: var(--primary-color-white-shade);
+    padding: 0 14px 6px 0;
+    border: none;
+    background: transparent;
+}
+
+/*  Heading of the Add Filter Dialog*/
+.filter-header {
+    width: 35vw;
+    max-height: 70vh;
+
+    .filter-header-spacer {
+
+
+        .dialog-header {
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            color: var(--primary-color-white-shade);
+
+            .heading_h2 {
+                font-size: 1.5rem;
+                position: relative;
+                left: 30px;
+                // width: fit-content;
+                box-sizing: border-box;
+                padding: 10px 5px;
+            }
+        }
+    }
+
+    .filter-container {
+        padding: 30px;
+        background-color: var(--primary-color-white-shade);
+
+
+        .filter-section {
+            margin-bottom: 20px;
+        }
+
+        .filter-name {
+            background-color: var(--background-color-blue-shade);
+            color: var(--primary-color-white-shade);
+            text-align: center;
+            padding: 5px;
+            font-size: 1.1rem;
+            border-radius: 6px;
+
+            .filter_text {
+                margin: 0;
+            }
+        }
+
+        .btn-width {
+            width: 15%;
+        }
+    }
+
+}
+
+.category_name_input_heading,
+.category_image_input_heading {
+    font-weight: 700;
+}
+
+
+.category-spacer {
+    .category-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        height: 10%;
+        width: 100%;
+        padding: 8px 0;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+    }
+
+    .category_name_input_heading,
+    .category_image_input_heading {
+        font-weight: 700;
+    }
+}
+
+/*  InPut CSS OverRide Start*/
+::ng-deep .category-spacer .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    display: none;
+}
+
+::ng-deep .category-spacer .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--mdc-filled-text-field-container-color);
+    border-radius: 14px;
+}
+
+::ng-deep .category-spacer mat-form-field.mat-mdc-form-field.mat-mdc-form-field-type-mat-input.mat-form-field-appearance-fill.mat-primary {
+    width: 100%;
+    border-radius: 10px;
+}
+
+::ng-deep .category-spacer .mdc-text-field--filled:not(.mdc-text-field--disabled),
+::ng-deep .mat-mdc-standard-chip {
+    background-color: var(--input-background-color-gray-shade) !important;
+}
+
+::ng-deep .category-spacer .mdc-line-ripple {
+    display: none;
+}
+
+//css for removing chip's default border
+::ng-deep .category-spacer .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) .mdc-evolution-chip__action--primary::before {
+    border: none !important;
+}
+
+//css for chip icons width
+::ng-deep .category-spacer img.mat-mdc-chip-avatar.mdc-evolution-chip__icon.mdc-evolution-chip__icon--primary {
+    width: 30px !important;
+    height: 28px !important;
+    border-radius: 8px !important;
+}
+
+::ng-deep .category-spacer span.mdc-evolution-chip__action.mat-mdc-chip-action.mdc-evolution-chip__action--primary.mdc-evolution-chip__action--presentational {
+    padding-left: 6px !important;
+}
+
+::ng-deep .category-spacer span.mdc-evolution-chip__graphic.mat-mdc-chip-graphic.ng-star-inserted {
+    display: none !important;
+}
+
+.save_filter_button {
+    margin: 40px 0 0 0px;
+    display: flex;
+    justify-content: center;
+
+    .Save {
+        height: 100%;
+        border: none;
+        letter-spacing: normal;
+        color: var(--primary-color-white-shade);
+        font-weight: 500;
+        border-radius: 6px;
+        margin: 0 0 35px 0px;
+        padding: 7px 11px;
+        background-color: var(--button-background-color-shade);
+    }
+}

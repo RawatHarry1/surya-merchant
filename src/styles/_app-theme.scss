@@ -1,0 +1,138 @@
+@use 'sass:color';
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+html {
+  --body-font-family: "Gilroy-Medium", sans-serif,
+    'Lucida Grande', sans-serif;
+  --code-font-family: "Gilroy-Medium", sans-serif;
+  --gutter: 1rem;
+  --sidenav-width: 16rem;
+  --sidenav-collapsed-width: 4rem;
+}
+
+// Tokens for the app that are based on the current theme.
+@mixin theme($theme) {
+  $bg-color: mat.get-theme-color($theme,
+      if(mat.get-theme-type($theme)==dark, surface-container-high, surface-container));
+
+  // --body-background-color: #{$bg-color};
+  // --link-color: #{mat.get-theme-color($theme, primary)};
+  // --link-hover-color: #{color.adjust(mat.get-theme-color($theme, primary), $lightness: -10%)};
+  // --code-border-color: #{rgba(mat.get-theme-color($theme, on-secondary-container), .08)};
+  // --code-background-color: #{rgba(mat.get-theme-color($theme, on-secondary-container), .04)};
+  // --header-background-color: #{rgba($bg-color, .8)};
+  // --user-panel-background-color: #{$bg-color};
+  // --user-panel-hover-background-color: #{mat.get-theme-color($theme, surface-variant)};
+  // --sidemenu-heading-hover-background-color: #{mat.get-theme-color($theme, surface-container-highest)};
+  // --sidemenu-active-heading-text-color: #{mat.get-theme-color($theme, primary)};
+  // --sidemenu-active-heading-background-color: #{mat.get-theme-color($theme, primary-container)};
+  // --sidemenu-active-heading-hover-background-color: #{mat.get-theme-color($theme, primary-container)};
+  // --sidemenu-expanded-background-color: #{$bg-color};
+  // --topmenu-text-color: #{mat.get-theme-color($theme, on-background)};
+  // --topmenu-background-color: #{rgba($bg-color, .8)};
+  // --topmenu-item-active-background-color: #{mat.get-theme-color($theme, primary-container)};
+  // --topmenu-dropdown-item-active-text-color: #{mat.get-theme-color($theme, primary)};
+
+  /*  ****************Rajat Thakur added color Blue Theme ******************** */
+  --primary-color-shade: #{if(mat.get-theme-type($theme) == dark, '#571793', '#FF8E29')};
+  --pagination-color-shade:#{if(mat.get-theme-type($theme)== dark, '#AE2C66','#FF8E29')};
+  --button-background-color-shade: #{if(mat.get-theme-type($theme)== dark,'#571793','#FF8E29')};
+  --icon-background-color-shade: #{if(mat.get-theme-type($theme)== dark,'#571793','#FF8E29')};
+  --sidemenu-active-heading-background-color: #{if(mat.get-theme-type($theme)== dark,'#571793','#FF8E29')};
+  --sidemenu-active-heading-hover-background-color: #{if(mat.get-theme-type($theme)== dark,'#571793','#FF8E29')};
+  --select-button-hover-background-color-shade: #{if(mat.get-theme-type($theme)== dark, '#571793','#FF8E29')};
+
+  // --primary-color-shade: #0057E0;
+  --primary-bg-color-shade: #1d1e25;
+  --primary-color-white-shade: #ffffff;
+  --secondary-color-orange-shade: #F29638;
+  // --pagination-color-shade: #FF8E29;
+  --border-color-gray-shade: #EFEFEF;
+  --cancel-button-red-color-shade: #f74141;
+  --button-background-color-black-shade: #202020;
+  --background-color-blue-shade: #0057E0;
+  --mat-switch-background-color-green-shade: #40A80F;
+  --light-shade-background-gray-shade: #ededed;
+  --light-shade-text-gray-shade: #B6B6B6;
+
+  //Side Menu Color
+  --sidemenu-active-heading-text-color: #EFEFEF;
+  // --sidemenu-active-heading-background-color: #0057E0;
+  // --sidemenu-active-heading-hover-background-color: #0057E0;
+  --menu-text-color-gray-shade: #7B7F91;
+
+  --dialog-background-color: #F9F9F9;
+  --catalouge-background-color: #ffffff;
+  --mat-slider-switch-green-shade: #40A80F;
+  --input-background-color-gray-shade: #EFEFEF;
+  --input-border-color-gray-shade: #6c6666;
+  --drowpdown-background-color-shade: #1361fc28; //Dropdown Color
+  --black-backgroung-color: #202020;
+  --purple-backgroung-color: #AE2C66;
+  // --icon-background-color-shade: #0057E0; //Mat Icon Color
+
+
+  //OrderStatus Color
+  --blue-ordered-color: blue;
+  --orange-shipped-color: orange;
+  --green-delivered-color: green;
+
+
+  //Orange Theme Surya
+  // --pagination-color-shade: #FF8E29;
+  // --primary-color-shade: #FF8E29;
+  // --button-background-color-shade: #FF8E29;
+  --drowpdown-background-color-shade: #1361fc28;
+  // --icon-background-color-shade: #FF8E29;
+  // --sidemenu-active-heading-background-color: #FF8E29;
+  // --sidemenu-active-heading-hover-background-color: #FF8E29;
+
+  //Purple Theme Surya
+  // --pagination-color-shade: #ff3269;
+  // --primary-color-shade: #571793;
+  // --button-background-color-shade: #571793;
+  --drowpdown-background-color-shade: #1361fc28;
+  // --icon-background-color-shade: #571793;
+  // --sidemenu-active-heading-background-color: #571793;
+  // --sidemenu-active-heading-hover-background-color: #571793;
+
+/*
+*Theme Color Change Light
+*/
+  --light-theme-color-white: white;
+  --light-theme-color-black: black;
+/*
+*Theme Color Change Light
+*/
+
+/*
+*Theme Color Change to Dark
+*/
+  --dark-theme-color-white: white;
+  --dark-theme-color-black: #383737;
+/*
+*Theme Color Change
+*/
+
+  --toast-info-background-color: #{map.get(mat.$azure-palette,
+ if(mat.get-theme-type($theme)==dark, 30, 50))
+}
+
+;
+--toast-success-background-color: #{map.get(mat.$green-palette,
+ if(mat.get-theme-type($theme)==dark, 40, 60))
+}
+
+;
+--toast-warning-background-color: #{map.get(mat.$orange-palette,
+ if(mat.get-theme-type($theme)==dark, 40, 60))
+}
+
+;
+--toast-error-background-color: #{map.get(mat.$red-palette,
+ if(mat.get-theme-type($theme)==dark, 30, 50))
+}
+
+;
+}

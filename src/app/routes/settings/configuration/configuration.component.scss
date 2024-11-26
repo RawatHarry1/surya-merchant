@@ -1,0 +1,128 @@
+.configuration {
+    padding: 0 30px;
+    height: 90vh;
+
+    .configuration_header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .header_left {
+            display: flex;
+            justify-content: start;
+
+            .configuration_heading {
+                padding: 5px 0 0 0px;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+        }
+    }
+
+    .configuration_contant_heading {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .configuration_checkbox{
+        display: flex;
+        gap: 30px;
+    }
+
+    .surge_on_delivery{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .recurring_task{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        .configuration_contant_heading{
+            margin: 0;
+        }
+        .instruction_text{
+            margin: 0;
+        }
+    }
+    .restarurents_level_loyalty{
+        .instruction_and_slide_toggle{
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            .instruction_text{
+                margin: 0;
+            }
+        }
+    }
+
+    .date_wise_availability,
+    .surge_on_delivery,
+    .recurring_task,
+    .scheduling_delivery_options,
+    .restarurents_level_loyalty{
+        min-height: 70px;
+        border-bottom: 1px solid var(--border-color-gray-shade);
+    }
+
+}
+
+
+/*  ----- Specific Slide toggle Size CSS------*/
+::ng-deep .custom-slide-toggle {
+    /* Adjust the overall size of the toggle */
+    transform: scale(0.7);
+    /* Scale the entire toggle component */
+
+
+    /* Adjust padding and margin if needed */
+    margin: 8px;
+    padding: 2px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-thumb {
+    /* Resize the toggle knob */
+    width: 15px;
+    height: 15px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-bar {
+    /* Resize the toggle track */
+    width: 40px;
+    /* Adjust the width */
+    height: 20px;
+    /* Adjust the height */
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-label {
+    font-size: 1.5rem !important;
+}
+
+::ng-deep .banners-dialog .mat-mdc-slide-toggle .mdc-switch:enabled+.mdc-label {
+    /* Adjust the label font size if needed */
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0 15px 0 0;
+}
+
+
+
+
+/* Checked state color styles */
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}
+
+
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}

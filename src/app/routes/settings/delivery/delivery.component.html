@@ -1,0 +1,260 @@
+<div class="delivery">
+    <div class="delivery_header">
+        <div class="header_left">
+            <h3 class="delivery_heading">DELIVERY SETTINGS</h3>
+        </div>
+    </div>
+    <div class="delivery_modes">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="delivery_left">
+                    <h6 class="delivery_left_heading">Delivery Modes</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="delivery_right">
+                    <div class="delivery_instruction_with_toggle">
+                        <p class="delivery_instruction_text">
+                            Select the Delivery modes that will be available on your platform. If both the Delivery
+                            modes
+                            are enabled, the merchants can then choose between the two.</p>
+                    </div>
+                    <div class="delivery_checkbox">
+                        <div class="row">
+                            <div class="col-sm-4"><mat-checkbox>Take away</mat-checkbox></div>
+                            <div class="col-sm-4"><mat-checkbox>Home delivery</mat-checkbox></div>
+                            <div class="col-sm-4"><mat-checkbox>Pick And Drop</mat-checkbox></div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="cancel-button">Cancel</button>
+                        <button type="submit" class="add-button">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="delivery_time">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="delivery_left">
+                    <h6 class="delivery_left_heading">Delivery Time</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="delivery_right">
+                    <div class="delivery_instruction_with_toggle">
+                        <p class="delivery_instruction_text">
+                            Enter here the default time taken for the Delivery of an order. If a Store is handling their
+                            delivery by itself then he will enter his/her own delivery time.</p>
+                    </div>
+                    <div class="delivery_time_input">
+                        <h6 class="delivery_time_input_heading">Delivery Time(In Minutes)</h6>
+                        <mat-form-field >
+                            <input type="number" matInput id="delivery_time" placeholder="Delivery Time(In Minutes)"
+                                formControlName="deliveryTime"/>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="distance_wise">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="delivery_left">
+                    <h6 class="delivery_left_heading">Distance Wise Delivery</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="delivery_right">
+                    <div class="delivery_instruction_with_toggle">
+                        <p class="delivery_instruction_text">
+                            Delivery charges will be calculated based on the parameters defined in the 'Order Details'
+                            template on SURYA. Pre-requisite: 'Task Pricing & Agent Earning' module on SURYA.</p>
+                        <div class="delivery_right_slide_toggle">
+                            <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="free_delivery">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="delivery_left">
+                    <h6 class="delivery_left_heading">Free Delivery</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="delivery_right">
+                    <div class="delivery_instruction_with_toggle">
+                        <p class="delivery_instruction_text">
+                            Enable this toggle to activate the option to waive off Delivery charges where delivery is by
+                            admin.(Make sure your apps are updated)</p>
+                        <div class="delivery_right_slide_toggle">
+                            <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="merchant_delivery_management_by_surya">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="delivery_left">
+                    <h6 class="delivery_left_heading">Merchant Delivery Management by SURYA </h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="delivery_right">
+                    <div class="delivery_instruction_with_toggle">
+                        <p class="delivery_instruction_text">
+                            Turn on the toggle, to allow the stores manage their Delivery operations by tracking
+                            vehicles, optimizing routes and automating dispatch, Delivery and scheduling. Pre-requisite
+                            Multi merchant Marketplace module on SURYA</p>
+                        <div class="delivery_right_slide_toggle">
+                            <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="external_delivery_charge">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="delivery_left">
+                    <h6 class="delivery_left_heading">External Delivery charge</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="delivery_right">
+                    <div class="delivery_instruction_with_toggle">
+                        <p class="delivery_instruction_text">
+                            By enabling this you can integrate a 3rd party API to calculate your Delivery charge based
+                            on a variety of factors.</p>
+                        <div class="delivery_right_slide_toggle">
+                            <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="delivery_charge">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="delivery_left">
+                    <h6 class="delivery_left_heading">Delivery charge</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="delivery_right">
+                    <div class="delivery_instruction_with_toggle">
+                        <p class="delivery_instruction_text">
+                            Enter the default Delivery charge for any order.</p>
+                    </div>
+                    <div class="delivery_charge_input">
+                        <h6 class="delivery_charge_input_heading">Delivery Charge</h6>
+                        <mat-form-field >
+                            <input type="number" matInput id="delivery_charge" placeholder="Delivery Charge"
+                                formControlName="deliveryCharge"/>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="cancel-button">Cancel</button>
+                        <button type="submit" class="add-button">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="merchant_wise_delivery_charge">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="delivery_left">
+                    <h6 class="delivery_left_heading">Merchant wise Delivery charge</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="delivery_right">
+                    <div class="delivery_instruction_with_toggle">
+                        <p class="delivery_instruction_text">
+                            Enable this to define Delivery charge at Store level.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="estimate_time_of_arrival">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="delivery_left">
+                    <h6 class="delivery_left_heading">Estimate Time of Arrival</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="delivery_right">
+                    <div class="delivery_instruction_with_toggle">
+                        <p class="delivery_instruction_text">
+                            Enable this toggle to inform your customers about the expected time of arrival of their
+                            order.</p>
+                    </div>
+                    <div class="mappr_key_input">
+                        <h6 class="mappr_key_input_heading">Mappr key</h6>
+                        <mat-form-field >
+                            <input type="number" matInput id="mappr_key_charge" placeholder="Mappr key"
+                                formControlName="mapprKey"/>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="cancel-button">Cancel</button>
+                        <button type="submit" class="add-button">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tip">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="delivery_left">
+                    <h6 class="delivery_left_heading">Tip</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="delivery_right">
+                    <div class="delivery_instruction_with_toggle">
+                        <p class="delivery_instruction_text">
+                            You can configure the minimum tip amount on delivery across all your merchants on the
+                            platform.Tip can be set to both fixed or percentage of the order amount.</p>
+                    </div>
+                    <div class="minimum_tip_percent_input">
+                        <h6 class="minimum_tip_percent_input_heading">Minimum Tip Percent</h6>
+                        <mat-form-field >
+                            <input type="number" matInput id="minimum_tip_percent_charge" placeholder="Minimum Tip Percent"
+                                formControlName="minimumTipPercent"/>
+                        </mat-form-field>
+                    </div>
+                    <div class="fixed_amount">
+                        <h6 class="delivery_left_heading">Allow Customer to enter Tip manually (Always in fixed amount)
+                        </h6>
+                        <div class="delivery_right_slide_toggle">
+                            <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                        </div>
+                    </div>
+                    <div class="tip_options">
+                        <h6 class="delivery_left_heading">Give Tip Options</h6>
+                        <div class="delivery_right_slide_toggle">
+                            <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

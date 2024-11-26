@@ -1,0 +1,97 @@
+.mat-mdc-button-base {
+  margin: 4px;
+}
+
+
+.orders {
+  margin-top: 30px 0 0 0;
+  padding: 0 35px;
+  height: 90vh;
+
+  .orders-header {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    padding: 8px 0px;
+    box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+    .view_all_orders{
+      color: var(--primary-color-shade);
+      text-decoration: underline;
+    }
+    .view_all_orders:hover{
+    cursor: pointer;
+    }
+
+    .orders-heading {
+      padding: 5px 0 0 0px;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .header-right {
+      display: flex;
+      position: absolute;
+      align-items: center;
+      right: 0px;
+    }
+  }
+
+  .orders-data {
+
+    .mat-elevation-z8 {
+      overflow-x: auto;
+
+
+
+    }
+
+    .table-container {
+      overflow-y: auto;
+    }
+
+    .agent-edit-btn {
+      background-color: transparent;
+      border: none;
+      display: flex;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      justify-content: center;
+      align-items: center;
+
+
+    }
+
+    .product_img {
+      height: 80px !important;
+      padding: 4px;
+    }
+  }
+}
+
+/* Blue for 'Ordered' */
+.status-placed {
+  color: var(--blue-ordered-color);
+  font-weight: bold;
+}
+
+/* Yellow for 'Shipped' */
+.status-shipped {
+  color: var(--orange-shipped-color);
+  /* or yellow */
+  font-weight: bold;
+}
+
+/* Green for 'Delivered' */
+.status-delivered {
+  color: var(--green-delivered-color);
+  font-weight: bold;
+}
+
+/* Default for unknown statuses */
+.status-unknown {
+  color: gray;
+  font-weight: bold;
+}

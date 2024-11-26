@@ -1,0 +1,141 @@
+/*------------------------------catalogue-header------------------------------*/
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gilroy-Medium", sans-serif;
+}
+
+
+.catalogue-spacer {
+    padding: 0 20px;
+
+    .catalogue-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        height: 10%;
+        width: 100%;
+        padding: 8px 0;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .left-catalogue {
+            padding: 5px 0 0 0px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .right-catalogue {
+            position: absolute;
+            right: 0px;
+            display: flex;
+            align-items: center;
+
+            .catalogue_right_header {
+                .search_entries_info {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .search-btn1 {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+
+            .btn-add {
+                margin: 0 0 0 15px;
+
+                .add {
+                    border: none;
+                    color: var(--primary-color-white-shade);
+                    font-weight: 500;
+                    font-size: 0.9rem;
+                    border-radius: 6px;
+                    padding: 8px 6px;
+                    background-color: var(--button-background-color-shade);
+                }
+            }
+        }
+    }
+
+    .categories_tabs {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 0;
+
+        .category_name {
+            padding: 0px 0 0 5px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+    }
+
+    .category_id {
+        cursor: pointer;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .category_id:hover {
+        color: var(--primary-color-shade);
+    }
+
+    .category_select {
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .category_select:hover {
+        background-color: var(--border-color-gray-shade);
+    }
+
+    .category-data {
+
+        .allCategory_tbl_img {
+            padding: 4px 0;
+            height: 80px;
+            // width: 60px;
+            border-radius: 8px;
+        }
+    }
+
+    .category-footer {
+        position: sticky;
+        z-index: 10;
+        bottom: 12px;
+    }
+
+}
+// CSS for the Catalouge Dropdown Start
+::ng-deep .catalogue-spacer .mat-mdc-form-field-infix {
+    padding: 0px 0px !important;
+    min-height: unset !important;
+}
+
+::ng-deep .catalogue-spacer mat-select {
+    height: 40px;
+    display: flex !important;
+    align-items: center !important;
+}
+
+::ng-deep .categories_tabs .mat-mdc-text-field-wrapper.mdc-text-field.mdc-text-field--filled.mdc-text-field--no-label {
+    background-color: var(--drowpdown-background-color-shade) !important;
+    border-radius: 10px;
+
+    // .mat-mdc-select-value-text {
+    //     color: (var(--primary-color-white-shade));
+    // }
+
+    // .mat-mdc-select-arrow {
+    //     color: (var(--primary-color-white-shade));
+    // }
+}
+
+::ng-deep .mat-mdc-select-panel {
+    background-color: var(--primary-color-white-shade) !important;
+}
+
+::ng-deep .categories_tabs .mat-mdc-select-value {
+    text-align: center;
+}
+// CSS for the Catalouge Dropdown End

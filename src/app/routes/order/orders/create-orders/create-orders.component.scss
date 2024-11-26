@@ -1,0 +1,307 @@
+.create-orders {
+    .create-orders_spacer {
+        // width: 80vw;
+        margin: 0 30px;
+
+        .create-orders-header {
+            display: flex;
+            position: relative;
+            align-items: center;
+            width: 100%;
+            padding: 8px 0px;
+            box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+            .create-orders-heading {
+                padding: 5px 0 0 0px;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+            .header-right {
+                display: flex;
+                position: absolute;
+                right: 0px;
+
+                .btn-export button {
+                    border: none;
+                    color: var(--primary-color-white-shade);
+                    font-weight: 500;
+                    border-radius: 6px;
+                    margin: 0 5px;
+                    padding: 8px 6px;
+                    background-color: var(--button-background-color-shade);
+                }
+
+                .btn-import button {
+                    border: none;
+                    color: var(--primary-color-white-shade);
+                    font-weight: 500;
+                    border-radius: 6px;
+                    margin: 0 0 0 5px;
+                    padding: 8px 6px;
+                    background-color: var(--secondary-color-orange-shade);
+                }
+
+
+            }
+        }
+
+
+        .create-customer-container {
+            width: 100%;
+            margin-top: 10px;
+
+            .delivery-heading {
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin: 0 0 15px;
+            }
+
+            .mat-mdc-form-field {
+                width: 100%;
+            }
+
+            .container-first-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .mat-form {
+                    width: 100%;
+                }
+
+
+                .mat-mdc-form-field {
+                    width: 100%;
+
+                    mat-label {
+                        font-size: 1rem;
+                        padding: 5px 8px;
+                        color: var(--light-shade-text-gray-shade);
+
+                    }
+                }
+
+                .selectCustomer {
+                    width: 100%;
+                    // border: none;
+                    // height: 60px;
+                    // padding: 0 20px;
+                    // border-top-left-radius: 6px;
+                    // border-bottom-left-radius: 6px;
+                }
+
+                .btn-add {
+
+                    .add {
+                        border: none;
+                        color: var(--primary-color-white-shade);
+                        font-weight: 500;
+                        height: 55px;
+                        border-top-right-radius: 6px;
+                        border-bottom-right-radius: 6px;
+                        padding: 8px 10px;
+                        background-color: var(--button-background-color-shade);
+                    }
+                }
+            }
+
+            .container-second-row {
+                margin-top: 30px;
+
+                .select-delivery-method {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    .delivery-heading {
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                        margin: 0 0 15px;
+
+                    }
+
+                    .delivery-method-checkbox {
+                        display: flex;
+                        width: 100%;
+                        justify-content: flex-start;
+                        gap: 25px;
+
+                        .checkbox-bg {
+                            background-color: var(--input-background-color-gray-shade);
+                            border-radius: 14px;
+                            padding: 8px 14px 8px 1px;
+                        }
+                    }
+
+                    .mat-mdc-form-field {
+                        width: 100%;
+
+                        mat-label {
+                            font-size: 1rem;
+                            padding: 5px 8px;
+                            color: var(--light-shade-text-gray-shade);
+
+                        }
+                    }
+                }
+
+                .select-delivery-option {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+
+                    .delivery-heading {
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                        margin: 0 0 15px;
+
+                    }
+
+                    .delivery-Option-checkbox {
+                        display: flex;
+                        width: 100%;
+                        justify-content: flex-start;
+                        gap: 30px;
+
+                        .checkbox-bg {
+                            background-color: var(--input-background-color-gray-shade);
+                            border-radius: 14px;
+                            padding: 8px 14px 8px 1px;
+                        }
+                    }
+
+
+                }
+            }
+
+            .container-third-row {
+                margin-top: 30px;
+
+                .select-customer {
+
+
+                    .delivery-heading {
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                        margin: 0 0 15px;
+
+                    }
+
+                    .mat-mdc-form-field {
+                        width: 100%;
+
+                        mat-label {
+                            font-size: 1rem;
+                            padding: 5px 8px;
+                            color: var(--light-shade-text-gray-shade);
+
+                        }
+                    }
+                }
+
+                .search-appliances {
+
+
+                    .delivery-heading {
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                        margin: 0 0 15px;
+
+                    }
+
+
+                    .mat-mdc-form-field {
+                        width: 100%;
+
+                        mat-label {
+                            font-size: 1rem;
+                            padding: 5px 8px;
+                            color: var(--light-shade-text-gray-shade);
+
+                        }
+                    }
+                }
+            }
+
+            .container-fourth-row {
+                margin-top: 30px;
+
+                .mat-mdc-form-field {
+                    width: 100%;
+
+                    mat-label {
+                        font-size: 1rem;
+                        padding: 5px 8px;
+                        color: var(--light-shade-text-gray-shade);
+
+                    }
+                }
+
+                .suggestions-form {
+
+                    #suggestions {}
+                }
+            }
+
+            .btn-invoice {
+                display: flex;
+                justify-content: center;
+
+                .invoice {
+                    border: none;
+                    color: var(--primary-color-white-shade);
+                    font-weight: 500;
+                    border-radius: 6px;
+                    padding: 10px 16px;
+                    margin: 0 0 10px 0 ;
+                    background-color: var(--button-background-color-shade);
+                }
+            }
+        }
+
+    }
+}
+
+
+/* TO design the UI of the Input Customer Select */
+::ng-deep .customer-custom-form .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    height: 0;
+}
+
+// ::ng-deep .selectCustomer button,
+// input,
+// optgroup,
+// select,
+// textarea {
+//     width: 100%;
+//     border: none;
+//     height: 60px;
+//     padding: 0 20px;
+//     border-top-left-radius:14px;
+//     border-bottom-left-radius:14px;
+//     background-color: var(--input-background-color-gray-shade);
+// }
+
+
+
+// ::ng-deep .selectCustomer .mat-mdc-form-field-flex {
+
+//     height: 0;
+
+// }
+
+
+// ::ng-deep .customer-custom-form .mat-mdc-form-field-infix {
+
+//     padding: 0 !important;
+//     height: 60px !important;
+
+// }
+
+
+// ::ng-deep .customer-custom-form .mat-mdc-text-field-wrapper.mdc-text-field {
+
+//     padding: 0 !important;
+
+// }

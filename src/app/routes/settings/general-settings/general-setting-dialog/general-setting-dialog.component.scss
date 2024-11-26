@@ -1,0 +1,104 @@
+/*  Style to make the catalouge Borde-radius --0 */
+::ng-deep .mdc-dialog--open .mat-mdc-dialog-surface,
+.mdc-dialog--closing .mat-mdc-dialog-surface {
+    border-radius: 0;
+}
+
+::ng-deep .cdk-overlay-pane.mat-mdc-dialog-panel {
+    max-width: 80vw !important;
+    min-width: 30vw !important;
+}
+
+/*----------------Common Styling---------------- */
+.close-button {
+    font-size: 1.8rem;
+    color: var(--primary-color-white-shade);
+    padding: 0 14px 6px 0;
+    border: none;
+    background: transparent;
+}
+
+/*  Heading of the Add Merchant Dialog*/
+.add-tags-header {
+    width: 30vw;
+    max-height: 70vh;
+
+    .add-tags-header-spacer {
+
+
+        .dialog-header {
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            color: var(--primary-color-white-shade);
+
+            .heading_h2 {
+                font-size: 1.5rem;
+                position: relative;
+                left: 30px;
+                // width: fit-content;
+                box-sizing: border-box;
+                padding: 10px 5px;
+            }
+        }
+
+
+        .add-tags-form {
+            padding: 0 10px;
+
+
+            .name_row {
+                margin-top: 25px;
+
+                .tag_name_heading {
+                    padding: 0 10px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: var(--light-shade-text-gray-shade);
+                }
+            }
+
+            .mat-mdc-form-field {
+                width: 100%;
+
+                mat-label {
+                    font-size: 1rem;
+                    padding: 5px 8px;
+                    color: var(--light-shade-text-gray-shade);
+                }
+            }
+
+
+            .form-actions {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                width: 100%;
+                border-bottom: 30px solid transparent;
+
+
+                .cancel-button {
+                    padding: 8px 18px;
+                    background-color: var(--cancel-button-red-color-shade);
+                    border-radius: 5px;
+                    width: 130px;
+                    color: var(--primary-color-white-shade);
+                    border: none;
+                    font-size: 1.1rem;
+                }
+
+                .add-button {
+                    padding: 8px 18px;
+                    background-color: var(--background-color-blue-shade);
+                    border-radius: 5px;
+                    width: 130px;
+                    color: var(--primary-color-white-shade);
+                    border: none;
+                    font-size: 1.1rem;
+                }
+
+            }
+
+        }
+    }
+}

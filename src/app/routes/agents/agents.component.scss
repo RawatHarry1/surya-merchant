@@ -1,0 +1,391 @@
+.agents {
+    padding: 0 30px;
+    height: 90vh;
+
+    .agents-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .agents-heading {
+            padding: 5px 0 0 0px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-right {
+            display: flex;
+            position: absolute;
+            right: 0px;
+
+            .btn-export button {
+                border: none;
+                color: var(--primary-color-white-shade);
+                font-weight: 500;
+                border-radius: 6px;
+                margin: 0 5px;
+                padding: 8px 6px;
+                background-color: var(--button-background-color-shade);
+            }
+
+            .btn-import button {
+                border: none;
+                color: var(--primary-color-white-shade);
+                font-weight: 500;
+                border-radius: 6px;
+                margin: 0 5px;
+                padding: 8px 6px;
+                background-color: var(--button-background-color-shade);
+            }
+
+            .btn-add {
+                margin: 0 0 0 40px;
+
+                .add {
+                    border: none;
+                    color: var(--primary-color-white-shade);
+                    font-weight: 500;
+                    border-radius: 6px;
+                    margin: 0 0 0 5px;
+                    padding: 8px 6px;
+                    background-color: var(--button-background-color-shade);
+                }
+            }
+        }
+    }
+
+    .table-data {
+        position: relative;
+
+        .entries-info {
+            display: flex;
+            justify-content: space-between;
+
+
+        }
+
+        .agents-data {
+            .mat-elevation-z8 {
+                overflow-x: auto;
+
+
+
+            }
+
+            .table-container {
+                overflow-y: auto;
+
+            }
+
+            .agent-edit-btn {
+                background-color: transparent;
+                border: none;
+                display: flex;
+                border-radius: 50%;
+                width: 38px;
+                height: 38px;
+                justify-content: center;
+                align-items: center;
+
+
+            }
+        }
+
+        .agents-footer {
+            position: sticky;
+            /* Sticky position */
+            bottom: 0;
+            /* Stick to the bottom */
+            z-index: 10;
+            /* Ensure the pagination is above other content */
+
+        }
+    }
+}
+
+
+.agents .mdc-data-table__cell,
+.mdc-data-table__header-cell {
+    padding: 0 4px;
+}
+
+/* Search Input CSS *****/
+::ng-deep .agents .cstm_search .mat-mdc-form-field-infix {
+    padding: 0px 0px !important;
+    min-height: unset !important;
+}
+
+::ng-deep .agents .cstm_search .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--primary-color-white-shade) !important;
+    box-shadow: 0 0px 8px 0 #0000001a;
+    border-radius: 5px !important;
+}
+
+::ng-deep .cstm_search .mdc-line-ripple {
+    display: none;
+}
+
+.cstm_search {
+    padding: 5px 0px;
+}
+
+::ng-deep .cstm_search .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    height: 0;
+}
+
+/* Search Input CSS ended *****/
+
+
+
+/* Merchant Action edit button CSS start *****/
+::ng-deep .agents .agent-edit-btn .mat-mdc-card {
+    border-radius: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+
+/* Merchant Action edit button CSS ended *****/
+
+
+
+/*  ----- Specific Slide toggle Size CSS------*/
+::ng-deep .custom-slide-toggle {
+    /* Adjust the overall size of the toggle */
+    transform: scale(0.7);
+    /* Scale the entire toggle component */
+
+
+    /* Adjust padding and margin if needed */
+    margin: 8px;
+    padding: 2px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-thumb {
+    width: 15px;
+    height: 15px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-bar {
+    width: 40px;
+    height: 20px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-label {
+    font-size: 1.5rem !important;
+}
+
+::ng-deep .banners-dialog .mat-mdc-slide-toggle .mdc-switch:enabled+.mdc-label {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0 15px 0 0;
+}
+
+/* Checked state color styles */
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}
+
+
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}
+
+/*  ----- Specific Slide toggle Size CSS END------*/
+
+
+/* ----------------Table Header of the Marchant  Table ------------------ */
+::ng-deep .agents .mat-mdc-header-cell {
+    background-color: black !important;
+    color: var(--primary-color-white-shade);
+}
+
+/* Table Header Color Change */
+.agents .mat-mdc-table .mat-mdc-header-cell {
+    color: var(--primary-color-white-shade) !important;
+}
+
+.agents .mat-table {
+    width: 100%;
+}
+
+/*  Check Box Table Header chackbox background color*/
+::ng-deep .agents .mdc-checkbox__background {
+    // background-color: blue !important;
+    border: 2px solid var(--primary-color-white-shade) !important;
+}
+
+/* Table Header chackbox background color On check */
+::ng-deep .agents .header-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
+.mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background {
+    border-color: var(--primary-color-white-shade) !important;
+    background-color: blue !important;
+}
+
+::ng-deep .agents .mat-mdc-checkbox .mdc-checkbox__background {
+    border: 2px solid !important;
+    border-radius: 4px;
+}
+
+
+
+
+.agents .mat-header-row {
+    height: 56px;
+    /* Adjust header row height */
+    background-color: #f8f9fa;
+    /* Light background color for header */
+
+}
+
+
+::ng-deep .agents .agents-data .mat-mdc-cell {
+    color: black;
+}
+
+
+::ng-deep .agents .mat-mdc-row,
+.mdc-data-table__content {
+    background-color: var(--primary-color-white-shade) !important;
+}
+
+/* ------------------Merchant Table data cell style*/
+
+
+/* Tryel csss you can delete if not usefull its the sorting Arrow  */
+
+/* Override Angular Material styles using  ::ng-deep */
+::ng-deep .agents .mat-header-cell {
+    color: var(--primary-color-white-shade) !important;
+    /* Set header text color to  var( --primary-color-white-shade) */
+    font-weight: bold;
+    /* Make text bold */
+    background-color: transparent !important;
+    /* Set background transparent or any desired color */
+}
+
+::ng-deep .agents .mat-sort-header-arrow {
+    color: var(--primary-color-white-shade) !important;
+    /* Set sort arrow color to  var( --primary-color-white-shade) */
+}
+
+/* Ensure header text remains  var( --primary-color-white-shade) on hover */
+::ng-deep .agents .mat-header-cell:hover,
+::ng-deep .agents .mat-sort-header:hover {
+    color: var(--primary-color-white-shade) !important;
+    /* Keep text  var( --primary-color-white-shade) on hover */
+}
+
+/* Ensure sort arrow remains  var( --primary-color-white-shade) on hover */
+::ng-deep .agents .mat-sort-header-arrow:hover {
+    color: var(--primary-color-white-shade) !important;
+    /* Keep sort arrow  var( --primary-color-white-shade) on hover */
+}
+
+/* Maintain white color for text and arrows when sorted */
+::ng-deep .agents .mat-sort-header-sorted,
+::ng-deep .agents .mat-sort-header-sorted .mat-sort-header-arrow {
+    color: var(--primary-color-white-shade) !important;
+    /* Keep sorted header text and arrow white */
+}
+
+/* Maintain white color for text and arrows when active */
+::ng-deep .agents .mat-sort-header:active,
+::ng-deep .agents .mat-sort-header-sorted:active {
+    color: var(--primary-color-white-shade) !important;
+    /* Keep active header text and arrow white */
+}
+
+/* Keep arrows white when sorted, even if hovered or active */
+::ng-deep .agents .mat-sort-header-sorted .mat-sort-header-arrow {
+    color: var(--primary-color-white-shade) !important;
+    /* Keep sorted arrows white */
+}
+
+/* Optionally set a background color for the header on hover for contrast */
+::ng-deep .agents .mat-header-cell:hover {
+    background-color: var(--primary-color-white-shade);
+    /* Example: Dark gray background on hover */
+}
+
+
+
+
+.agents .mat-header-row {
+    position: sticky !important;
+    top: 0;
+    background-color: var(--primary-color-white-shade);
+    /* Ensure the header has a background color */
+    z-index: 2;
+    /* Ensure the header stays on top of the scrolling rows */
+}
+
+.agents .mat-cell,
+.agents .mat-header-cell {
+    padding: 16px;
+    /* Adjust padding as needed */
+    border-bottom: 1px solid #ddd;
+    /* Optional: Add a border to separate rows */
+}
+
+.agents .mat-header-cell {
+    font-weight: bold;
+    /* Make header text bold */
+}
+
+.agents .mat-row:hover {
+    background-color: #f5f5f5;
+    /* Optional: Add hover effect */
+}
+
+/*   This is the Mat-Form-Field css to over ride the Mat UI*/
+
+// ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+//     background-color: transparent !important;
+// }
+::ng-deep .agents .mdc-text-field--filled:not(.mdc-text-field--disabled):hover {
+    background-color: transparent !important;
+}
+
+::ng-deep .agents .mat-mdc-form-field-infix {
+
+    display: flex;
+    width: 100% !important;
+}
+
+// ::ng-deep .mat-mdc-form-field-subscript-wrapper,
+// .mat-mdc-form-field-bottom-align::before {
+//     height: 0;
+// }
+
+/*   This is the Mat-Form-Field css to over ride the Mat UI*/
+
+
+
+
+
+
+/*   This is the Pagination css to over ride the Mat UI*/
+
+::ng-deep .agents .agents-pagination .mat-mdc-paginator-container {
+    justify-content: space-between !important;
+    width: 100% !important;
+}
+
+
+::ng-deep .agents .agents-pagination .mat-mdc-icon-button {
+    background-color: var(--secondary-color-orange-shade);
+    border-radius: 10px !important;
+    margin: 0 4px 0 0;
+    // fill: white !important;
+}
+
+::ng-deep .agents .agents-pagination .mat-mdc-paginator-icon {
+    fill: var(--primary-color-white-shade) !important;
+}

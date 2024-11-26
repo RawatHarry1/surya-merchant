@@ -1,0 +1,88 @@
+.promotions {
+    padding: 0 30px;
+    height: 90vh;
+
+    .promotions-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .promotions-heading {
+            padding: 5px 0 0 0px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-right {
+            display: flex;
+            position: absolute;
+            right: 0px;
+
+            .btn-add {
+                margin: 0 0 0 40px;
+
+                .add {
+                    border: none;
+                    color: var(--primary-color-white-shade);
+                    font-weight: 500;
+                    border-radius: 6px;
+                    margin: 0 0 0 5px;
+                    padding: 8px 6px;
+                    background-color: var(--button-background-color-shade);
+                }
+            }
+        }
+    }
+
+    .table-data {
+        position: relative;
+
+        .entries-info {
+            display: flex;
+            justify-content: end;
+
+
+        }
+
+        .promotions-data {
+
+            .mat-elevation-z8 {
+                overflow-x: auto;
+
+
+
+            }
+
+            .table-container {
+                overflow-y: auto;
+
+            }
+
+            .agent-edit-btn {
+                background-color: transparent;
+                border: none;
+                display: flex;
+                border-radius: 50%;
+                width: 38px;
+                height: 38px;
+                justify-content: center;
+                align-items: center;
+
+
+            }
+        }
+
+        .promotions-footer {
+            position: sticky;
+            /* Sticky position */
+            bottom: 0;
+            /* Stick to the bottom */
+            z-index: 10;
+            /* Ensure the pagination is above other content */
+
+        }
+    }
+}

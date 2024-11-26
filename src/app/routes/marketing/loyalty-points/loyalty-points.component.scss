@@ -1,0 +1,133 @@
+.loyalty-points {
+    padding: 0 30px;
+    height: 90vh;
+
+    .loyalty-points-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .loyalty-points-heading {
+            padding: 5px 0 0 0px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+    }
+
+    .main-loyalty-points-container {
+        padding: 0 40px;
+
+        .about-loyalty-points {
+
+            .text-about-loyalty-points {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .sec-loyalty-points-container {
+
+        .col-sm-1,
+        .col-sm-2,
+        .col-sm-4,
+        .col-sm-6,
+        .col-sm-8 {
+            align-self: center;
+        }
+
+        .each-row {
+            margin: 0 0 10px 0;
+
+            .heading-loyalty-points {
+                .heading {
+                    padding: 5px 0 0 0px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                }
+            }
+
+            .mat-mdc-form-field {
+                width: 100%;
+            }
+
+            .input-earning {
+                width: 100%;
+                height: 40px;
+                padding: 5px 20px;
+                border-radius: 6px;
+                background-color: var(--border-color-gray-shade);
+            }
+
+            .input-field-loyalty-points {
+
+                .mat-mdc-form-field {
+                    width: 100%;
+
+                    mat-label {
+                        font-size: 1rem;
+                        padding: 5px 8px;
+                        color: var(--light-shade-text-gray-shade);
+
+                    }
+                }
+            }
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            border-bottom: 30px solid transparent;
+
+            .cancel-button {
+                padding: 8px 18px;
+                background-color: var(--cancel-button-red-color-shade);
+                border-radius: 5px;
+                width: 130px;
+                color: var(--primary-color-white-shade);
+                border: none;
+                font-size: 1.1rem;
+            }
+
+            .add-button {
+                padding: 8px 18px;
+                background-color: var(--background-color-blue-shade);
+                border-radius: 5px;
+                width: 130px;
+                color: var(--primary-color-white-shade);
+                border: none;
+                font-size: 1.1rem;
+            }
+
+        }
+    }
+}
+
+
+/* ---------Over ride the Mat Css ---------- */
+
+::ng-deep .sec-loyalty-points-container .mat-mdc-form-field-infix {
+    padding: 0 ! important;
+    min-height: unset !important;
+}
+
+::ng-deep .sec-loyalty-points-container .mat-mdc-text-field-wrapper {
+    padding: 0 !important;
+}
+
+::ng-deep .sec-loyalty-points-container .mdc-line-ripple.mdc-line-ripple--deactivating {
+    display: none !important;
+}
+
+::ng-deep .sec-loyalty-points-container .mat-mdc-text-field-wrapper.mdc-text-field.mdc-text-field--filled.mdc-text-field--no-label {
+    border-radius: 14px !important;
+}
+
+::ng-deep .sec-loyalty-points-container .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    height: 0;
+}

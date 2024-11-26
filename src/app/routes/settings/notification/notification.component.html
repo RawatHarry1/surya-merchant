@@ -1,0 +1,196 @@
+<div class="notification">
+    <div class="notification_header">
+        <div class="header_left">
+            <h3 class="notification_heading">NOTIFICATION SETTINGS</h3>
+        </div>
+    </div>
+    <div class="info_notification">
+        <p>Select from below the type of notifications you want to send.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="notification_left">
+                <h6 class="notification_left_heading">Customer Notifications
+                </h6>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            here the dropdown for the Customer Notifications
+        </div>
+
+    </div>
+
+
+    <div class="notification_sound">
+        <div class="notification_left">
+            <h6 class="notification_left_heading">Notification Sound</h6>
+        </div>
+        <div class="notification_sound_checkbox">
+
+            <mat-checkbox>No Sound</mat-checkbox>
+            <mat-checkbox>Serene</mat-checkbox>
+            <mat-checkbox>Beep</mat-checkbox>
+            <mat-checkbox>Hide & Seek</mat-checkbox>
+            <mat-checkbox>Cheerful (Long)</mat-checkbox>
+            <mat-checkbox>Bravan</mat-checkbox>
+        </div>
+        <div class="form-actions">
+            <button type="button" class="cancel-button">Cancel</button>
+            <button type="submit" class="add-button">Add</button>
+        </div>
+    </div>
+    <div class="notification_whatsapp">
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="notification_left">
+                    <h6 class="notification_left_heading">DO YOU WANT TO GET NOTIFICATIONS ON WHATSAPP</h6>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="notification_right">
+                    <div class="notification_instruction_with_toggle notification_toggle">
+                        <div class="notification_right_slide_toggle">
+                            <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="admin_store_notification">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="notification_left">
+                    <h6 class="notification_left_heading">Admin Store Notifications
+                    </h6>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                here the dropdown for the admin
+            </div>
+
+        </div>
+
+        <div class="admin_store_notification_table">
+            <table>
+                <!-- Event Column -->
+                <ng-container matColumnCellDef="event">
+                    <th mat-header-cell *matHeaderCellDef>Event</th>
+                    <td mat-cell *matCellDef="let element"><mat-slide-toggle
+                            class="custom-slide-toggle"></mat-slide-toggle></td>
+                </ng-container>
+
+                <!-- SMS Column -->
+                <ng-container matColumnCellDef="sms">
+                    <th mat-header-cell *matHeaderCellDef>SMS</th>
+                    <td mat-cell *matCellDef="let element"><mat-slide-toggle
+                            class="custom-slide-toggle"></mat-slide-toggle></td>
+                </ng-container>
+
+                <!-- Email Column -->
+                <ng-container matColumnCellDef="email">
+                    <th mat-header-cell *matHeaderCellDef>Email</th>
+                    <td mat-cell *matCellDef="let element"><mat-slide-toggle
+                            class="custom-slide-toggle"></mat-slide-toggle></td>
+                </ng-container>
+
+                <!-- Notifications Column -->
+                <ng-container matColumnCellDef="notifications">
+                    <th mat-header-cell *matHeaderCellDef>Notifications</th>
+                    <td mat-cell *matCellDef="let element"><mat-slide-toggle
+                            class="custom-slide-toggle"></mat-slide-toggle></td>
+                </ng-container>
+
+                <!-- Action Column -->
+                <ng-container matColumnCellDef="action">
+                    <th mat-header-cell *matHeaderCellDef>Action</th>
+                    <td mat-cell *matCellDef="let element"><mat-slide-toggle
+                            class="custom-slide-toggle"></mat-slide-toggle></td>
+                </ng-container>
+
+                <!-- Header Row -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+                <!-- Data Rows -->
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+    <div class="customer_store_notification">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="notification_left">
+                    <h6 class="notification_left_heading">Customer Notifications
+                    </h6>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                here the dropdown for the Customer Notifications
+            </div>
+
+        </div>
+
+        <div class="customer_store_notification_table">
+            <table>
+                <!-- Event Column -->
+                <ng-container matColumnCellDef="event">
+                    <th mat-header-cell *matHeaderCellDef>Event</th>
+                    <td mat-cell *matCellDef="let element">{{element.event}}</td>
+                </ng-container>
+
+                <!-- SMS Column -->
+                <ng-container matColumnCellDef="sms">
+                    <th mat-header-cell *matHeaderCellDef>SMS</th>
+                    <td mat-cell *matCellDef="let element"><mat-slide-toggle
+                            class="custom-slide-toggle"></mat-slide-toggle></td>
+                </ng-container>
+
+                <!-- Email Column -->
+                <ng-container matColumnCellDef="email">
+                    <th mat-header-cell *matHeaderCellDef>Email</th>
+                    <td mat-cell *matCellDef="let element"><mat-slide-toggle
+                            class="custom-slide-toggle"></mat-slide-toggle></td>
+                </ng-container>
+
+                <!-- Notifications Column -->
+                <ng-container matColumnCellDef="notifications">
+                    <th mat-header-cell *matHeaderCellDef>Notifications</th>
+                    <td mat-cell *matCellDef="let element"><mat-slide-toggle
+                            class="custom-slide-toggle"></mat-slide-toggle></td>
+                </ng-container>
+
+                <!-- Action Column -->
+                <ng-container matColumnCellDef="action">
+                    <th mat-header-cell *matHeaderCellDef>Action</th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="merchant-edit-btn">
+                            <mat-card>
+                                <mat-card-content>
+                                    <section>
+                                        <mat-menu #menu1="matMenu" class="mat-menu">
+                                            <button class="edit-btn all-menu-btn" mat-menu-item>
+                                                Edit </button>
+                                            <button class="delete-btn all-menu-btn" mat-menu-item> Delete </button>
+                                            <button class="block-btn all-menu-btn" mat-menu-item> Block </button>
+                                        </mat-menu>
+
+                                        <button mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Open Menu">
+                                            <mat-icon>more_vert</mat-icon>
+                                        </button>
+                                    </section>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- Header Row -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+                <!-- Data Rows -->
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>

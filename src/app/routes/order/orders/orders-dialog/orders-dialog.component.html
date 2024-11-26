@@ -1,0 +1,58 @@
+<div class="customer-header">
+    <div class="customer-header-spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2">Add Customer</h2>
+    
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+        <div class="customer-form">
+            <form [formGroup]="customerForm" (ngSubmit)="onAdd() ">
+                <div class="first-row">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="name">
+                                <mat-form-field class="add-customer-form" appearance="outline">
+                                    <mat-label>Name</mat-label>
+                                    <input matInput id="name" placeholder="Enter" formControlName="name" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="customer-email">
+                                <mat-form-field class="add-customer-form" appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput id="customer-email" placeholder="Enter" formControlName="customerEmail" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="customer-password">
+                            <mat-form-field class="add-customer-form" appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input matInput id="customer-password" type="password" placeholder="Enter"
+                                    formControlName="customerPassword" />
+                            </mat-form-field>
+                        </div>  
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="customer-phone-no">
+                            <mat-form-field class="add-customer-form" appearance="outline">
+                                <mat-label>Phone No</mat-label>
+                                <input matInput id="customer-phone-no" placeholder="Enter"
+                                    formControlName="customerPhoneNo" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" (click)="closeDialog()">Cancel</button>
+                    <button type="submit" class="add-button">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

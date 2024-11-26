@@ -1,0 +1,188 @@
+<div class="s-e-o">
+    <div class="s-e-o-header">
+
+        <h3 class="s-e-o-heading">SEO</h3>
+    </div>
+    <div class="main-s-e-o-container">
+        <div class="heading-main-s-e-o-container">
+            <h4 class="heading-main-s-e-o">What is SEO</h4>
+            <p class="para-main-s-e-o">Define referral code that customers can use to refer new customers coming on your
+                platform. Referral code defined here is applied on checkout while placing the order.</p>
+        </div>
+        <div class="first_form_row">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="social_media_tags_first">
+                        <h5 class="each_form_heading">Social Media Tag</h5>
+                        <div class="upload-file">
+                            <!-- File Input -->
+                            <input type="file" (change)="onFileSelected($event)" accept="image/*" multiple />
+                            <!-- Selected Images Preview -->
+                            <div class="preview" *ngIf="selectedFiles.length > 0">
+                                <div *ngFor="let file of selectedFiles; let i = index" class="image-container">
+                                    <span class="delete-icon" (click)="removeSelectedFile(i)">
+                                        <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                    </span>
+                                    <img class="preview-images" [src]="file.url" alt="Image" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page_title">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Page Title</mat-label>
+                                <input type="text" matInput id="page_title" placeholder="Enter"
+                                    formControlName="pageTitle" />
+                            </mat-form-field>
+                        </div>
+                        <div class="page_description">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Page Descripition</mat-label>
+                                <input type="text" matInput id="page_description" placeholder="Enter"
+                                    formControlName="pageDescripition" />
+                            </mat-form-field>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="cancel-button" (click)="closeFrom()">Cancel</button>
+                            <button type="submit" class="add-button">Save</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="social_media_tags_second">
+                        <h5 class="each_form_heading">Social Media Tag</h5>
+                        <div class="google_play_storeID">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Google Play Store ID</mat-label>
+                                <input type="text" matInput id="google_play_storeID" placeholder="Enter"
+                                    formControlName="GooglePlayStoreID" />
+                            </mat-form-field>
+                        </div>
+                        <div class="app_play_store_ID">
+                            <mat-form-field appearance="outline">
+                                <mat-label>App Play Store ID</mat-label>
+                                <input type="text" matInput id="app_play_store_ID" placeholder="Enter"
+                                    formControlName="appPlayStoreID" />
+                            </mat-form-field>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="cancel-button" (click)="closeFrom()">Cancel</button>
+                            <button type="submit" class="add-button">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="second-form_row">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="google_site_Verification">
+                        <h5 class="each_form_heading">Google site verification</h5>
+                        <p class="google_site_text">Define referral code that customers can use to refer new customers
+                            coming on your platform. Referral code defined here is applied on checkout while placing the
+                            order.</p>
+                        <div class="google_site">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Enter</mat-label>
+                                <input type="text" matInput id="google_site" placeholder="Enter"
+                                    formControlName="googleSite" />
+                            </mat-form-field>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="cancel-button" (click)="closeFrom()">Cancel</button>
+                            <button type="submit" class="add-button">Save</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="google_tag_manager_key">
+                        <h5 class="each_form_heading">Google Tag Manager Key</h5>
+                        <div class="enter_key">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Enter Key</mat-label>
+                                <input type="text" matInput id="enter_key" placeholder="Enter"
+                                    formControlName="enterKey" />
+                            </mat-form-field>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="cancel-button" (click)="closeFrom()">Cancel</button>
+                            <button type="submit" class="add-button">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="robot_txt">
+                    <h5 class="each_form_heading">ROBOT.TXT</h5>
+                    <p class="robot_txt_text">Define referral code that customers can use to refer new customers coming
+                        on
+                        your platform. Referral code defined here is applied on checkout while placing the order.</p>
+                    <div class="robot">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Enter</mat-label>
+                            <input type="text" matInput id="robot" placeholder="Enter" formControlName="robot" />
+                        </mat-form-field>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="cancel-button" (click)="closeFrom()">Cancel</button>
+                        <button type="submit" class="add-button">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table_s_e_o">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                <!-- Page Column -->
+                <ng-container matColumnDef="page">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Page</th>
+                    <td mat-cell *matCellDef="let element">{{element.page}}</td>
+                </ng-container>
+        
+                <!-- Description Column -->
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+                    <td mat-cell *matCellDef="let element">{{element.description}}</td>
+                </ng-container>
+        
+                <!-- Action Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef>Action</th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="agent-edit-btn">
+                            <mat-card>
+                                <mat-card-content>
+                                    <section>
+                                        <mat-menu #menu1="matMenu" class="mat-menu">
+                                            <button class="edit-btn all-menu-btn" mat-menu-item (click)="onEditOpen()">
+                                                Edit </button>
+                                            <button class="delete-btn all-menu-btn" mat-menu-item>Delete</button>
+                                            <button class="block-btn all-menu-btn" mat-menu-item>Block</button>
+                                        </mat-menu>
+        
+                                        <button mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Open Menu">
+                                            <mat-icon>more_vert</mat-icon>
+                                        </button>
+                                    </section>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </td>
+                </ng-container>
+        
+                <!-- Header Row -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        
+                <!-- Data Rows -->
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+        <div class="s-e-o-footer">
+            <mat-paginator class="s-e-o-pagination" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of periodic elements">
+            </mat-paginator>
+        </div>
+    </div>
+</div>

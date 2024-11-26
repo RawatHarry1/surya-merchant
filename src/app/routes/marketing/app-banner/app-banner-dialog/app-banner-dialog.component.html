@@ -1,0 +1,70 @@
+<div class="banners-dialog">
+    <div class="banners-dialog-spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2">{{isUpdate ? ('button.update'| translate): ('button.add'| translate)}}
+                {{('AppBanner.bannerTitle'| translate)}}</h2>
+            <button class="close-button" (click)="closeDialog(false)">&#x2715;</button>
+        </div>
+        <div class="main_banners_container">
+            <form [formGroup]="appBannerForm">
+                <div class="">
+                    <div class="row">
+                        <div class="">
+                            <div class="">
+                                <div class="name_input">
+                                    <h6 class="name_heading">{{'AppBanner.title' | translate}}</h6>
+                                    <mat-form-field>
+                                        <input formControlName="title" class="cstm_input" matInput type="text"
+                                            placeholder="Enter Title">
+                                    </mat-form-field>
+                                    <mat-error *ngIf="title?.hasError('required') && title?.touched">
+                                        {{'validations.required' | translate}}
+                                    </mat-error>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="mt-4">
+                            <div class="banner_img">
+                                <h4 class="banner_img_heading"></h4>
+                                <div class="upload-file">
+                                    <!-- File Input -->
+                                    @if (!isUpdate) {
+                                    <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+                                    }@else {
+                                    <div>
+                                        <input class="fil-width" type="file" (change)="onFileSelected($event)"
+                                            accept="image/*" />
+                                        <span>{{ getModifiedFilename(selectedFile || selectedFile.url) || 'No File Chosen' }}</span>
+                                    </div>
+                                    }
+
+                                    <input type="hidden" formControlName="media">
+                                    <mat-error *ngIf="media?.hasError('required') && media?.touched">
+                                        {{'validations.required' | translate}}
+                                    </mat-error>
+                                    <!-- Selected Images Preview -->
+                                    <div class="preview" *ngIf="selectedFile">
+                                        <div class="image-container">
+                                            <img class="preview-images" [src]="selectedFile.url ||selectedFile "
+                                                [alt]="selectedFile.url ? 'Image': ''" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button justify-content-center"
+                        (click)="closeDialog(false)">{{('button.cancel'| translate)}}</button>
+                    <button type="submit" class="add-button justify-content-center" (click)="createBanner()">{{isUpdate
+                        ? ('button.update'| translate): ('button.add'| translate)}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

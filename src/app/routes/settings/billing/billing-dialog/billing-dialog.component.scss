@@ -1,0 +1,134 @@
+/*  Style to make the catalouge Borde-radius --0 */
+::ng-deep .mdc-dialog--open .mat-mdc-dialog-surface,
+.mdc-dialog--closing .mat-mdc-dialog-surface {
+    border-radius: 0;
+}
+
+::ng-deep .cdk-overlay-pane.mat-mdc-dialog-panel {
+    max-width: 80vw !important;
+    min-width: 35vw !important;
+}
+
+/*----------------Common Styling---------------- */
+.close-button {
+    font-size: 1.8rem;
+    color: var(--primary-color-white-shade);
+    padding: 0 14px 6px 0;
+    border: none;
+    background: transparent;
+}
+
+/*  Heading of the Add Merchant Dialog*/
+.add_card_header {
+    width: 37vw;
+    max-height: 70vh;
+
+    .add_card_header_spacer {
+
+        .dialog-header {
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            color: var(--primary-color-white-shade);
+
+            .heading_h2 {
+                font-size: 1.5rem;
+                position: relative;
+                left: 30px;
+                box-sizing: border-box;
+                padding: 10px 5px;
+            }
+        }
+
+
+        .add-card-form {
+            padding: 0 10px;
+            margin: 0 10px;
+
+
+            .card_no,
+            .valid_upto,
+            .cvv {
+                margin-top: 25px;
+
+                .card_no_heading,
+                .valid_upto_heading,
+                .cvv_heading {
+                    padding: 0 10px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: var(--light-shade-text-gray-shade);
+                }
+            }
+
+            .mat-mdc-form-field {
+                width: 100%;
+
+                mat-label {
+                    font-size: 1rem;
+                    padding: 5px 8px;
+                    color: var(--light-shade-text-gray-shade);
+                }
+            }
+
+
+            .form-actions {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                width: 100%;
+                margin-top: 20px;
+                border-bottom: 30px solid transparent;
+
+
+                .cancel-button {
+                    padding: 8px 18px;
+                    background-color: var(--cancel-button-red-color-shade);
+                    border-radius: 5px;
+                    width: 130px;
+                    color: var(--primary-color-white-shade);
+                    border: none;
+                    font-size: 1.1rem;
+                }
+
+                .add-button {
+                    padding: 8px 18px;
+                    background-color: var(--background-color-blue-shade);
+                    border-radius: 5px;
+                    width: 130px;
+                    color: var(--primary-color-white-shade);
+                    border: none;
+                    font-size: 1.1rem;
+                }
+
+            }
+
+        }
+    }
+}
+
+/*  InPut CSS OverRide Start*/
+::ng-deep .add_card_header .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    display: none;
+}
+
+::ng-deep .add_card_header .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--mdc-filled-text-field-container-color);
+    border-radius: 14px;
+}
+
+
+::ng-deep .add_card_header mat-form-field.mat-mdc-form-field.mat-mdc-form-field-type-mat-input.mat-form-field-appearance-fill.mat-primary {
+    width: 100%;
+    border-radius: 10px;
+}
+
+::ng-deep .add_card_header .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--input-background-color-gray-shade) !important;
+}
+
+::ng-deep .add_card_header .mdc-line-ripple {
+    display: none;
+}
+
+/*  InPut CSS OverRide End*/

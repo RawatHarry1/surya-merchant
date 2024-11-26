@@ -1,0 +1,192 @@
+.s-e-o {
+    padding: 0 30px;
+    height: 90vh;
+
+    .s-e-o-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .s-e-o-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+    }
+
+    .main-s-e-o-container {
+        .heading-main-s-e-o-container {
+            display: flex;
+            h4.heading-main-s-e-o {
+                font-size: 1.2rem;
+                min-width: 12%;
+                margin: 0 15px 0 0;
+            }
+        }
+
+        .each_form_heading {
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .upload-file {
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            border-bottom: 10px solid transparent;
+
+            .cancel-button {
+                padding: 8px 18px;
+                background-color: var(--cancel-button-red-color-shade);
+                border-radius: 5px;
+                width: 130px;
+                color: var(--primary-color-white-shade);
+                border: none;
+                font-size: 1.1rem;
+            }
+
+            .add-button {
+                padding: 8px 18px;
+                background-color: var(--background-color-blue-shade);
+                border-radius: 5px;
+                width: 130px;
+                color: var(--primary-color-white-shade);
+                border: none;
+                font-size: 1.1rem;
+            }
+
+        }
+
+        .first_form_row {
+
+            .social_media_tags_first {
+                .upload-file {
+                    display: flex;
+
+                    .preview {
+                        display: contents;
+
+                        .preview-images {
+                            max-width: 100px;
+                            max-height: 100px;
+                            margin-top: 10px;
+                            height: 85px;
+                            margin: 0 5px;
+                        }
+
+                        .image-container {
+                            height: 85px;
+                            display: flex;
+
+                            .delete-icon {
+                                cursor: pointer;
+                                font-size: 1.3rem;
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .social_media_tags_first,
+        .social_media_tags_second,
+        .google_site_Verification,
+        .google_tag_manager_key,
+        .robot_txt {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--border-color-gray-shade) 0px 1px 5px;
+            border-radius: 14px;
+            padding: 15px;
+            height: 100%;
+            margin: 0 0 15px 0;
+        }
+
+        .row {
+            margin: 25px 0;
+        }
+    }
+}
+
+.table_s_e_o .mat-cell,
+.table_s_e_o .mat-header-cell {
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    height: 100%;
+    /* Ensure the flex container uses full height */
+    text-align: center;
+    /* Center text inside flex container */
+}
+
+/* ----------s-e-o input width Change*/
+.s-e-o .mat-mdc-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+
+    mat-label {
+        font-size: 1rem;
+        padding: 5px 8px;
+        color: var(--light-shade-text-gray-shade);
+    }
+}
+
+/* ----------s-e-o input width Change END*/
+
+
+/*--------------wrapper mottom height changed*/
+::ng-deep .s-e-o .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    height: 0;
+}
+
+
+
+/*--------------Table Css Over Ride-------*/
+::ng-deep .s-e-o .mat-mdc-header-cell {
+    background-color: black !important;
+    color: var(--primary-color-white-shade);
+}
+
+::ng-deep .s-e-o .mat-sort-header-arrow {
+    color: var(--primary-color-white-shade);
+
+}
+
+
+/*   This is the Pagination css to over ride the Mat UI*/
+
+::ng-deep.s-e-o-pagination .mat-mdc-paginator-container {
+    justify-content: space-between !important;
+    width: 100% !important;
+}
+
+
+::ng-deep.s-e-o-pagination .mat-mdc-icon-button {
+    background-color: var(--secondary-color-orange-shade);
+    border-radius: 10px !important;
+    margin: 0 4px 0 0;
+}
+
+::ng-deep.s-e-o-pagination .mat-mdc-paginator-icon {
+    fill: var(--primary-color-white-shade) !important;
+}
+
+
+
+::ng-deep .mat-menu .mat-mdc-menu-item,
+.mat-mdc-menu-item:visited,
+.mat-mdc-menu-item:link {
+    color: var(--menu-text-color-gray-shade);
+}

@@ -1,0 +1,458 @@
+<div class="design_layout">
+    <div class="design_layout_header">
+        <div class="header_left">
+            <h3 class="design_layout_heading">DESIGN LAYOUT</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="layout">
+                <p class="layout_left_heading ">Layout</p>
+
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div class="layout">
+                <p class="layout_right_info_text">Customize the look of your marketplace.</p>
+            </div>
+            <div class="design_layout_content">
+
+                <!-- Primary Banner Image Section -->
+                <div class="banner_image">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="banner_image_heading">
+                                <h6 class="banner_image_heading_text">Primary Banner Image (1920<sup>*</sup>360px)</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="upload-file">
+                                <!-- Selected Images Preview for Web Logo -->
+                                <div class="preview" *ngIf="bannerImgFiles.length > 0">
+                                    <div *ngFor="let file of bannerImgFiles; let i = index" class="image-container">
+                                        <span class="delete-icon" (click)="removeLogoFile(i,'banner')">
+                                            <mat-icon aria-hidden="false" aria-label="clear"
+                                                fontIcon="clear"></mat-icon>
+                                        </span>
+                                        <img class="preview-images" [src]="file.url" alt="banner image" />
+                                    </div>
+                                </div>
+                                <!-- File Input for Web Logo -->
+                                <input type="file" (change)="onLogoSelected($event,'banner')" accept="image/*" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Homepage Section -->
+                <div class="homepage">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="homepage_heading">
+                                <h6 class="homepage_heading_text">Homepage Background (1920<sup>*</sup>1280px)</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="upload-file">
+                                <!-- Selected Images Preview for Homepage -->
+                                <div class="preview" *ngIf="homepageFiles.length > 0">
+                                    <div *ngFor="let file of homepageFiles; let i = index" class="image-container">
+                                        <span class="delete-icon" (click)="removeLogoFile(i,'homepage')">
+                                            <mat-icon aria-hidden="false" aria-label="clear"
+                                                fontIcon="clear"></mat-icon>
+                                        </span>
+                                        <img class="preview-images" [src]="file.url" alt="Homepage" />
+                                    </div>
+                                </div>
+                                <!-- File Input for Homepage -->
+                                <input type="file" (change)="onLogoSelected($event,'homepage')" accept="image/*" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Homepage Mobile Section -->
+                <div class="homepage_mobile">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="homepage_mobile_heading">
+                                <h6 class="homepage_mobile_heading_text">Homepage Background For Mobile
+                                    (1125<sup>*</sup>2001 Px)</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="upload-file">
+                                <!-- Selected Images Preview for Homepage -->
+                                <div class="preview" *ngIf="homepageMobileFiles.length > 0">
+                                    <div *ngFor="let file of homepageMobileFiles; let i = index" class="image-container">
+                                        <span class="delete-icon" (click)="removeLogoFile(i,'homepageMobile')">
+                                            <mat-icon aria-hidden="false" aria-label="clear"
+                                                fontIcon="clear"></mat-icon>
+                                        </span>
+                                        <img class="preview-images" [src]="file.url" alt="Homepage" />
+                                    </div>
+                                </div>
+                                <!-- File Input for Homepage -->
+                                <input type="file" (change)="onLogoSelected($event,'homepageMobile')" accept="image/*" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Header Color Section -->
+                <div class="header_color">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="header_color_heading">
+                                <h6 class="header_color_heading_text">Header Color</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="select_color">
+                                <form [formGroup]="selectColorForm" (ngSubmit)="onAdd() ">
+                                    <div class="select_color_input">
+                                        <p class="select_color_heading">Select Color</p>
+                                        <mat-form-field class="select_color_form">
+                                            <input matInput id="select_color" placeholder="#45686"
+                                                formControlName="selectColor" />
+                                        </mat-form-field>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Theme Color Section -->
+                <div class="theme_color">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="theme_color_heading">
+                                <h6 class="theme_color_heading_text">Theme Color</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="select_color">
+                                <form [formGroup]="selectColorForm" (ngSubmit)="onAdd() ">
+                                    <div class="select_color_input">
+                                        <p class="select_color_heading">Select Color</p>
+                                        <mat-form-field class="select_color_form">
+                                            <input matInput id="select_color" placeholder="#45686"
+                                                formControlName="selectColor" />
+                                        </mat-form-field>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rating Bar Color Section -->
+                <div class="rating_bar_color">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="rating_bar_color_heading">
+                                <h6 class="rating_bar_color_heading_text">Rating Bar Color</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="select_color">
+                                <form [formGroup]="selectColorForm" (ngSubmit)="onAdd() ">
+                                    <div class="select_color_input">
+                                        <p class="select_color_heading">Select Color</p>
+                                        <mat-form-field class="select_color_form">
+                                            <input matInput id="select_color" placeholder="#45686"
+                                                formControlName="selectColor" />
+                                        </mat-form-field>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Landing Page For Website Section -->
+                <div class="landing_page">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="landing_page_heading">
+                                <h6 class="landing_page_heading_text">Landing Page For Website</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="select_color">
+                                dropdown
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Default Location for Website Section -->
+                <div class="default_location">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="default_location_heading">
+                                <h6 class="default_location_heading_text">Default Location for Website</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="select_color">
+                                dropdown
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Enable this toggle to fetch current location of customers on the WebApp Section -->
+                <div class="toggle_switch">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="toggle_switch_heading">
+                                <h6 class="toggle_switch_heading_text">Enable this toggle to fetch current location of
+                                    customers on the WebApp</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="custom_slide">
+                                <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tag Line Section -->
+                <div class="tag_line">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="tag_line_heading">
+                                <h6 class="tag_line_heading_text">Tag Line</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="select_color">
+                                <form [formGroup]="selectColorForm" (ngSubmit)="onAdd() ">
+                                    <div class="select_color_input">
+                                        <mat-form-field class="select_color_form">
+                                            <input matInput id="select_color" placeholder="Add Your Banner Text Here Page" formControlName="selectColor" />
+                                        </mat-form-field>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Website Title Section -->
+                <div class="websit_title">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="websit_title_heading">
+                                <h6 class="websit_title_heading_text">Website Title</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="select_color">
+                                <form [formGroup]="selectColorForm" (ngSubmit)="onAdd() ">
+                                    <div class="select_color_input">
+                                        <mat-form-field class="select_color_form">
+                                            <input matInput id="select_color" placeholder="Booking-srnz" formControlName="selectColor" />
+                                        </mat-form-field>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Enable this toggle to Switch Your Hybrid App To Updated UI Section -->
+                <div class="toggle_switch">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="toggle_switch_heading">
+                                <h6 class="toggle_switch_heading_text">Enable this toggle to Switch Your Hybrid App To
+                                    Updated UI</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="custom_slide">
+                                <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="delivery_icons">
+                <p class="delivery_icons_left_heading ">Delivery Icons</p>
+
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div class="delivery_icons">
+                <p class="delivery_icons_right_info_text">Here you can add Delivery Icons for Mobile Apps. (Please make
+                    sure your apps are updated.)
+                </p>
+            </div>
+            <div class="design_layout_content">
+                <!-- Home delivery Section -->
+                <div class="home_delivery">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="home_delivery_heading">
+                                <h6 class="home_delivery_heading_text">Home delivery (32<sup>*</sup>32 px)</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="upload-file">
+                                <!-- Selected Images Preview for homeDelivery -->
+                                <div class="preview" *ngIf="homeDeliveryFiles.length > 0">
+                                    <div *ngFor="let file of homeDeliveryFiles; let i = index" class="image-container">
+                                        <span class="delete-icon" (click)="removeLogoFile(i,'homeDelivery')">
+                                            <mat-icon aria-hidden="false" aria-label="clear"
+                                                fontIcon="clear"></mat-icon>
+                                        </span>
+                                        <img class="preview-images" [src]="file.url" alt="banner image" />
+                                    </div>
+                                </div>
+                                <!-- File Input for homeDelivery -->
+                                <input type="file" (change)="onLogoSelected($event,'homeDelivery')" accept="image/*" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="visibility">
+                <p class="visibility_left_heading ">Visibility to customers</p>
+
+            </div>
+        </div>
+        <div class="col-sm-10">
+            <div class="visibility">
+                <p class="visibility_right_info_text">Decide what details of a Store can a customers see
+                </p>
+            </div>
+            <div class="design_layout_content">
+                <!-- Show Store email and phone number to customers Section -->
+                <div class="visibility_toggle_switch">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="toggle_switch_heading">
+                                <h6 class="toggle_switch_heading_text">Show Store email and phone number to customers
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="custom_slide">
+                                <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Show Store details page on mobile apps Section -->
+                <div class="visibility_toggle_switch">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="toggle_switch_heading">
+                                <h6 class="toggle_switch_heading_text">Show Store details page on mobile apps</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="custom_slide">
+                                <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Allow customers to see exact location on map Section -->
+                <div class="visibility_toggle_switch">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="toggle_switch_heading">
+                                <h6 class="toggle_switch_heading_text">Allow customers to see exact location on map</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="custom_slide">
+                                <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Show Store address to customers Section -->
+                <div class="visibility_toggle_switch">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="toggle_switch_heading">
+                                <h6 class="toggle_switch_heading_text">Show Store address to customers</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="custom_slide">
+                                <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Show Service Time to customers Section -->
+                <div class="visibility_toggle_switch">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="toggle_switch_heading">
+                                <h6 class="toggle_switch_heading_text">Show Service Time to customers</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="custom_slide">
+                                <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Show Merchants On The Map Section -->
+                <div class="visibility_toggle_switch">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="toggle_switch_heading">
+                                <h6 class="toggle_switch_heading_text">Show Merchants On The Map</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="custom_slide">
+                                <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Show Delivery time to Customer Section -->
+                <div class="visibility_toggle_switch">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="toggle_switch_heading">
+                                <h6 class="toggle_switch_heading_text">Show Delivery time to Customer</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="custom_slide">
+                                <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Allow customers to chat with Store before Placing Orders Section -->
+                <div class="visibility_toggle_switch">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="toggle_switch_heading">
+                                <h6 class="toggle_switch_heading_text">Allow customers to chat with Store before Placing
+                                    Orders</h6>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="custom_slide">
+                                <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

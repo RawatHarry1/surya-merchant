@@ -1,0 +1,579 @@
+<div class="category-spacer">
+    <div class="category-header">
+        <div class="left-category">
+            <span class="category-text">{{productDetailId ? 'UPDATE': 'ADD'}} PRODUCT</span>
+        </div>
+        <div class="right-category">
+            <button mat-raised-button class="back_button"
+                (click)="goBack()"><mat-icon>arrow_back</mat-icon>Back</button>
+        </div>
+    </div>
+    <div class="add_product_form">
+        <form [formGroup]="productForm">
+            <div class="add-banner mt-4 ">
+                <h6 class="category_name_input_heading">Images <span class="text-danger h4 m-0">*</span><span
+                        class=" max_size text-secondary fs-6 m-0">(Max Image Size 500KB)</span></h6>
+                <input type="hidden" formControlName="media">
+                <mat-error *ngIf="media?.hasError('required') && media?.touched">
+                    Image is required.
+                </mat-error>
+                <!-- Selected Images Preview -->
+                <div class="preview d-flex" *ngIf="selectedFiles.length > 0">
+                    @for (file of selectedFiles; track $index; let i = $index) {
+                    <div class="image-container default-image text-end"
+                        [ngClass]="file.isDefault == 1 ? 'border-blue' : 'border-isDefault'">
+                        @if (file.isDefault !== 1) {
+                        <span class="delete-icon" (click)="removeSelectedFile(file, i)">
+                            <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                        </span>
+                        }
+
+                        @if (file.isDefault === 1) {
+                        <mat-icon matTooltip="Selected Default Image.">info</mat-icon>
+                        }
+                        @if (file.type === 1) {
+                        <div class="image-div">
+                            <!-- <div matBadge="mat-icon" matBadgeOverlap="false" class="image-bedge"></div> -->
+
+
+                            <img (click)="isDefaultImage(file, i)" class="preview-images img-fluid" [src]="file.url"
+                                alt="Image" />
+                        </div>
+                        }
+                        @if(file.type === 2){
+                        <div>
+                            <video width="130" controls="controls" preload="metadata">
+                                <source src="https://www.w3schools.com/html/mov_bbb.mp4#t=0.1" type="video/mp4">
+                            </video>
+                        </div>
+                        }
+                    </div>
+                    }
+                </div>
+                @if (!productDetailId) {
+                <input type="file" id="fileUpload" (change)="onFileSelected($event)"
+                    accept="image/*,.mp4,.avi,.mov,.wmv,.flv,.mkv,.webm" multiple #fileInput style="display: none;" />
+
+                <label class="mt-4" (click)="fileInput.click()">
+                    <img class="upload-size" src="./images/upload.png" alt="upload">
+                    <span class="add-image">Add Another Image</span>
+                </label>
+                <!-- <label for="fileUpload">klklklkl</label> -->
+                }@else {
+                <input type="file" (change)="onFileSelected($event)"
+                    accept="image/*,.mp4,.avi,.mov,.wmv,.flv,.mkv,.webm" #fileInput style="display: none;" />
+
+                <label class="mt-4" (click)="fileInput.click()">
+                    <img class="upload-size" src="./images/upload.png" alt="upload">
+                    <span class="add-image">Add Another Image</span>
+                </label>
+                }
+            </div>
+            @if(productDetailId){
+            <div class="save_filter_button height">
+                <button class="Save" (click)="updateProductImage()">Update Image</button>
+                <!-- <button class="Save" (click)="editProductFile()">Add Image</button> -->
+            </div>
+            }
+            <div class="category_name_image">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="category_name_input">
+                            <h6 class="category_name_input_heading">Name <span class="text-danger h4 m-0">*</span></h6>
+                            <mat-form-field>
+                                <input formControlName="name" type="text" matInput id="category_name_input"
+                                    placeholder="Enter Product Name" />
+                            </mat-form-field>
+                            <mat-error *ngIf="name?.hasError('required') && name?.touched">
+                                Name is required.
+                            </mat-error>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="category_name_input">
+                            <h6 class="category_name_input_heading">Price <span class="text-danger h4 m-0">*</span></h6>
+                            <mat-form-field>
+                                <input type="number" formControlName="price" matInput id="category_name_input"
+                                    placeholder="Enter Price" />
+                            </mat-form-field>
+                            <mat-error *ngIf="price?.hasError('required') && price?.touched">
+                                Price is required.
+                            </mat-error>
+                            <mat-error *ngIf="price?.hasError('min') && price?.touched">
+                                Price Minimum Value is 1.
+                            </mat-error>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 mt-4">
+                        <div class="category_name_input">
+                            <h6 class="category_name_input_heading">Discount <span class="text-danger h4 m-0">*</span>
+                            </h6>
+                            <mat-form-field>
+                                <input type="number" formControlName="discount" matInput id="category_name_input"
+                                    placeholder="Enter Discount" />
+                            </mat-form-field>
+                            <mat-error *ngIf="discount?.hasError('required') && discount?.touched">
+                                Discount is required.
+                            </mat-error>
+                            <mat-error *ngIf="discount?.hasError('min') && discount?.touched">
+                                Discount Minimum Value is 0.
+                            </mat-error>
+                            <mat-error *ngIf="discount?.hasError('max') && discount?.touched">
+                                Discount Miximum Value is 99.
+                            </mat-error>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 mt-4">
+                        <div class="category_name_input">
+                            <h6 class="category_name_input_heading">Select Category <span
+                                    class="text-danger h4 m-0">*</span></h6>
+                            <mat-form-field style="width: 100%;">
+                                <mat-label>Select</mat-label>
+                                <mat-select formControlName="categoryId" (selectionChange)="onChangeCategory()">
+                                    @for (category of productCategoryList; track $index) {
+                                    <mat-option [value]="category.categoryId">{{category.categoryName}}</mat-option>
+                                    }@empty {
+                                    <mat-option disabled>No Category.</mat-option>
+                                    }
+
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-error *ngIf="categoryCtrl?.hasError('required') && categoryCtrl?.touched">
+                                Category is required.
+                            </mat-error>
+                        </div>
+                    </div>
+
+                    @if(categoryCtrl?.value){
+                    <div class="col-sm-6 mt-4">
+                        <div class="category_name_input">
+                            <h6 class="category_name_input_heading">Select Sub Category <span
+                                    class="text-danger h4 m-0">*</span></h6>
+                            <mat-form-field style="width: 100%;">
+                                <mat-label>Select</mat-label>
+                                <mat-select formControlName="subCategoryId" (selectionChange)="onChangeSubCategory()">
+                                    @for (subCategory of productSubCategoryList; track $index) {
+                                    <mat-option
+                                        [value]="subCategory.subCategoryId">{{subCategory.subCategoryName}}</mat-option>
+                                    }@empty {
+                                    <mat-option disabled>No Sub-Category.</mat-option>
+                                    }
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-error *ngIf="subCategoryCtrl?.hasError('required') && subCategoryCtrl?.touched">
+                                Sub Category is required.
+                            </mat-error>
+                        </div>
+                    </div>
+                    }
+                    @if(subCategoryCtrl?.value){
+                    <div class="col-sm-6 mt-4">
+                        <div class="category_name_input">
+                            <h6 class="category_name_input_heading">Select sub sub Category <span
+                                    class="text-danger h4 m-0">*</span></h6>
+                            <mat-form-field style="width: 100%;">
+                                <mat-label>Select</mat-label>
+                                <mat-select formControlName="thirdLevelCategoryId">
+                                    @for(category of productThridLevelCategoryList; track $index){
+                                    <mat-option
+                                        [value]="category.thirdLevelCategoryId">{{category.thirdLevelCategoryName}}</mat-option>
+                                    }@empty {
+                                    <mat-option disabled>No Sub Sub-Category.</mat-option>
+                                    }
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-error
+                                *ngIf="thirdLevelCategoryId?.hasError('required') && thirdLevelCategoryId?.touched">
+                                Sub Sub Category is required.
+                            </mat-error>
+                        </div>
+                    </div>
+                    }
+                    <div class="col-sm-6 mt-4" style="width: 100%;">
+                        <div class="category_name_input">
+                            <h6 class="category_name_input_heading">Description <span
+                                    class="text-danger h4 m-0">*</span>
+                            </h6>
+                            <mat-form-field>
+                                <mat-label>Description</mat-label>
+                                <textarea formControlName="description" matInput id="description"
+                                    placeholder="Enter"></textarea>
+                            </mat-form-field>
+                            <mat-error *ngIf="description?.hasError('required') && description?.touched">
+                                Description is required.
+                            </mat-error>
+                            <mat-error *ngIf="description?.hasError('minlength') && description?.touched">
+                                Description must be at least 50 characters long.
+                            </mat-error>
+                            <mat-error *ngIf="description?.hasError('maxlength') && description?.touched">
+                                Description cannot exceed 200 characters.
+                            </mat-error>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 mt-4 mb-4" style="width: 100%;">
+                        <div class="category_name_input">
+                            <h6 class="category_name_input_heading">Recomended</h6>
+                            <mat-radio-group formControlName="isReccomended">
+                                <mat-radio-button [value]="true">Yes</mat-radio-button>
+                                <mat-radio-button [value]="false">No</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+
+
+                    @if(productDetailId){
+                    <div class="save_filter_button height">
+                        <button class="Save" (click)="createUpdateProduct()">Update</button>
+                    </div>
+                    }
+
+
+                    <!--start Fiter section----- -->
+                    @if(categoryCtrl?.value){
+                    <div class="category_filter">
+                        <h6 class="category_filter_heading">Filter</h6>
+                        <div class="category_filter_container">
+                            @for (filter of filterNameObj?.filters; track $index; let i = $index) {
+                            <div class="w-100 d-flex">
+                                <div class="">
+                                    <div class="category_name_input">
+                                        <h6 class="category_name_input_heading"></h6>
+                                        <mat-form-field>
+                                            <input type="text" matInput id="category_name_input"
+                                                [value]="filter.filterName" readonly />
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="ms-2 mt-2">
+                                    <div class="category_name_input">
+                                        <!-- <h6 class="category_name_input_heading">Select Filter Option</h6> -->
+                                        <mat-form-field style="width: 100%;">
+                                            <mat-label>Select</mat-label>
+                                            @if(productDetailId){
+                                            <mat-select [(ngModel)]="filterOptionName[i]"
+                                                [ngModelOptions]="{ standalone: true }">
+                                                @for (filterOption of filter.filterOptions; track $index; let j =
+                                                $index) {
+                                                <mat-option [value]="filterOption.optionId"
+                                                    (click)="onChangeFilterOption(filter, filterOption, i)">
+                                                    {{ filterOption.optionName }}
+                                                </mat-option>
+                                                }@empty {
+                                                <mat-option>No Filter Option.</mat-option>
+                                                }
+                                            </mat-select>
+                                            }@else {
+                                            <mat-select>
+                                                @for (filterOption of filter.filterOptions; track $index; let j =
+                                                $index) {
+                                                <mat-option [value]="filterOption.optionName"
+                                                    (click)="onChangeFilterOption(filter, filterOption, i)">
+                                                    {{ filterOption.optionName }}
+                                                </mat-option>
+                                                }@empty {
+                                                <mat-option>No Filter Option.</mat-option>
+                                                }
+                                            </mat-select>
+                                            }
+
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                            }@empty {
+                            <p>No Filter Found.</p>
+                            }
+                        </div>
+                    </div>
+                    }
+                    <!-- end Filter section----->
+
+                    <!-- sart - Add varient section 1 -->
+                    <div class="variant_button_spacer">
+                        <div class="variant_button">
+                            <div class="open_add_variants d-flex justify-content-between align-items-center">
+                                <div class="left_add_variants">
+                                    @if(productDetailId){ <h6 class="category_filter_heading">Edit Variant<span
+                                            class="text-secondary">
+                                            (Optional)</span>
+                                    </h6>}
+                                    @else{ <h6 class="category_filter_heading">Add Variant<span class="text-secondary">
+                                            (Optional)</span>
+                                    </h6>}
+
+                                    <span class="m-0">Add variant if product has more than one</span>
+                                </div>
+                                <div class="right_add_variants">
+                                    @if(productDetailId){ <button class="open_variant" (click)="openVariant()">Edit
+                                        Variant <mat-icon class="edit_variant_info">edit</mat-icon></button>}
+                                    @else{
+                                    <button class="open_variant" (click)="openVariant()">Add Variant <img
+                                            src="images/add-circle-trans.png" alt="image"></button>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="variant_first_variant" *ngIf="showVariant">
+                                @if(!isShowVarientSection){
+                                <div class="category_filter">
+
+                                    <div class="d-flex category_filter_container">
+                                        <div class="data_container_left">
+                                            <div class="mt-4">
+                                                <div class="category_name_input">
+                                                    <h6 class="category_name_input_heading">Select Varient Name</h6>
+                                                    <mat-form-field style="width: 100%;">
+                                                        <mat-label>Select</mat-label>
+                                                        <mat-select formControlName="varientName"
+                                                            (selectionChange)="onVarientChange()">
+                                                            @for (varient of varientNamelist; track $index; let i =
+                                                            $index;)
+                                                            {
+                                                            <mat-option
+                                                                [value]="varient.id">{{varient.name}}</mat-option>
+                                                            }
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="mt-4">
+                                                <div class="category_name_input">
+                                                    <h6 class="category_name_input_heading">Select Variant Option Names
+                                                    </h6>
+                                                    <mat-form-field style="width: 100%;">
+                                                        <mat-label>Select</mat-label>
+                                                        <mat-select formControlName="varientOption" multiple
+                                                            (selectionChange)="isSelected($event)">
+                                                            @for (item of varientNameOptionList; track $index) {
+                                                            <mat-option [value]="item.id">
+                                                                {{ item.name }}
+                                                            </mat-option>
+                                                            }@empty {
+                                                            <mat-option disabled>No data</mat-option>
+                                                            }
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="data_container_right variant_container_right">
+                                            <div class="container">
+                                                <div class="d-flex justify-content-between">
+                                                    <h6 class="selected_variant_name">{{(!varientNameObj?.name) ?
+                                                        'Varient Name':
+                                                        varientNameObj?.name}}
+                                                    </h6>
+                                                </div>
+                                                <ul class="responsive_list_outside d-flex flex-wrap">
+                                                    @for (varientOption of selectedVarientOptionList; track $index) {
+                                                    <li class="mx-2">{{varientOption.name}}</li>
+                                                    }@empty {
+                                                    <li>No Data Found.</li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                            <div class="reset_button">
+                                                <button class="reset-btn" (click)="reset()">Reset</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- end - Add varient section 1 -->
+
+                                <!-- sart - Add varient section 2 -->
+                                @if (isShowVarient2) {
+                                <div class="category_filter">
+                                    <div class="open_add_variants d-flex justify-content-between align-items-center">
+                                        <div class="left_add_variants">
+                                            <h6 class="second_variant_heading">Add Second Variant<span
+                                                    class="text-secondary">
+                                                    (Optional)</span>
+                                            </h6>
+                                            <span class="m-0">Add variant if product has more than two</span>
+                                        </div>
+                                        <div class="right_add_variants">
+                                            <button class="second_variant_heading filter2_button h6 mb-2"
+                                                (click)="showHide()">Add
+                                                Second Variant <img src="images/add-circle-trans.png"
+                                                    alt="image"></button>
+                                        </div>
+                                    </div>
+                                    @if (isShowHideVarient) {
+                                    <div class="d-flex category_filter_container">
+                                        <div class="data_container_left">
+                                            <div class=" mt-4">
+                                                <div class="category_name_input">
+                                                    <h6 class="category_name_input_heading">Select Varient Name</h6>
+                                                    <mat-form-field style="width: 100%;">
+                                                        <mat-label>Select</mat-label>
+                                                        <mat-select formControlName="varientName2"
+                                                            (selectionChange)="onChangeVarientName2()">
+                                                            @for (varient of varientName2list; track $index) {
+                                                            <mat-option
+                                                                [value]="varient.id">{{varient.name}}</mat-option>
+                                                            }
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="mt-4">
+                                                <div class="category_name_input">
+                                                    <h6 class="category_name_input_heading">Select Variant Option Names
+                                                    </h6>
+                                                    <mat-form-field style="width: 100%;">
+                                                        <mat-label>Select</mat-label>
+                                                        <mat-select formControlName="varientOption2" multiple
+                                                            (selectionChange)="isSelectedVarientOption2($event)">
+                                                            @for(varient2 of varientNameOption2List; track $index){
+                                                            <mat-option [value]="varient2.id">
+                                                                {{ varient2.name }}
+                                                            </mat-option>
+                                                            }@empty {
+                                                            <mat-option disabled>No data</mat-option>
+                                                            }
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="data_container_right">
+                                            <div class="container">
+                                                <div class="d-flex justify-content-between">
+                                                    <h6 class="selected_variant_name">{{(!varientName2Obj?.name) ?
+                                                        'Varient Name':
+                                                        varientName2Obj?.name}}
+                                                    </h6>
+                                                </div>
+                                                <ul class="responsive_list_outside d-flex flex-wrap">
+                                                    @for (item of selectedVarientOption2List; track $index) {
+                                                    <li class="mx-2">{{item.name}}</li>
+                                                    }@empty {
+                                                    <li>No Data Found.</li>
+                                                    }
+
+                                                </ul>
+                                            </div>
+                                            <div class="reset_button">
+                                                <button class="reset-btn" (click)="resetVarient2()">Reset</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    }
+                                </div>
+                                }}
+
+                                @if (isShowVarientSection) {
+                                <div class="category_filter">
+                                    @if(!productDetailId){
+                                    <div class="d-flex justify-content-start save_filter_button">
+                                        <button mat-raised-button class="back-btn"
+                                            (click)="back()"><mat-icon>arrow_back</mat-icon> Back</button>
+                                    </div>
+                                    }
+                                    <h6 class="category_filter_heading">Review(n) Varients</h6>
+                                    <div class="d-flex category_filter_container">
+                                        <div class="category-spacer category-spacer-2">
+
+
+                                            @if(!combinedVarientList[0]?.combineVarientList.length){
+                                            <div class="category_filter">
+                                                <h6 class="category_filter_heading">
+                                                    {{varientNameObj?.name}}({{combinedVarientList.length}})</h6>
+                                                <div class="d-flex category_filter_container">
+                                                    <div class="row">
+                                                        <div class="">
+                                                            <ul style="width: 300px;" class="mt-2 responsive-list">
+                                                                @for (combine of combinedVarientList; track $index) {
+                                                                <li
+                                                                    class="d-flex justify-content-between align-items-center">
+                                                                    {{combine.name}}
+                                                                    <button class="add_data_for_each_variant"
+                                                                        (click)="openInsertDialog(combine, null)">
+                                                                        <mat-icon
+                                                                            class="edit_variant_info2">edit</mat-icon>
+                                                                    </button>
+                                                                    <!-- <div class="switch-container">
+                                                                        <label class="switch">
+                                                                            <input type="checkbox" id="toggleSwitch"
+                                                                                [(ngModel)]="combine.isActive"
+                                                                                (change)="onCheckboxChange($event, combine)"
+                                                                                [ngModelOptions]="{standalone: true}">
+                                                                            <span class="slider"></span>
+                                                                        </label>
+
+                                                                    </div> -->
+                                                                </li>
+                                                                }@empty {
+                                                                <li>No Data Found</li>
+                                                                }
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            }@else {
+                                            @for (combine of combinedVarientList; track $index) {
+                                            <div class="category_filter">
+                                                <h6 class="category_filter_heading">
+                                                    {{combine.name}}({{combine.combineVarientList?.length}})</h6>
+                                                <div class="d-flex category_filter_container">
+                                                    <div class="row">
+                                                        <div class="">
+                                                            @for( combineVarientOption of combine.combineVarientList;
+                                                            track
+                                                            $index){
+                                                            <ul style="width: 300px;" class="mt-2 responsive-list">
+                                                                <li
+                                                                    class="d-flex justify-content-between align-items-center">
+                                                                    {{combine.name}}-{{combineVarientOption.name}}
+                                                                    <button class="add_data_for_each_variant"
+                                                                        (click)="openInsertDialog(combine, combineVarientOption)">
+                                                                        <mat-icon class="edit_variant_info2">edit</mat-icon></button>
+                                                                    <!-- <div class="switch-container">
+                                                                        <label class="switch">
+                                                                            <input type="checkbox" id="toggleSwitch"
+                                                                                [(ngModel)]="combineVarientOption.isActive"
+                                                                                (change)="onCheckboxChange($event, combineVarientOption)"
+                                                                                [ngModelOptions]="{standalone: true}">
+                                                                            <span class="slider"></span>
+                                                                        </label>
+
+                                                                    </div> -->
+                                                                </li>
+                                                            </ul>
+                                                            }@empty {
+                                                            <li>No Varient Found</li>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                }
+                                <!-- end - Add varient section 2 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if(selectedVarientOptionList.length > 0){
+                @if (!isShowVarientSection) {
+                <div class="d-flex justify-content-start save_filter_button">
+                    <button class="Save" (click)="reviewVarients()">Review(n) Varients</button>
+                </div>
+                }}
+                @if(!productDetailId){
+                <div class="save_filter_button">
+                    <button class="Save" (click)="createUpdateProduct()">Add</button>
+                    <button class="ms-2 Save bg-color" (click)="cancel()">Reset</button>
+                </div>
+                }
+            </div>
+        </form>
+    </div>
+</div>

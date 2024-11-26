@@ -1,0 +1,192 @@
+<div class="products">
+    <div class="products-header">
+
+        <h3 class="products-heading">PRODUCTS</h3>
+
+        <div class="header-right">
+            <div class="entries-info">
+                <div class="search cstm_search search_entries_info">
+                    <mat-form-field>
+                        <input class="search-entry" matInput [formControl]="searchControl"
+                            placeholder="Enter search term">
+                        <div class="search-btn1">
+                            <mat-icon>search</mat-icon>
+                        </div>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="btn-add">
+                <button mat-raised-button class="add" routerLink="/product/add-product">
+                    Add Product <img src="images/add-circle-trans.png" alt="image">
+                </button>
+            </div>
+
+            <div class="btn-export">
+                <button mat-raised-button class="export">Export CSV
+                    <img src="images/export.png" alt="image">
+                </button>
+            </div>
+            <div class="btn-import">
+                <button mat-raised-button class="import">Import CSV
+                    <img src="images/import.png" alt="image">
+                </button>
+            </div>
+
+            <!--  Commented to meet the current Requirements. Create Order Component Open from here 
+            <div class="btn-add">
+                <button class="add" routerLink="oredrs/create_orders" (click)="onAddOrderOpen()">Add
+                    <img src="images/add-circle-trans.png" alt="image">
+                </button>
+            </div> -->
+
+        </div>
+    </div>
+    <div class="table-data">
+
+        <div class="products-data">
+            <div class="mat-elevation-z8 table-container">
+                <table mat-table [dataSource]="dataSource" matSort>
+
+                    <!-- Order No. Column -->
+                    <ng-container matColumnDef="serial_number">
+                        <th mat-header-cell *matHeaderCellDef>Product ID</th>
+                        <td mat-cell *matCellDef="let element" matTooltip="{{element.id}}">
+                            {{ element.id | truncate:6}}
+                        </td>
+                    </ng-container>
+
+                    <!--  Product Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
+                        <td class="product-name" mat-cell
+                            *matCellDef="let element" [matTooltip]="element.name">
+                            {{element.name| truncate:50}} </td>
+                    </ng-container>
+
+                    <!-- Category Name Column -->
+                    <ng-container matColumnDef="categoryName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+                        <td mat-cell *matCellDef="let element"> {{element.categoryName}} </td>
+                    </ng-container>
+
+                    <!-- Sub Category Name Column -->
+                    <ng-container matColumnDef="subCategoryName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Sub Category </th>
+                        <td mat-cell *matCellDef="let element"> {{element.subCategoryName}} </td>
+                    </ng-container>
+                    <!-- Sub SubCategory Column -->
+                    <ng-container matColumnDef="thirdLevelCateogoryName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Sub Sub Category </th>
+                        <td mat-cell *matCellDef="let element"> {{element.thirdLevelCateogoryName}}</td>
+                    </ng-container>
+
+                    <!-- Merchant Name Column -->
+                    <!-- <ng-container matColumnDef="merchantName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Merchant Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.merchantName}} </td>
+                    </ng-container> -->
+
+                    <!-- Price Column -->
+                    <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price ($) </th>
+                        <td mat-cell *matCellDef="let element"> {{element.price | inrToUsd}} </td>
+                    </ng-container>
+                    <!-- Discount Column -->
+                    <ng-container matColumnDef="discount">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Discount (%) </th>
+                        <td mat-cell *matCellDef="let element"> {{element.discount}} </td>
+                    </ng-container>
+
+                    <!-- Description Column -->
+                    <!-- <ng-container matColumnDef="description">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+                        <td mat-cell *matCellDef="let element" matTooltip="{{element.description}}"> {{element.description| truncate:50}} </td> -->
+                    <!-- </ng-container> -->
+
+                    <!-- Image Column -->
+                    <ng-container matColumnDef="thumbnail">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
+                        <td mat-cell *matCellDef="let element"> <img class="table_image" src="{{element.thumbnail}}"
+                                alt="Error Loading Image"></td>
+                    </ng-container>
+
+                    <!-- Status Column -->
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status</th>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-slide-toggle class="custom-slide-toggle" [(ngModel)]="element.status"
+                                (change)="onToggleChange(element)">
+                            </mat-slide-toggle>
+                        </td>
+                    </ng-container>
+
+
+                    <!-- Action Column -->
+                    <!-- <ng-container matColumnDef="Action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action</th>
+                        <td mat-cell *matCellDef="let element"> 
+                        </td>
+                    </ng-container> -->
+
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="category-edit-btn">
+                                <mat-card>
+                                    <mat-card-content>
+                                        <section>
+                                            <mat-menu #menu1="matMenu" class="mat-menu">
+                                                <button [routerLink]="['/product/view-product-Detail', element.id]"
+                                                    class="edit-btn all-menu-btn" mat-menu-item>
+                                                    View
+                                                </button>
+
+                                                <button [routerLink]="['/product/update-product', element.id]"
+                                                    class="edit-btn all-menu-btn" mat-menu-item>
+                                                    Edit
+                                                </button>
+
+                                                <button (click)="deleteProductById(element.id)"
+                                                    class="edit-btn all-menu-btn" mat-menu-item>
+                                                    Delete
+                                                </button>
+
+                                            </mat-menu>
+
+                                            <button mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Open Menu">
+                                                <mat-icon>more_vert</mat-icon>
+                                            </button>
+                                        </section>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </td>
+                    </ng-container>
+
+                    <!-- Header Row -->
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+                    <!-- Data Rows -->
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat_cell_no_data text-center" colspan="11">
+                            {{'paginator.range_page_label_1' | translate}}
+                        </td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+        <div class="products-footer">
+            <mat-paginator class="products-pagination" #paginator1 [length]="totalItems1"
+                [pageSizeOptions]="[5, 10, 20]" (page)="onPageChange($event, 'productList')"
+                aria-label="Select page of periodic elements" showFirstLastButtons>
+            </mat-paginator>
+        </div>
+    </div>
+</div>

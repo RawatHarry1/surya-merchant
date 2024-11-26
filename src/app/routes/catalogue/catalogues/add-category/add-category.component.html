@@ -1,0 +1,112 @@
+<div class="category-spacer">
+    <div class="category-header">
+        <div class="left-category">
+            <span class="category-text">CREATE CATEGORY</span>
+        </div>
+        <div class="right-category">
+            <button class="back_button" (click)="goBack()"><mat-icon>arrow_back</mat-icon>Back</button>
+        </div>
+    </div>
+    <!-- <form #categoryForm="ngForm"> -->
+        <div class="category_name_image">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="category_name_input">
+                        <h6 class="category_name_input_heading">Category Name <span class="text-danger h4">*</span></h6>
+                        <mat-form-field>
+                            <input type="text" matInput id="category_name_input" placeholder="Enter Name"
+                                [(ngModel)]="categoryName" name="categoryName" required #categoryNameInput="ngModel" />
+                            <!-- formControlName="categoryName" /> -->
+                        </mat-form-field>
+                        <mat-error
+                            *ngIf="categoryNameInput.invalid && (categoryNameInput.dirty || categoryNameInput.touched)">
+                            <span *ngIf="categoryNameInput.errors?.required">Category Name is required.</span>
+                        </mat-error>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <h6 class="category_image_input_heading">Category Image <span class="text-danger h4">*</span></h6>
+                    <div class="category_image_input">
+                        <!-- Selected Images Preview -->
+                        <div class="preview" *ngIf="selectedFiles.thumbnail">
+                            <div class="image-container">
+                                <span class="delete-icon" (click)="removeSelectedFile()">
+                                    <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                </span>
+                                <img class="preview-images" [src]="selectedFiles.thumbnail" alt="Image" />
+                            </div>
+                        </div>
+
+                        <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="category_filter">
+            <h6 class="category_filter_heading">Category Filter</h6>
+            <div class="category_filter_container">
+                <div class="category_filter_add_action" *ngFor="let section of filterSections; let i = index">
+                    <div class="add_filter_heading_content">
+                        <h6 class="add_filter_input_heading">Filter Name <span class="text-danger h4">*</span></h6>
+                        <div class="category_filter_add">
+                            <div class="add_filter_input">
+                                <mat-form-field>
+                                    <input type="text" matInput id="add_filter_input" placeholder="Enter Filter Type"
+                                        [(ngModel)]="section.filterName" (ngModelChange)="checkDuplicateFilterName(i)"
+                                        name="filterName" required #filterNameInput="ngModel" />
+                                </mat-form-field>
+                                <mat-error
+                                    *ngIf="filterNameInput.invalid && (filterNameInput.touched)">
+                                    <span *ngIf="filterNameInput.errors?.required">Filter Name is required.</span>
+                                </mat-error>
+                            </div>
+
+                            <div class="add_filter_button">
+                                <button class="add" (click)="openAddFilter(i)">
+                                    <img src="images/add-circle-trans.png" alt="add">
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="add_category_chips" *ngIf="section.chips.length > 0">
+                            <mat-chip-set aria-label="Filter selection" class="chip-set">
+                                <mat-chip class="chip" *ngFor="let chip of section.chips" [removable]="true"
+                                    (removed)="removeChip(chip, i)">
+                                    <span *ngIf="chip.image.thumbnail">
+                                        <img matChipAvatar [src]="chip.image.thumbnail"
+                                            alt="Photo of {{ chip.name }}" />
+                                    </span>
+                                    {{ chip.name }}
+                                    <mat-icon matChipRemove>cancel</mat-icon>
+                                </mat-chip>
+                            </mat-chip-set>
+                        </div>
+                    </div>
+
+
+                    <div class="action_filter">
+                        <div class="add_more_filter">
+                            <button class="add" (click)="addFilterSection()" *ngIf="(filterSections.length)-1==i">
+                                <img src="images/add-circle-trans.png" alt="add">
+                            </button>
+                        </div>
+                        <div class="delete_filter">
+                            <button class="delete" (click)="removeFilterSection(i)"
+                                [disabled]="(filterSections.length)==1">
+                                <mat-icon>delete_forever</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="save_filter_button">
+            <button class="Save" type="submit" (click)="saveCategory()">Save</button>
+            <button class="reset ms-3" (click)="resetCategory()">Reset</button>
+        </div>
+    <!-- </form> -->
+</div>

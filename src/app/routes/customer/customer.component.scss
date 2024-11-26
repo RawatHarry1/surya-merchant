@@ -1,0 +1,87 @@
+.customer {
+    padding: 0 30px;
+    height: 90vh;
+
+    .customer_header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .header_left {
+            display: flex;
+            justify-content: start;
+
+            .customer_heading {
+                padding: 5px 0 0 0px;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+        }
+
+        .header_right {
+            position: absolute;
+            right: 0px;
+            display: flex;
+            align-items: center;
+
+            .customer_right_header {
+                .search_entries_info {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .search-btn1 {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+
+            .btn-add {
+                margin: 0 0 0 15px;
+
+                .add {
+                    border: none;
+                    color: var(--primary-color-white-shade);
+                    font-weight: 500;
+                    font-size: 0.9rem;
+                    border-radius: 6px;
+                    padding: 8px 6px;
+                    background-color: var(--button-background-color-shade);
+                }
+            }
+        }
+    }
+
+    .user_table_data {
+
+        .table_container {
+            overflow: auto;
+            max-width: 100%;
+            max-height: 70vh;
+
+            .customer_image {
+                height: 70px;
+                border-radius: 8px;
+                padding: 3px;
+            }
+
+            .customer-icon {
+                font-size: 70px;
+                height: 70px;
+                width: 70px;
+            }
+
+            .cstm_gender {
+                font-weight: 900;
+            }
+
+            .gndr_space {
+                gap: 4px;
+            }
+        }
+    }
+}

@@ -1,0 +1,79 @@
+<div class="edit_profile-header">
+    <div class="edit_profile-header-spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2">Edit Personal Information</h2>
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+        <div class="edit_profile-form mt-4">
+            <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+                <div class="name_edit_row">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="first_name">
+                                <mat-form-field class="add-first-name-form" appearance="outline">
+                                    <mat-label>First Name</mat-label>
+                                    <input matInput id="first-name" placeholder="Enter First Name"
+                                        formControlName="fristName" />
+                                </mat-form-field>
+                                @if(editProfileForm.get('fristName')?.hasError('required')&&
+                                editProfileForm.get('fristName')?.touched){ <mat-error>
+                                    {{ 'validations.required' | translate }}
+                                </mat-error>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="last_name">
+                                <mat-form-field class="add-last-name-form" appearance="outline">
+                                    <mat-label>Last Name</mat-label>
+                                    <input matInput id="last-name" placeholder="Enter Last Name"
+                                        formControlName="lastName" />
+                                </mat-form-field>
+                                @if(editProfileForm.get('lastName')?.hasError('required')&&
+                                editProfileForm.get('lastName')?.touched){ <mat-error>
+                                    {{ 'validations.required' | translate }}
+                                </mat-error>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image_edit_row">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="upload_file mt-3">
+                                <h6 class="category_image_input_heading">Sub SubCategory Image <span
+                                        class="text-danger h4">*</span></h6>
+                                <div class="category_image_input">
+                                    <!-- Selected Images Preview -->
+                                    <div class="preview" *ngIf="selectedImage?.thumbnail">
+                                        <div class="image-container">
+                                            <span class="delete-icon" (click)="removeSelectedFile()">
+                                                <mat-icon aria-hidden="false" aria-label="clear"
+                                                    fontIcon="clear"></mat-icon>
+                                            </span>
+                                            <img class="preview-images" [src]="selectedImage?.thumbnail" alt="Image" />
+                                        </div>
+                                    </div>
+                                    <input type="file" #fileInput (change)="onFileSelected($event)"
+                                        formControlName="image" accept="image/*" />
+                                </div>
+                                @if(editProfileForm.get('image')?.hasError('required')&&
+                                editProfileForm.get('image')?.touched){ <mat-error>
+                                    {{ 'validations.required' | translate }}
+                                </mat-error>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" (click)="closeDialog()">Cancel</button>
+                    <button type="submit" class="add-button">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

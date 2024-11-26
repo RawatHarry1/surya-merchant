@@ -1,0 +1,118 @@
+.billing {
+    padding: 0 30px;
+
+    .billing_header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .header_left {
+            display: flex;
+            justify-content: start;
+
+            .billing_heading {
+                padding: 5px 0 0 0px;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .billing_info,
+    .card_details {
+        margin-top: 20px;
+        padding: 20px 20px;
+        box-shadow: 0 0 20px -6px;
+
+        .billing_info_heading_text,
+        .billing_plan_type_text,
+        .billing_expiry_date_text,
+        .card_details_heading_text {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .billing_plan_heading_text,
+        .billing_expiry_heading_text{
+            color: var(--light-shade-text-gray-shade);
+        }
+    }
+
+    .billing_plan,
+    .billing_expiry {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .action_btn {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        height: 100%;
+
+        .add_card_btn,
+        .change_plan_btn {
+            padding: 8px 18px;
+            width: 135px;
+            background-color: var(--background-color-blue-shade);
+            border-radius: 5px;
+            color: var(--primary-color-white-shade);
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: var(--background-color-blue-shade) 0px 14px 23px -14px;
+        }
+    }
+
+}
+
+/* ----------------Table Header of the Marchant  Table ------------------ */
+::ng-deep .billing .mat-mdc-header-cell {
+    background-color: black !important;
+    color: var(--primary-color-white-shade);
+}
+
+/* Table Header Color Change */
+.billing .mat-mdc-table .mat-mdc-header-cell {
+    color: var(--primary-color-white-shade) !important;
+}
+
+.billing .mat-table {
+    width: 100%;
+}
+
+/* Set sort arrow color to  var( --primary-color-white-shade) */
+::ng-deep .billing .mat-sort-header-arrow {
+    color: var(--primary-color-white-shade) !important;
+}
+
+/* Set sort arrow color to  var( --primary-color-white-shade) END */
+
+/*   This is the Pagination css to over ride the Mat UI*/
+
+::ng-deep.billing-pagination .mat-mdc-paginator-container {
+    justify-content: space-between !important;
+    width: 100% !important;
+}
+
+
+::ng-deep.billing-pagination .mat-mdc-icon-button {
+    background-color: var(--secondary-color-orange-shade);
+    border-radius: 10px !important;
+    margin: 0 4px 0 0;
+    // fill: white !important;
+}
+
+::ng-deep.billing-pagination .mat-mdc-paginator-icon {
+    fill: var(--primary-color-white-shade) !important;
+}

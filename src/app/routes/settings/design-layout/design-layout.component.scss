@@ -1,0 +1,242 @@
+.design_layout {
+    padding: 0 30px;
+
+    .design_layout_header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .header_left {
+            display: flex;
+            justify-content: start;
+
+            .design_layout_heading {
+                padding: 5px 0 0 0px;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+        }
+    }
+
+    .layout,
+    .delivery_icons,
+    .visibility {
+        display: flex;
+
+        .layout_left_heading,
+        .delivery_icons_left_heading,
+        .visibility_left_heading {
+            margin: 0;
+            padding: 10px 0;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .layout_right_info_text,
+        .delivery_icons_right_info_text,
+        .visibility_right_info_text {
+            margin: 0;
+            padding: 20px 0;
+
+        }
+    }
+
+    .design_layout_content {
+
+        box-shadow: 0 0 50px -20px;
+
+        .banner_image,
+        .homepage,
+        .homepage_mobile,
+        .header_color,
+        .theme_color,
+        .rating_bar_color,
+        .landing_page,
+        .default_location,
+        .toggle_switch,
+        .home_delivery,
+        .tag_line,
+        .websit_title {
+            padding: 0 25px;
+            margin-top: 25px;
+        }
+
+        .banner_image_heading,
+        .homepage_heading,
+        .homepage_mobile_heading,
+        .header_color_heading,
+        .theme_color_heading,
+        .rating_bar_color_heading,
+        .landing_page_heading,
+        .default_location_heading,
+        .toggle_switch_heading,
+        .home_delivery_heading,
+        .tag_line_heading,
+        .websit_title_heading {
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            .banner_image_heading_text,
+            .homepage_heading_text,
+            .homepage_mobile_heading_text,
+            .header_color_heading_text,
+            .theme_color_heading_text,
+            .rating_bar_color_heading_text,
+            .landing_page_heading_text,
+            .default_location_heading_text,
+            .toggle_switch_heading_text,
+            .home_delivery_heading_text,
+            .tag_line_heading_text,
+            .websit_title_heading_text {
+                font-weight: 700;
+                margin: 0;
+
+            }
+        }
+
+        .upload-file {
+            height: 130px;
+            display: flex;
+            align-items: center;
+
+            input {
+                width: 100%;
+                box-shadow: 0px 0px 20px -7px;
+            }
+
+            .preview {
+                display: contents;
+
+                .preview-images {
+                    max-width: 180px;
+                    max-height: 130px;
+                    margin-top: 10px;
+                    height: 125px;
+                    margin: 0 5px;
+                }
+
+                .image-container {
+                    height: 125px;
+                    display: flex;
+
+                    .delete-icon {
+                        cursor: pointer;
+                        font-size: 1.3rem;
+                    }
+                }
+
+            }
+        }
+
+        .select_color {
+            .select_color_heading {
+                padding: 0 10px;
+                margin: 0;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: var(--light-shade-text-gray-shade);
+            }
+        }
+
+        .custom_slide {
+            display: flex;
+            justify-content: end;
+        }
+
+        .banner_image,
+        .homepage,
+        .homepage_mobile,
+        .home_delivery {
+            margin: 0;
+        }
+    }
+
+    .visibility_toggle_switch {
+        padding: 0 25px;
+    }
+
+}
+
+
+/*  InPut CSS OverRide Start*/
+::ng-deep .design_layout .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    display: none;
+}
+
+::ng-deep .design_layout .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--mdc-filled-text-field-container-color);
+    border-radius: 14px;
+}
+
+
+::ng-deep .design_layout mat-form-field.mat-mdc-form-field.mat-mdc-form-field-type-mat-input.mat-form-field-appearance-fill.mat-primary {
+    width: 100%;
+    border-radius: 10px;
+}
+
+::ng-deep .design_layout .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--input-background-color-gray-shade) !important;
+}
+
+::ng-deep .design_layout .mdc-line-ripple {
+    display: none;
+}
+
+/*  InPut CSS OverRide End*/
+
+::ng-deep .custom-slide-toggle {
+    /* Adjust the overall size of the toggle */
+    transform: scale(0.7);
+    /* Scale the entire toggle component */
+
+
+    /* Adjust padding and margin if needed */
+    margin: 8px;
+    padding: 2px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-thumb {
+    /* Resize the toggle knob */
+    width: 15px;
+    height: 15px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-bar {
+    /* Resize the toggle track */
+    width: 40px;
+    /* Adjust the width */
+    height: 20px;
+    /* Adjust the height */
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-label {
+    font-size: 1.5rem !important;
+}
+
+::ng-deep .banners-dialog .mat-mdc-slide-toggle .mdc-switch:enabled+.mdc-label {
+    /* Adjust the label font size if needed */
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0 15px 0 0;
+}
+
+
+
+
+/* Checked state color styles */
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}
+
+
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}

@@ -1,0 +1,255 @@
+<div class="merchants">
+    <div class="merchants-header">
+        <h3 class="merchants-heading">Add Merchant</h3>
+        <h2 class="heading_h2" *ngIf="isAddOpen &&!isEditOpen">Add Merchant</h2>
+        <h2 class="heading_h2" *ngIf="isEditOpen">Edit Merchant</h2>
+        <div class="header-right">
+            <div class="back_btn">
+                <button class="back_button" (click)="goBack()"><mat-icon>arrow_back</mat-icon>Back</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="merchant-form">
+        <form [formGroup]="merchantForm" (ngSubmit)="onAdd() ">
+            <div class="first-row">
+                <div class="details_heading">
+                    <span class="h4 m-0">Business Details</span>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="name">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Business Name</mat-label>
+                                <input matInput id="name" placeholder="Enter Business Name"
+                                    formControlName="businessName" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="business-Type">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Business Type</mat-label>
+                                <input matInput id="businessType" placeholder="Enter" formControlName="businessType" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="merchant-name">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Owner Name</mat-label>
+                                <input matInput id="merchant-name" placeholder="Enter Owner Name"
+                                    formControlName="ownerName" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="merchant-phone">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Phone</mat-label>
+                                <input matInput type="number" id="merchantPhone" placeholder="Enter"
+                                    formControlName="phone" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="merchant-email">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Email</mat-label>
+                                <input matInput type="email" id="merchantEmail" placeholder="Enter"
+                                    formControlName="email" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="merchant-address">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Address</mat-label>
+                                <input matInput id="merchantAddress" placeholder="Enter" formControlName="address" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="second_row">
+                <div class="details_heading">
+                    <span class="h4 m-0">Operational Information</span>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="merchant-availability">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Availability Hours</mat-label>
+                                <input matInput id="merchant-availability" placeholder="Enter Availability Hours"
+                                    formControlName="availability" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="merchant-serviceType">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Service Type</mat-label>
+                                <input matInput id="merchant-serviceType" placeholder="Enter Service Type"
+                                    formControlName="serviceType" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="merchant-businessCategory">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Cuisine or Business Category </mat-label>
+                                <input matInput id="merchant-businessCategory"
+                                    placeholder="Enter Cuisine or Business Category"
+                                    formControlName="businessCategory" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="third_row">
+                <div class="details_heading">
+                    <span class="h4 m-0">Bank Details</span>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="merchant-bankName">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Bank Name</mat-label>
+                                <input matInput id="merchant-bankName" placeholder="Enter Bank Name"
+                                    formControlName="bankName" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="merchant-accountHolderName">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Account Holder Name</mat-label>
+                                <input matInput id="merchant-accountHolderName" placeholder="Enter Account Holder Name"
+                                    formControlName="accountHolderName" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="merchant-accountNumber">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Account Number</mat-label>
+                                <input matInput id="merchant-accountNumber"
+                                    placeholder="Enter Cuisine or Business Category" formControlName="accountNumber" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="merchant-ifscCode">
+                            <mat-form-field appearance="outline">
+                                <mat-label>IFSC Code</mat-label>
+                                <input matInput id="merchant-ifscCode" placeholder="Enter IFSC Code"
+                                    formControlName="ifscCode" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fourth_row">
+                <div class="details_heading d-flex flex-column">
+                    <span class="h4 m-0">Identification Documents <span class="text-danger h4">*</span></span>
+                    <span class="h6 m-0">Note: Please enter document number and Image both for the Succesfull
+                        registration</span>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="merchant-businessLicenseNumber">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Business License Number</mat-label>
+                                <input matInput type="number" id="merchant-businessLicenseNumber"
+                                    placeholder="Enter Business License Number"
+                                    formControlName="businessLicenseNumber" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="merchant-businessLicenseImage">
+                            <div class="upload_file">
+                                <!-- <mat-label class="subCategory_image_input_heading">Business License Image <span
+                                        class="text-danger h4">*</span>
+                                </mat-label> -->
+                                <div class="merchant_image_input">
+                                    <!-- Selected Images Preview -->
+                                    <div class="preview" *ngIf="selectedFiles.thumbnail">
+                                        <div class="image-container">
+                                            <span class="delete-icon" (click)="removeSelectedFile()">
+                                                <mat-icon aria-hidden="false" aria-label="clear"
+                                                    fontIcon="clear"></mat-icon>
+                                            </span>
+                                            <img class="preview-images" [src]="selectedFiles.thumbnail" alt="Image" />
+                                        </div>
+                                    </div>
+                                    <input type="file" #fileInput (change)="onFileSelected($event)"
+                                        formControlName="businessLicenseImage" accept="image/*" />
+                                </div>
+                                <mat-error
+                                    *ngIf="merchantForm.get('businessLicenseImage')?.hasError('required') && merchantForm.get('businessLicenseImage')?.touched">
+                                    Image is required
+                                </mat-error>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="merchant-taxIdentificationNumber">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Tax Identification Number</mat-label>
+                                <input matInput type="number" id="merchant-taxIdentificationNumber"
+                                    placeholder="Enter Tax Identification Number"
+                                    formControlName="taxIdentificationNumber" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="merchant-taxIdentificationImage">
+                            <div class="upload_file">
+                                <!-- <mat-label class="subCategory_image_input_heading">Tax Identification Image<span
+                                        class="text-danger h4">*</span>
+                                </mat-label> -->
+                                <div class="merchant_image_input">
+                                    <!-- Selected Images Preview -->
+                                    <div class="preview" *ngIf="selectedFiles2.thumbnail">
+                                        <div class="image-container">
+                                            <span class="delete-icon" (click)="removeSelectedFile2()">
+                                                <mat-icon aria-hidden="false" aria-label="clear"
+                                                    fontIcon="clear"></mat-icon>
+                                            </span>
+                                            <img class="preview-images" [src]="selectedFiles2.thumbnail" alt="Image" />
+                                        </div>
+                                    </div>
+                                    <input type="file" #fileInput2 (change)="onFileSelected2($event)"
+                                        formControlName="taxIdentificationImage" accept="image/*" />
+                                </div>
+                                <mat-error
+                                    *ngIf="merchantForm.get('taxIdentificationImage')?.hasError('required') && merchantForm.get('taxIdentificationImage')?.touched">
+                                    Image is required
+                                </mat-error>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="add-banner">
+
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="add-button" *ngIf="isAddOpen">Add</button>
+                <button type="submit" class="add-button" *ngIf="isEditOpen">Save</button>
+                <button type="submit" class="add-button">Add</button>
+            </div>
+        </form>
+    </div>
+</div>

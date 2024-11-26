@@ -1,0 +1,203 @@
+.delivery {
+    padding: 0 30px;
+    height: 90vh;
+
+    .delivery_header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .header_left {
+            display: flex;
+            justify-content: start;
+
+            .delivery_heading {
+                padding: 5px 0 0 0px;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+        }
+    }
+
+    .delivery_modes,
+    .delivery_time,
+    .distance_wise,
+    .free_delivery,
+    .merchant_delivery_management_by_surya,
+    .external_delivery_charge,
+    .delivery_charge,
+    .merchant_wise_delivery_charge,
+    .estimate_time_of_arrival,
+    .tip {
+        border-bottom: 1px solid var(--border-color-gray-shade);
+        padding: 10px 0;
+
+        .delivery_left {
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            .delivery_left_heading {
+                font-size: 1rem;
+                font-weight: 700;
+            }
+        }
+
+        .delivery_right {
+            .delivery_instruction_with_toggle {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .delivery_instruction_text {
+                    font-size: 0.95rem;
+                    margin: 0;
+                    padding-bottom: 10px;
+                }
+            }
+
+            .delivery_time_input_heading,
+            .delivery_charge_input_heading,
+            .mappr_key_input_heading,
+            .minimum_tip_percent_input_heading {
+                color: var(--light-shade-text-gray-shade);
+            }
+
+            .form-actions {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                width: 100%;
+                padding-top: 15px;
+                // border-bottom: 30px solid transparent;
+
+
+                .cancel-button {
+                    padding: 8px 18px;
+                    background-color: var(--cancel-button-red-color-shade);
+                    border-radius: 5px;
+                    width: 130px;
+                    color: var(--primary-color-white-shade);
+                    border: none;
+                    font-size: 1.1rem;
+                }
+
+                .add-button {
+                    padding: 8px 18px;
+                    background-color: var(--background-color-blue-shade);
+                    border-radius: 5px;
+                    width: 130px;
+                    color: var(--primary-color-white-shade);
+                    border: none;
+                    font-size: 1.1rem;
+                }
+
+            }
+
+            .fixed_amount,
+            .tip_options {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+
+/*  ----- Specific Slide toggle Size CSS------*/
+::ng-deep .custom-slide-toggle {
+    /* Adjust the overall size of the toggle */
+    transform: scale(0.7);
+    /* Scale the entire toggle component */
+
+
+    /* Adjust padding and margin if needed */
+    margin: 8px;
+    padding: 2px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-thumb {
+    /* Resize the toggle knob */
+    width: 15px;
+    height: 15px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-bar {
+    /* Resize the toggle track */
+    width: 40px;
+    /* Adjust the width */
+    height: 20px;
+    /* Adjust the height */
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-label {
+    font-size: 1.5rem !important;
+}
+
+::ng-deep .banners-dialog .mat-mdc-slide-toggle .mdc-switch:enabled+.mdc-label {
+    /* Adjust the label font size if needed */
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0 15px 0 0;
+}
+
+/* Checked state color styles */
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}
+
+
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}
+
+
+/* -------- To Remove the UP and Down Arow in the Input Type Number Starts----------*/
+/* Hide the spinner (up and down arrows) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* -------- To Remove the UP and Down Arow in the Input Type Number End----------*/
+
+
+/*  InPut CSS OverRide Start*/
+::ng-deep .delivery .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    display: none;
+}
+
+::ng-deep .delivery .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--mdc-filled-text-field-container-color);
+    border-radius: 14px;
+}
+
+
+::ng-deep .delivery mat-form-field.mat-mdc-form-field.mat-mdc-form-field-type-mat-input.mat-form-field-appearance-fill.mat-primary {
+    width: 100%;
+    border-radius: 10px;
+}
+
+::ng-deep .delivery .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--input-background-color-gray-shade) !important;
+}
+
+::ng-deep .delivery .mdc-line-ripple {
+    display: none;
+}
+
+/*  InPut CSS OverRide End*/

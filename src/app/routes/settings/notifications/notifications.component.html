@@ -1,0 +1,194 @@
+<div class="notification">
+    <div class="notification_header">
+        <div class="header_left">
+            <h3 class="notification_heading">NOTIFICATION SETTINGS</h3>
+        </div>
+        <div class="header_right">
+            <div class="customer_right_header">
+                <div class="search cstm_search search_entries_info">
+                    <mat-form-field>
+                        <input class="search-entry" matInput [formControl]="searchControl"
+                            placeholder="Search for Customer">
+                        <div class="search-btn1">
+                            <mat-icon>search</mat-icon>
+                        </div>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="info_notification">
+        <span class="m-0 h5">Note: </span>
+        <span class="m-0 h6"> Select from below the type of notifications you want to send.</span>
+    </div>
+    <form [formGroup]="notificationForm" (ngSubmit)="onSubmit() ">
+        <div class="notification_data">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="send_notification">
+                        <div class="send_notification_heading mt-2">
+                            <span class="m-0 h5">Send Notification</span>
+                        </div>
+                        <div class="send_notification_via">
+                            <mat-radio-group class="d-flex flex-column">
+                                <mat-radio-button value="1">Push</mat-radio-button>
+                                <mat-radio-button value="0" [disabled]="true">All</mat-radio-button>
+                                <mat-radio-button value="2" [disabled]="true">SMS</mat-radio-button>
+                                <mat-radio-button value="3" [disabled]="true">Email</mat-radio-button>
+                            </mat-radio-group>
+                            <mat-error
+                                *ngIf="notificationForm.get('medium')?.hasError('required')  && notificationForm.get('medium')?.touched">
+                                Notification type is required.
+                            </mat-error>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-10">
+                    <div class="user_table_data mt-2 w-100">
+                        <div class="table_container">
+                            <h5>Customer List</h5>
+                            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+                                <!-- Checkbox Column -->
+                                <ng-container matColumnDef="checkbox">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <mat-checkbox [checked]="isAllSelected()" [indeterminate]="isIndeterminate()"
+                                            (change)="toggleSelectAll($event)">
+                                        </mat-checkbox>
+                                    </th>
+                                    <!-- Row checkboxes -->
+                                    <td mat-cell *matCellDef="let element">
+                                        <mat-checkbox (change)="toggleRowSelection(element)"
+                                            [checked]="isRowSelected(element)">
+                                        </mat-checkbox>
+                                    </td>
+                                </ng-container>
+
+                                <!-- Image Column -->
+                                <ng-container matColumnDef="profileImage">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Image</th>
+                                    <td mat-cell *matCellDef="let customer"><img
+                                            *ngIf="customer.profileImage; else iconFallback" class="customer_image"
+                                            [src]="customer.profileImage" alt="Customer Profile Image">
+
+                                        <ng-template #iconFallback>
+                                            <mat-icon class="customer-icon">account_circle</mat-icon>
+                                        </ng-template>
+                                    </td>
+                                </ng-container>
+
+                                <!-- Customer ID Column -->
+                                <ng-container matColumnDef="customerId">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer ID</th>
+                                    <td mat-cell *matCellDef="let element" [matTooltip]="element.id">{{element.id
+                                        |truncate:5}}</td>
+                                </ng-container>
+
+
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="customerName">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer Name</th>
+                                    <td mat-cell *matCellDef="let element">{{element.firstName}}{{' '+
+                                        element.lastName}}</td>
+                                </ng-container>
+
+                                <!-- Gender Column -->
+                                <ng-container matColumnDef="gender">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+                                    <td mat-cell *matCellDef="let element">@if(element.gender===1){
+                                        <div class="d-flex gndr_space">
+                                            <span class="cstm_gender h6">♂
+                                            </span><span>Male</span>
+                                        </div>
+                                        }@else if(element.gender===2){
+                                        <div class="d-flex  gndr_space"><span class="cstm_gender h6">♀
+                                            </span><span> Female</span>
+                                        </div>}
+                                        @else{<span>Others</span> }
+                                    </td>
+                                </ng-container>
+
+                                <!-- Email Column -->
+                                <ng-container matColumnDef="email">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+                                    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+                                </ng-container>
+
+                                <!-- Phone Number Column -->
+                                <ng-container matColumnDef="phoneNumber">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone Number</th>
+                                    <td mat-cell *matCellDef="let element"><span>{{element.countryCode}}</span>
+                                        <span>-{{element.phoneNumber}}</span>
+                                    </td>
+                                </ng-container>
+
+                                <!-- Table Header and Row Definitions -->
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                        </div>
+
+                        <!-- Pagination Controls -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="orders-footer">
+                                    <mat-paginator class="orders-pagination" #paginator1 [length]="totalItems1"
+                                        [pageSizeOptions]="[5, 10, 20, 50]" showFirstLastButtons
+                                        aria-label="Select page of periodic elements"
+                                        (page)="onPageChange($event, 'allCustomerList')">
+                                    </mat-paginator>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="notification_msg d-flex flex-column" formGroupName="notification">
+                    <div class=" notification_title">
+                        <div class="notification_title_heading">
+                            <span class="m-0 h5">Title</span>
+                        </div>
+                        <div class="notification_title_input_text">
+                            <mat-form-field class="title">
+                                <!-- <mat-label>Title</mat-label> -->
+                                <input matInput id="title" placeholder="Enter Title" formControlName="title" />
+                            </mat-form-field>
+                            @if(notificationForm.get('notification.title')?.hasError('required') &&
+                            notificationForm.get('notification.title')?.touched)
+                            {
+                            <mat-error>Title is required</mat-error>
+                            }
+                            @if(notificationForm.get('notification.title')?.hasError('maxlength') &&
+                            notificationForm.get('notification.title')?.touched)
+                            { <mat-error> Title cannot exceed 100 characters.</mat-error> }
+                        </div>
+                    </div>
+                    <div class="notification_msg_text">
+                        <div class="notification_msg_text_heading">
+                            <span class="m-0 h5">Message</span>
+                        </div>
+                        <div class="notification_msg_input_text">
+                            <mat-form-field class="message">
+                                <!-- <mat-label>Enter Massage</mat-label> -->
+                                <textarea matInput id="message" placeholder="Enter Message"
+                                    formControlName="message"></textarea>
+                            </mat-form-field>
+                            <mat-error
+                                *ngIf="notificationForm.get('notification.message')?.hasError('required') && notificationForm.get('notification.message')?.touched">
+                                Message is required
+                            </mat-error>
+                            <mat-error
+                                *ngIf="notificationForm.get('notification.message')?.hasError('maxlength') && notificationForm.get('notification.message')?.touched">
+                                Message cannot exceed 100 characters.
+                            </mat-error>
+                        </div>
+                    </div>
+                    <div class="save_filter_button">
+                        <button class="Save" type="submit">Send</button>
+                        <button class="reset ms-3">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

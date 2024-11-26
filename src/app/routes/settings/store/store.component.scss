@@ -1,0 +1,203 @@
+.store {
+    padding: 0 30px;
+    height: 90vh;
+
+    .store_header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .header_left {
+            display: flex;
+            justify-content: start;
+
+            .store_heading {
+                padding: 5px 0 0 0px;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+        }
+    }
+
+    .sign_up,
+    .sign_up_login_via,
+    .catalog,
+    .show_gdpr,
+    .show_sponsorship,
+    .show_redirection,
+    .show_primary_sorting,
+    .show_store_verification,
+    .show_custom_fields,
+    .show_sotre_subscription {
+        border-bottom: 1px solid var(--border-color-gray-shade);
+
+
+
+        .store_left {
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            .store_left_heading {
+                font-size: 1rem;
+                font-weight: 700;
+            }
+        }
+
+        .store_right {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .store_instruction_text {
+                font-size: 0.95rem;
+                ;
+                // padding: 8px 10px;
+                margin: 0;
+            }
+
+            .sponsored_dropdown {
+
+                .dropDown-button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    background: transparent;
+                    border: none;
+                    padding: 6px 10px;
+                    margin: 8px 10px;
+                    border-radius: 9px;
+                    background-color: var(--drowpdown-background-color-shade);
+
+                    .sponsored_heading {
+                        margin: 0;
+                        font-size: 0.8rem;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+
+        .cstm_height {
+            height: 35px;
+        }
+    }
+
+    .general_fields_table {
+        .store_left_heading {
+            padding: 15px 0px;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+    }
+    .form-actions {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        border-bottom: 30px solid transparent;
+
+        .add-button {
+            padding: 8px 18px;
+            background-color: var(--background-color-blue-shade);
+            border-radius: 5px;
+            width: 130px;
+            color: var(--primary-color-white-shade);
+            border: none;
+            font-size: 1.1rem;
+        }
+
+
+    }
+
+
+}
+
+
+
+/*  ----- Specific Slide toggle Size CSS------*/
+::ng-deep .custom-slide-toggle {
+    /* Adjust the overall size of the toggle */
+    transform: scale(0.7);
+    /* Scale the entire toggle component */
+
+
+    /* Adjust padding and margin if needed */
+    margin: 8px;
+    padding: 2px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-thumb {
+    /* Resize the toggle knob */
+    width: 15px;
+    height: 15px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-bar {
+    /* Resize the toggle track */
+    width: 40px;
+    /* Adjust the width */
+    height: 20px;
+    /* Adjust the height */
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-label {
+    font-size: 1.5rem !important;
+}
+
+::ng-deep .banners-dialog .mat-mdc-slide-toggle .mdc-switch:enabled+.mdc-label {
+    /* Adjust the label font size if needed */
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0 15px 0 0;
+}
+
+
+
+
+/* Checked state color styles */
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}
+
+
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}
+
+
+
+/* ----------------Table Header of the Marchant  Table ------------------ */
+::ng-deep .store .mat-mdc-header-cell {
+    background-color: black !important;
+    color: var(--primary-color-white-shade);
+}
+
+/* Table Header Color Change */
+.store .mat-mdc-table .mat-mdc-header-cell {
+    color: var(--primary-color-white-shade) !important;
+}
+
+.store .mat-table {
+    width: 100%;
+}
+
+/*  Check Box Table Header chackbox background color*/
+::ng-deep .store .mdc-checkbox__background {
+    // background-color: blue !important;
+    border: 2px solid var(--primary-color-white-shade) !important;
+}
+
+/* Set sort arrow color to  var( --primary-color-white-shade) */
+::ng-deep .store .mat-sort-header-arrow {
+    color: var(--primary-color-white-shade) !important;
+}
+
+/* Set sort arrow color to  var( --primary-color-white-shade) END */

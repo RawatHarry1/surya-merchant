@@ -1,0 +1,26 @@
+<div class="add-tags-header">
+    <div class="add-tags-header-spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2">Add Tags</h2>
+
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+        <div class="add-tags-form">
+            <form [formGroup]="addTagForm" (ngSubmit)="onAdd() ">
+                <div class="name_row">
+                    <div class="name">
+                        <p class="tag_name_heading">TAG NAME</p>
+                        <mat-form-field class="add-tags-form" appearance="outline">
+                            <mat-label>Name</mat-label>
+                            <input matInput id="name" placeholder="Enter" formControlName="name" />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" (click)="closeDialog()">Cancel</button>
+                    <button type="submit" class="add-button">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

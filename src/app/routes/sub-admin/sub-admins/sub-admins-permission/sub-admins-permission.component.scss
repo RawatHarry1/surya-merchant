@@ -1,0 +1,102 @@
+.sub-admins-permission {
+    padding: 0 30px;
+    height: 90vh;
+
+    .sub-admins-permission-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .sub-admins-permission-heading {
+            padding: 5px 0 0 0px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-right {
+            display: flex;
+            position: absolute;
+            right: 0px;
+
+            .btn-add {
+                margin: 0 0 0 40px;
+
+                .add {
+                    border: none;
+                    color: var(--primary-color-white-shade);
+                    font-weight: 500;
+                    border-radius: 6px;
+                    margin: 0 0 0 5px;
+                    padding: 8px 10px;
+                    background-color: var(--button-background-color-shade);
+                    letter-spacing: 2px;
+                }
+            }
+        }
+    }
+
+    .catalogue_permission,
+    .suppliers_permission,
+    .brands_permission,
+    .orders_permission,
+    .banners_permission,
+    .promotions_permission {
+        border: 2px solid var(--border-color-gray-shade);
+        border-radius: 14px;
+        margin: 20px 0 0 0 ;
+        padding: 10px;
+
+        .catalogue_permission_header,
+        .suppliers_permission_header,
+        .brands_permission_header,
+        .orders_permission_header,
+        .banners_permission_header,
+        .promotions_permission_header {
+          
+
+            .catalogue_permission_heading,
+            .suppliers_permission_heading,
+            .brands_permission_heading,
+            .orders_permission_heading,
+            .banners_permission_heading,
+            .promotions_permission_heading {
+                margin: 0 !important;
+                font-weight: 700;
+                font-size: 0.9rem;
+            }
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .catalogue_permission_list,
+        .suppliers_permission_list,
+        .brands_permission_list,
+        .orders_permission_list,
+        .banners_permission_list,
+        .promotions_permission_list {
+            display: flex;
+            flex-direction: column;
+
+            .checkbox_cstm {
+                display: flex;
+
+            }
+        }
+    }
+}
+
+/*-------------To Create the Gap Btw the Mat-checkbox and label ---------*/
+::ng-deep .sub-admins-permission .mdc-form-field.mat-internal-form-field.mdc-form-field--align-end {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+::ng-deep .sub-admins-permission .mdc-form-field--align-end>label {
+    margin: 0 !important;
+}

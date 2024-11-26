@@ -1,0 +1,89 @@
+.products {
+    padding: 0 30px;
+    height: 90vh;
+
+    .products-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .products-heading {
+            padding: 5px 0 0 0px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-right {
+            display: flex;
+            position: absolute;
+            align-items: center;
+            right: 0px;
+
+            .btn-export button {
+                border: none;
+                color: var(--primary-color-white-shade);
+                font-weight: 500;
+                border-radius: 6px;
+                margin: 0 5px;
+                padding: 8px 6px;
+                background-color: var(--button-background-color-shade);
+            }
+
+            .btn-import button {
+                border: none;
+                color: var(--primary-color-white-shade);
+                font-weight: 500;
+                border-radius: 6px;
+                margin: 0 0 0 5px;
+                padding: 8px 6px;
+                background-color: var(--button-background-color-shade);
+            }
+
+            .btn-add {
+                margin: 0 5px 0 5px;
+
+                .add {
+                    border: none;
+                    color: var(--primary-color-white-shade);
+                    font-weight: 500;
+                    border-radius: 6px;
+                    font-size: 1rem;
+                    margin: 0 0 0 5px;
+                    padding: 8px 6px;
+                    background-color: var(--button-background-color-shade);
+                }
+            }
+        }
+    }
+
+    .table-data {
+        position: relative;
+
+        .products-data {
+            overflow: auto;
+        }
+
+        .table_image {
+            height: 100px;
+            padding: 3px;
+            border-radius: 10px;
+        }
+
+        .product-name {
+            cursor: pointer;
+        }
+
+        .product-name:hover {
+            color: var(--primary-color-shade);
+        }
+    }
+
+    .products-footer{
+        position: sticky;
+        bottom: 12px;
+        z-index: 10;
+    }
+}

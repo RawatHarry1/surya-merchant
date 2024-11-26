@@ -1,0 +1,133 @@
+<div class="banners-dialog">
+  <div class="banners-dialog-spacer">
+    <div class="dialog-header">
+      <h2 class="heading_h2" *ngIf="isAddOpen && !isEditOpen">Add Banner</h2>
+      <h2 class="heading_h2" *ngIf="isEditOpen && !isAddOpen">Edit Banner</h2>
+
+      <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+    </div>
+    <div class="main_banners_container">
+      <form [formGroup]="bannersForm" (ngSubmit)="onAdd()">
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="name_input">
+              <h6 class="name_heading">NAME</h6>
+              <mat-form-field>
+                <input class="cstm_input" matInput type="text" placeholder="Enter" formControlName="name">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-sm-7">
+            <div class="store_id">
+              <p class="store_id_heading"><mat-slide-toggle class="custom-slide-toggle" labelPosition="before">STORE
+                  ID</mat-slide-toggle>
+              </p>
+              <mat-form-field>
+                <input class="cstm_input" matInput type="search" placeholder="Type to Search" formControlName="storeId">
+              </mat-form-field>
+              <p class="text_store">Link the banner to a Store. When the Customer will click on this banner
+                he/she will be redirected to this Store.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+
+            <div class="store_id">
+              <p class="store_id_heading"><mat-slide-toggle class="custom-slide-toggle" labelPosition="before">EXTERNAL
+                  LINK</mat-slide-toggle>
+              </p>
+              <mat-form-field>
+                <input class="cstm_input" matInput type="text" placeholder="HTTPS" formControlName="externalLink">
+              </mat-form-field>
+              <p class="text_store">Link the banner to an external link. When the Customer will click on this
+                banner, he/she will be redirected to this link</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="store_id">
+              <h6 class="text_heading">TEXT</h6>
+              <mat-form-field>
+                <input class="cstm_input" matInput type="text" placeholder="Enter" formControlName="text">
+              </mat-form-field>
+              <p class="text_store">You can enter here your own description/note about the banner for your
+                use.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="banner_img">
+              <h4 class="banner_img_heading">Banner Image For Web (1920x360 px)</h4>
+              <div class="upload-file">
+                <!-- File Input -->
+                <input type="file" (change)="onFileSelected($event, 'web')" accept="image/*" multiple />
+                <!-- Selected Images Preview -->
+                <div class="preview" *ngIf="selectedFilesWeb.length > 0">
+                  <div *ngFor="let file of selectedFilesWeb; let i = index" class="image-container">
+                    <span class="delete-icon" (click)="removeSelectedFile(i, 'web')">
+                      <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                    </span>
+                    <img class="preview-images" [src]="file.url" alt="Image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="banner_img">
+              <h4 class="banner_img_heading">
+                Banner Image For Mobile Web (450x250 px)
+              </h4>
+              <div class="upload-file">
+                <!-- File Input -->
+                <input type="file" (change)="onFileSelected($event, 'mobile')" accept="image/*" multiple />
+                <!-- Selected Images Preview -->
+                <div class="preview" *ngIf="selectedFilesMobile.length > 0">
+                  <div *ngFor="let file of selectedFilesMobile; let i = index" class="image-container">
+                    <span class="delete-icon" (click)="removeSelectedFile(i, 'mobile')">
+                      <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                    </span>
+                    <img class="preview-images" [src]="file.url" alt="Image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="banner_img">
+              <h4 class="banner_img_heading">
+                Banner Image For Native Mobile Apps(990x369px)
+              </h4>
+              <div class="upload-file">
+                <!-- File Input -->
+                <input type="file" (change)="onFileSelected($event, 'native')" accept="image/*" multiple />
+                <!-- Selected Images Preview -->
+                <div class="preview" *ngIf="selectedFilesNative.length > 0">
+                  <div *ngFor="let file of selectedFilesNative; let i = index" class="image-container">
+                    <span class="delete-icon" (click)="removeSelectedFile(i, 'native')">
+                      <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                    </span>
+                    <img class="preview-images" [src]="file.url" alt="Image" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-actions">
+          <button type="button" class="cancel-button" (click)="closeDialog()">Cancel</button>
+          <button type="submit" class="add-button" *ngIf="isAddOpen">Add</button>
+          <button type="submit" class="add-button" *ngIf="isEditOpen">save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

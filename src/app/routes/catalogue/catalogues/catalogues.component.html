@@ -1,0 +1,273 @@
+<div class="catalogue-spacer">
+    <div class="catalogue-header">
+        <div class="left-catalogue">
+            <span class="catalogue-text">CATALOGUE</span>
+        </div>
+        <div class="right-catalogue">
+            <div class="catalogue_right_header">
+                <div class="search cstm_search search_entries_info">
+                    <mat-form-field>
+                        <input class="search-entry" matInput [formControl]="searchControl"
+                            placeholder="  {{selectedTab === 1 ? 'Search for Category' : selectedTab === 2 ? 'Search for Sub Category' : 'Search for Sub SubCategory'}}">
+                        <div class="search-btn1">
+                            <mat-icon>search</mat-icon>
+                        </div>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="btn-add">
+                <button mat-raised-button class="add"
+                    (click)="onAddCataloguesOpen()">
+                    {{selectedTab === 1 ? 'Add Category' : selectedTab === 2 ? 'Add Sub Category' : 'Add Sub Sub Category'}}
+                    <img src="images/add-circle-trans.png" alt="image">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="categories_tabs">
+        <span class="category_name">{{selectedTab ===1 ? 'Category':selectedTab === 2 ? 'Sub Category' : 'Sub Sub Category'}}</span>
+        <mat-form-field>
+            <mat-select [(ngModel)]="selectedTab" (selectionChange)="onTabChange($event)">
+                <mat-option [value]="1">Category</mat-option>
+                <mat-option [value]="2">Sub Category</mat-option>
+                <mat-option [value]="3">Sub Sub Category</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div *ngIf="selectedTab === 1" class="category-data">
+        <div class="mat-elevation-z8 table-container">
+            <table mat-table [dataSource]="dataSource1" matSort #sort1="matSort">
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <td mat-cell class="category_id" *matCellDef="let element" (click)="categoryDetails()" [matTooltip]="element.id">
+                        {{element.id | truncate:15}} </td>
+                </ng-container>
+
+                <!-- Category Name Column -->
+                <ng-container matColumnDef="categoryName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Category Name</th>
+                    <td mat-cell *matCellDef="let element"> {{element.categoryName}} </td>
+                </ng-container>
+
+                <!-- Category Image Column -->
+                <ng-container matColumnDef="categoryImage">
+                    <th mat-header-cell *matHeaderCellDef> Category Image </th>
+                    <td mat-cell *matCellDef="let element">
+                        <img class="allCategory_tbl_img" src="{{element.categoryImage}}" alt="">
+                    </td>
+                </ng-container>
+
+                <!-- Filters Column -->
+                <ng-container matColumnDef="filters">
+                    <th mat-header-cell *matHeaderCellDef> Filters </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button type="button" (click)="displayFilter(element)">
+                            <mat-icon>remove_red_eye</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <!-- Action Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="category-edit-btn">
+                            <mat-card>
+                                <mat-card-content>
+                                    <section>
+                                        <mat-menu #menu1="matMenu">
+                                            <button class="edit-btn all-menu-btn" mat-menu-item
+                                                (click)="onEditOpen()">Edit</button>
+                                            <button class="delete-btn all-menu-btn" mat-menu-item
+                                                (click)="onDelete()">Delete</button>
+                                            <button class="block-btn all-menu-btn" mat-menu-item>Block</button>
+                                        </mat-menu>
+                                        <button mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Open Menu">
+                                            <mat-icon>more_vert</mat-icon>
+                                        </button>
+                                    </section>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </td>
+                </ng-container>
+                <!-- Header Row -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+                <!-- Data Rows -->
+                <tr mat-row class="category_select" *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat_cell_no_data text-center" colspan="5">
+                        {{'paginator.range_page_label_1' | translate}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="category-footer">
+            <mat-paginator #paginator1 [length]="totalItems1" [pageSizeOptions]="[5, 10, 20]"
+               (page)="onPageChange($event, 'categoryTable')"
+               showFirstLastButtons>
+        </mat-paginator>
+        </div>
+        
+    </div>
+
+    <div *ngIf="selectedTab === 2" class="category-data">
+        <div class="mat-elevation-z8 table-container">
+            <table mat-table [dataSource]="dataSource2" matSort #sort2="matSort">
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <td mat-cell *matCellDef="let element" [matTooltip]="element.id">
+                        {{element.id | truncate:15}}</td>
+                </ng-container>
+
+                  <!-- Sub Category Image Column -->
+                  <ng-container matColumnDef="subCategoryImage">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Image</th>
+                    <td mat-cell *matCellDef="let element"> <img class="allCategory_tbl_img" src="{{element.subCategoryImage}}" alt="Error Loading Image"> </td>
+                  </ng-container>
+
+                <!-- Sub Category Name Column -->
+                <ng-container matColumnDef="subCategoryName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Sub Category Name</th>
+                    <td mat-cell *matCellDef="let element"> {{element.subCategoryName}} </td>
+                </ng-container>
+
+                <!-- Category Name Column -->
+                <ng-container matColumnDef="categoryName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Category Name</th>
+                    <td mat-cell *matCellDef="let element"> {{element.categoryName}} </td>
+                </ng-container>
+
+                <!-- Action Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="category-edit-btn">
+                            <mat-card>
+                                <mat-card-content>
+                                    <section>
+                                        <mat-menu #menu2="matMenu">
+                                            <button class="edit-btn all-menu-btn" mat-menu-item
+                                                (click)="onEditOpen()">Edit</button>
+                                            <button class="delete-btn all-menu-btn" mat-menu-item
+                                                (click)="onDelete()">Delete</button>
+                                            <button class="block-btn all-menu-btn" mat-menu-item>Block</button>
+                                        </mat-menu>
+                                        <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Open Menu">
+                                            <mat-icon>more_vert</mat-icon>
+                                        </button>
+                                    </section>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- Header Row -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+
+                <!-- Data Rows -->
+                <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat_cell_no_data text-center" colspan="5">
+                        {{'paginator.range_page_label_1' | translate}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="category-footer">
+            <mat-paginator #paginator2 [length]="totalItems2" [pageSizeOptions]="[5, 10, 20]"
+            (page)="onPageChange($event, 'subCategoryTable')"
+            showFirstLastButtons>
+     </mat-paginator>
+        </div>
+
+    </div>
+
+    <div *ngIf="selectedTab === 3" class="category-data">
+        <div class="mat-elevation-z8 table-container">
+            <table mat-table [dataSource]="dataSource3" matSort #sort3="matSort">
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <td mat-cell *matCellDef="let element" [matTooltip]="element.id">
+                        {{element.id | truncate:15}}</td>
+                </ng-container>
+
+                <!--  Image Column -->
+                <ng-container matColumnDef="thirdLevelCategoryThumbnail">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
+                    <td mat-cell *matCellDef="let element">
+                        <img class="allCategory_tbl_img" src="{{element.thirdLevelCategoryThumbnail}}" alt="Error Loading Image"></td>
+                </ng-container>
+
+                <!-- Sub Sub Category Name Column -->
+                <ng-container matColumnDef="thirdLevelCategoryName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Sub Sub Category Name</th>
+                    <td mat-cell *matCellDef="let element"> {{element.thirdLevelCategoryName}} </td>
+                </ng-container>
+
+                <!-- Sub Category Name Column -->
+                <ng-container matColumnDef="subCategoryName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Sub Category Name</th>
+                    <td mat-cell *matCellDef="let element"> {{element.subCategoryName}} </td>
+                </ng-container>
+
+                <!-- Category Name Column -->
+                <ng-container matColumnDef="categoryName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Category Name</th>
+                    <td mat-cell *matCellDef="let element"> {{element.categoryName}} </td>
+                </ng-container>
+
+                <!-- Action Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Action </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="category-edit-btn">
+                            <mat-card>
+                                <mat-card-content>
+                                    <section>
+                                        <mat-menu #menu3="matMenu">
+                                            <button class="edit-btn all-menu-btn" mat-menu-item
+                                                (click)="onEditOpen()">Edit</button>
+                                            <button class="delete-btn all-menu-btn" mat-menu-item
+                                                (click)="onDelete()">Delete</button>
+                                            <button class="block-btn all-menu-btn" mat-menu-item>Block</button>
+                                        </mat-menu>
+                                        <button mat-icon-button [matMenuTriggerFor]="menu3" aria-label="Open Menu">
+                                            <mat-icon>more_vert</mat-icon>
+                                        </button>
+                                    </section>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- Header Row -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+
+                <!-- Data Rows -->
+                <tr mat-row *matRowDef="let row; columns: displayedColumns3;"></tr>
+
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat_cell_no_data text-center" colspan="5">
+                        {{'paginator.range_page_label_1' | translate}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="category-footer">
+            <mat-paginator #paginator3 [length]="totalItems3" [pageSizeOptions]="[5, 10, 20]"
+               (page)="onPageChange($event, 'subSubCategoryTable')"
+               showFirstLastButtons>
+            </mat-paginator>
+        </div>
+    </div>
+</div>

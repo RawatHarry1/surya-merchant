@@ -1,0 +1,272 @@
+.category-spacer {
+    padding: 0 25px;
+
+    .category-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        height: 10%;
+        width: 100%;
+        padding: 8px 0;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .left-category {
+            padding: 5px 0 0 0px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .right-category {
+            position: absolute;
+            right: 0px;
+            display: flex;
+            align-items: center;
+
+            .back_button {
+                display: flex;
+                height: 40px;
+                border: none;
+                color: var(--primary-color-white-shade);
+                font-weight: 500;
+                border-radius: 6px;
+                padding: 8px;
+                background-color: var(--button-background-color-shade);
+            }
+        }
+    }
+
+    .category_name_image {
+        padding-top: 25px;
+        min-height: 110px;
+
+        .category_image_input {
+            display: flex;
+            margin: 20px 0;
+
+            input {
+                width: 100%;
+                height: fit-content;
+                box-shadow: 0px 0px 12px -7px;
+                background-color: var(--input-background-color-gray-shade) !important;
+            }
+
+            .preview {
+                display: contents;
+
+                .preview-images {
+                    max-width: 180px;
+                    max-height: 130px;
+                    margin-top: 10px;
+                    height: 125px;
+                    margin: 0 5px;
+                }
+
+                .image-container {
+                    height: 125px;
+                    display: flex;
+
+                    .delete-icon {
+                        cursor: pointer;
+                        font-size: 1.3rem;
+                    }
+                }
+
+            }
+        }
+    }
+
+    .category_name_input_heading,
+    .category_image_input_heading {
+        font-weight: 700;
+    }
+
+    .category_filter {
+        padding-top: 35px;
+
+        .category_filter_heading {
+            font-weight: 700;
+        }
+
+        .category_filter_container {
+            padding: 30px;
+            box-shadow: 0px 0px 9px -5px black;
+            border-radius: 14px;
+
+            .category_filter_add_action {
+                display: flex;
+                align-items: center;
+
+                .add_filter_heading_content {
+                    box-shadow: 0px 0px 9px -5px black;
+                    border-radius: 14px;
+                    margin: 10px 0px;
+                    padding: 15px;
+                    width: 90%;
+                }
+
+                .category_filter_add {
+                    display: flex;
+                    align-items: center;
+
+                    .add_filter_input {
+                        margin: 0 20px 0 0;
+                        min-width: 30%;
+                    }
+
+                    .add_filter_button {
+                        margin: 0 0 0 20px;
+
+                        .add {
+                            height: 100%;
+                            border: none;
+                            color: var(--primary-color-white-shade);
+                            font-weight: 500;
+                            border-radius: 6px;
+                            margin: 0 0 0 5px;
+                            padding: 8px;
+                            background-color: var(--button-background-color-shade);
+                        }
+                    }
+                }
+
+                .action_filter {
+                    display: flex;
+                    width: 10%;
+                    justify-content: center;
+                    margin-left: 20px;
+
+                    .add {
+                        height: 40px;
+                        width: 40px;
+                        border: none;
+                        color: var(--primary-color-white-shade);
+                        font-weight: 500;
+                        border-radius: 6px;
+                        background-color: var(--button-background-color-shade);
+                    }
+
+                    .delete {
+                        height: 40px;
+                        width: 40px;
+                        border: none;
+                        color: var(--primary-color-white-shade);
+                        font-weight: 500;
+                        border-radius: 6px;
+                        margin: 0 0 0 5px;
+                        padding: 8px;
+                        background-color: var(--cancel-button-red-color-shade);
+                    }
+                }
+            }
+        }
+    }
+
+    .save_filter_button {
+        margin: 40px 0 0 0px;
+        display: flex;
+        justify-content: center;
+
+        .Save {
+            height: 100%;
+            border: none;
+            letter-spacing: normal;
+            color: var(--primary-color-white-shade);
+            font-weight: 500;
+            border-radius: 6px;
+            margin: 0 0 35px 0px;
+            padding: 7px 11px;
+            background-color: var(--button-background-color-shade);
+        }
+
+        .reset {
+            height: 100%;
+            border: none;
+            letter-spacing: normal;
+            color: var(--primary-color-white-shade);
+            font-weight: 500;
+            border-radius: 6px;
+            margin: 0 0 35px 0px;
+            padding: 7px 11px;
+            background-color: var(--cancel-button-red-color-shade);
+        }
+    }
+}
+
+//css for fiter and chips structure 
+.add_filter_heading_content {
+    display: flex;
+    flex-direction: column;
+
+    .category_filter_add {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+
+        .filter-input {
+            flex: 1;
+            margin-right: 8px;
+        }
+    }
+
+    .add_category_chips {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 8px;
+
+        .chip-set {
+            display: flex;
+        }
+
+        .chip {
+            margin-right: 8px;
+            margin-bottom: 8px;
+            height: 56px;
+            border: none !important;
+        }
+    }
+}
+
+
+/*  InPut CSS OverRide Start*/
+::ng-deep .category-spacer .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    display: none;
+}
+
+::ng-deep .category-spacer .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--mdc-filled-text-field-container-color);
+    border-radius: 14px;
+}
+
+::ng-deep .category-spacer mat-form-field.mat-mdc-form-field.mat-mdc-form-field-type-mat-input.mat-form-field-appearance-fill.mat-primary {
+    width: 100%;
+    border-radius: 10px;
+}
+
+::ng-deep .category-spacer .mdc-text-field--filled:not(.mdc-text-field--disabled),
+::ng-deep .mat-mdc-standard-chip {
+    background-color: var(--input-background-color-gray-shade) !important;
+}
+
+::ng-deep .category-spacer .mdc-line-ripple {
+    display: none;
+}
+
+//css for removing chip's default border
+::ng-deep .category-spacer .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) .mdc-evolution-chip__action--primary::before {
+    border: none !important;
+}
+
+//css for chip icons width
+::ng-deep .category-spacer img.mat-mdc-chip-avatar.mdc-evolution-chip__icon.mdc-evolution-chip__icon--primary {
+    width: 30px !important;
+    height: 28px !important;
+    border-radius: 8px !important;
+}
+
+::ng-deep .category-spacer span.mdc-evolution-chip__action.mat-mdc-chip-action.mdc-evolution-chip__action--primary.mdc-evolution-chip__action--presentational {
+    padding-left: 6px !important;
+}
+
+::ng-deep .category-spacer span.mdc-evolution-chip__graphic.mat-mdc-chip-graphic.ng-star-inserted {
+    display: none !important;
+}

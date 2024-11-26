@@ -1,0 +1,267 @@
+<div class="store">
+    <div class="store_header">
+        <div class="header_left">
+            <h3 class="store_heading">STORE SETTINGS</h3>
+        </div>
+    </div>
+    <div class="sign_up">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="store_left">
+                    <h6 class="store_left_heading">Sign Up</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="store_right">
+                    <p class="store_instruction_text">
+                        Open Sign-up for Store. Enable this, if you want Stores to enroll themselves on platform. It
+                        will give you a signup link
+                        which you can share with Stores or add in your webapp footer.</p>
+
+                    <div class="store_right_slide_toggle">
+                        <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sign_up_login_via">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="store_left">
+                    <h6 class="store_left_heading">Login/Signup Via</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="store_right cstm_height">
+                    <div class="google_logo">
+                        <span>Google</span>
+                    </div>
+                    <div class="store_right_slide_toggle">
+                        <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                    </div>
+                </div>
+                <div class="store_right cstm_height">
+                    <div class="facebook_logo">
+                        <span>Facebook</span>
+                    </div>
+                    <div class="store_right_slide_toggle">
+                        <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="catalog">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="store_left">
+                    <h6 class="store_left_heading">Catalog</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="store_right">
+                    <p class="store_instruction_text">
+                        Enable this to copy Admin's Catalogue to the Stores Catalogue on Signup.</p>
+                    <div class="store_right_slide_toggle">
+                        <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="show_gdpr">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="store_left">
+                    <h6 class="store_left_heading">Show GDPR to Stores</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="store_right">
+                    <p class="store_instruction_text">
+                        Enable this to show GDPR rights option to your Stores</p>
+                    <div class="store_right_slide_toggle">
+                        <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="show_sponsorship">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="store_left">
+                    <h6 class="store_left_heading">Show Sponsorship to Stores</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="store_right">
+                    <p class="store_instruction_text">
+                        Enable this to show sponsorship to your Stores</p>
+                    <div class="store_right_slide_toggle">
+                        <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="show_redirection">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="store_left">
+                    <h6 class="store_left_heading">Show Stores Redirection URL'</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="store_right">
+                    <p class="store_instruction_text">
+                        Enable this to show redirection url option to your Stores</p>
+                    <div class="store_right_slide_toggle">
+                        <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="show_primary_sorting">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="store_left">
+                    <h6 class="store_left_heading">Primary Sorting</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="store_right">
+                    <p class="store_instruction_text">
+                        Choose the parameter on which you wish to sort and list the Stores before sorting them distance
+                        wise.</p>
+                    <div class="store_right_slide_toggle">
+                        <div class="sponsored_dropdown">
+                            <button class="dropDown-button">
+                                <h5 class="sponsored_heading">SPONSERED</h5>
+                                <!-- Arrow Icon -->
+                                <mat-icon>{{ isContainerVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="show_store_verification">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="store_left">
+                    <h6 class="store_left_heading">Store Verification</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="store_right cstm_height">
+                    <p class="store_instruction_text">
+                        Enable this toggle to turn on verification when a Store signs up.</p>
+                    <div class="store_right_slide_toggle">
+                        <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                    </div>
+                </div>
+                <div class="store_right cstm_height">
+                    <p class="store_instruction_text">
+                        Enable this toggle to allow Stores to setup store before verification.</p>
+                    <div class="store_right_slide_toggle">
+                        <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="show_custom_fields">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="store_left">
+                    <h6 class="store_left_heading">Custom Fields</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="store_right">
+                    <p class="store_instruction_text">
+                        Ask for custom field information during signup. If enabled, a second step will be added to
+                        signup process. This step will have custom fields marked 'Ask on Signup'.</p>
+                    <div class="store_right_slide_toggle">
+                        <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="general_fields_table">
+        <h6 class="store_left_heading">General Fields (these fields will be applicable to all merchants irrespective of
+            their Business Categories)</h6>
+        <table mat-table [dataSource]="storeDataSource" matSort>
+
+            <!-- Field Name Column -->
+            <ng-container matColumnDef="fieldName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Field Name</th>
+                <td mat-cell *matCellDef="let element">{{element.fieldName}}</td>
+            </ng-container>
+
+            <!-- Field Type Column -->
+            <ng-container matColumnDef="fieldType">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Field Type</th>
+                <td mat-cell *matCellDef="let element">{{element.fieldType}}</td>
+            </ng-container>
+
+            <!-- Value Column -->
+            <ng-container matColumnDef="value">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>
+                <td mat-cell *matCellDef="let element">{{element.value}}</td>
+            </ng-container>
+
+            <!-- Filter Column -->
+            <ng-container matColumnDef="filter">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Filter</th>
+                <td mat-cell *matCellDef="let element">{{element.filter}}</td>
+            </ng-container>
+
+            <!-- Mandatory Column -->
+            <ng-container matColumnDef="mandatory">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Mandatory</th>
+                <td mat-cell *matCellDef="let element">{{element.mandatory}}</td>
+            </ng-container>
+
+            <!-- Ask On Signup Column -->
+            <ng-container matColumnDef="askOnSignup">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Ask On Signup</th>
+                <td mat-cell *matCellDef="let element">{{element.askOnSignup}}</td>
+            </ng-container>
+
+            <!-- Display Header -->
+            <tr mat-header-row *matHeaderRowDef="displayedStoreColumns"></tr>
+
+            <!-- Display Cell -->
+            <tr mat-row *matRowDef="let row; columns:displayedStoreColumns;"></tr>
+        </table>
+    </div>
+    <div class="show_sotre_subscription">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="store_left">
+                    <h6 class="store_left_heading">Store Subscription</h6>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="store_right">
+                    <p class="store_instruction_text">
+                        Enable this, to define different subscription plans for Stores to access the platform.</p>
+                    <div class="store_right_slide_toggle">
+                        <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-actions">
+        <button type="submit" class="add-button">Add Plan</button>
+    </div>
+
+</div>

@@ -1,0 +1,197 @@
+<div class="discounts">
+    <div class="discounts-header">
+      <h3 class="discounts-heading">Discounts</h3>
+  
+      <div class="header_dropdown">
+        <p>have to set the dropdown here</p>
+      </div>
+    </div>
+    <div class="main_discounts_container">
+      <!-- First Discounts Table -->
+      <div class="main_discounts_first">
+        <div class="heading_first_table">
+          <h6 class="main_discounts_heading">Discounts</h6>
+  
+          <div class="main_discounts_header_right">
+            <div class="btn-add">
+              <button class="add" (click)="setDiscounts()">
+                Set Discounts
+                <img src="images/add-circle-trans.png" alt="image" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="discounts_table_container">
+          <table mat-table [dataSource]="dataSource1" matSort>
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+              <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+            </ng-container>
+  
+            <!-- Value Column -->
+            <ng-container matColumnDef="value">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>
+              <td mat-cell *matCellDef="let element">{{ element.value }}</td>
+            </ng-container>
+  
+            <!-- Description Column -->
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+              <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+            </ng-container>
+  
+            <!-- Valid From Column -->
+            <ng-container matColumnDef="validFrom">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Valid From</th>
+              <td mat-cell *matCellDef="let element">{{ element.validFrom }}</td>
+            </ng-container>
+  
+            <!-- Valid To Column -->
+            <ng-container matColumnDef="validTo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Valid To</th>
+              <td mat-cell *matCellDef="let element">{{ element.validTo }}</td>
+            </ng-container>
+  
+             <!-- Action Column -->
+             <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef>Action</th>
+              <td mat-cell *matCellDef="let element">
+                <div class="promotions-edit-btn">
+                  <mat-card>
+                    <mat-card-content>
+                      <section>
+                        <mat-menu #menu1="matMenu" class="mat-menu">
+                          <button class="edit-btn all-menu-btn" mat-menu-item (click)="onEditOpenDiscount(element)">Edit</button>
+                          <button class="delete-btn all-menu-btn" mat-menu-item (click)="onDelete(element)">Delete</button>
+                          <button class="block-btn all-menu-btn" mat-menu-item>Block</button>
+                        </mat-menu>
+  
+                        <button mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Open Menu">
+                          <mat-icon>more_vert</mat-icon>
+                        </button>
+                      </section>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </td>
+            </ng-container>
+            <!-- Header Row -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+  
+            <!-- Data Rows -->
+            <tr mat-row *matRowDef="let row; columns: displayedColumns1"></tr>
+          </table>
+  
+          <!-- First Table Paginator -->
+          <div class="discounts-footer">
+            <mat-paginator
+              class="discounts-pagination"
+              [pageSizeOptions]="[3, 5, 10, 20]"
+              showFirstLastButtons
+              aria-label="Select page of periodic elements"
+              #paginator1
+            ></mat-paginator>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Second Discounts Table -->
+      <div class="main_discounts_second">
+        <div class="heading_second_table">
+          <h6 class="main_discounts_heading">Appliances Wise Discount</h6>
+  
+          <div class="main_discounts_header_right">
+            <div class="btn-add">
+              <button class="add" (click)="addDiscounts()">
+                Add Discounts
+                <img src="images/add-circle-trans.png" alt="image" />
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="discounts_table_container">
+          <table mat-table [dataSource]="dataSource2" matSort>
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+              <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+            </ng-container>
+  
+            <!-- Value Column -->
+            <ng-container matColumnDef="value">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Value</th>
+              <td mat-cell *matCellDef="let element">{{ element.value }}</td>
+            </ng-container>
+  
+            <!-- Description Column -->
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+              <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+            </ng-container>
+  
+            <!-- Valid From Column -->
+            <ng-container matColumnDef="validFrom">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Valid From</th>
+              <td mat-cell *matCellDef="let element">{{ element.validFrom }}</td>
+            </ng-container>
+  
+            <!-- Valid To Column -->
+            <ng-container matColumnDef="validTo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Valid To</th>
+              <td mat-cell *matCellDef="let element">{{ element.validTo }}</td>
+            </ng-container>
+  
+            <!-- Max Amount Column -->
+            <ng-container matColumnDef="maxAmount">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Max Amount</th>
+              <td mat-cell *matCellDef="let element">{{ element.maxAmount }}</td>
+            </ng-container>
+  
+            <!-- Action Column -->
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef>Action</th>
+              <td mat-cell *matCellDef="let element">
+                <div class="promotions-edit-btn">
+                  <mat-card>
+                    <mat-card-content>
+                      <section>
+                        <mat-menu #menu1="matMenu" class="mat-menu">
+                          <button class="edit-btn all-menu-btn" mat-menu-item (click)="onEditOpenAppliances(element)">Edit</button>
+                          <button class="delete-btn all-menu-btn" mat-menu-item (click)="onDelete(element)">Delete</button>
+                          <button class="block-btn all-menu-btn" mat-menu-item>Block</button>
+                        </mat-menu>
+  
+                        <button mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Open Menu">
+                          <mat-icon>more_vert</mat-icon>
+                        </button>
+                      </section>
+                    </mat-card-content>
+                  </mat-card>
+                </div>
+              </td>
+            </ng-container>
+  
+            <!-- Header Row -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  
+            <!-- Data Rows -->
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+  
+          <!-- Second Table Paginator -->
+          <div class="discounts-footer">
+            <mat-paginator
+              class="discounts-pagination"
+              [pageSizeOptions]="[3, 5, 10, 20]"
+              showFirstLastButtons
+              aria-label="Select page of periodic elements"
+              #paginator2
+            ></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,66 @@
+<div class="integration-header">
+    <div class="integration-header-spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2">Add Custom DMS </h2>
+       
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+        <div class="integration-form">
+            <form [formGroup]="integrationForm" (ngSubmit)="onAdd() ">
+                <div class="first-row">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="dsmName">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>DMS NAME</mat-label>
+                                    <input matInput id="dsmName" placeholder="Enter" formControlName="dsmName" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="integration-supportEmail">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>SUPPORT EMAIL</mat-label>
+                                    <input matInput id="supportEmail" placeholder="Enter"
+                                        formControlName="supportEmail" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="integration-url">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>URL</mat-label>
+                                    <input matInput id="url" placeholder="Enter"
+                                        formControlName="url" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="integration-authToken">
+                            <mat-form-field appearance="outline">
+                                <mat-label>AUTH TOKEN</mat-label>
+                                <input matInput id="authToken" placeholder="Enter"
+                                    formControlName="authToken" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="integration-protocol">
+                            <mat-form-field appearance="outline">
+                                <mat-label>PROTOCOL</mat-label>
+                                <input matInput id="integration-protocol" placeholder="Enter"
+                                    formControlName="protocol" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="add-button">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

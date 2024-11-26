@@ -1,0 +1,113 @@
+<div class="discounts-dialog">
+    <div class="discounts-dialog-spacer">
+        <div class="discounts-header">
+            <h2 class="heading_h2" *ngIf="isSetOpen || isEditOpen">Set Discount</h2>
+            <h2 class="heading_h2" *ngIf="isAddOpen || isEditOpenAppliances">Add Discount</h2>
+
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+        <div class="main_discounts_container">
+            <div class="main_discounts_container_spacer">
+                <form [formGroup]="discountForm" (ngSubmit)="onAddDiscount()">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="promotion_input">
+                                <h6 class="name_heading">PROMOTION NAME</h6>
+                                <mat-form-field>
+                                    <input class="cstm_input" matInput type="text" placeholder="Enter"
+                                        formControlName="name" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="discount_input">
+                                <h6 class="name_heading">DISCOUNT</h6>
+                                <mat-form-field>
+                                    <input class="cstm_input" matInput type="text" placeholder="Enter"
+                                        formControlName="discount" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="from_input">
+                                <h6 class="name_heading">FROM</h6>
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="fromPicker" placeholder="MM/DD/YYYY"
+                                        formControlName="fromDate">
+                                    <mat-datepicker-toggle matIconSuffix [for]="fromPicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #fromPicker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="isAddOpen || isEditOpenAppliances">
+                        <div class="col-sm-4">
+                            <div class="from_input">
+                                <h6 class="name_heading">TILL</h6>
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="tillPickerAdd" placeholder="MM/DD/YYYY"
+                                        formControlName="tillDateAdd">
+                                    <mat-datepicker-toggle matIconSuffix [for]="tillPickerAdd"></mat-datepicker-toggle>
+                                    <mat-datepicker #tillPickerAdd></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="promotion_input">
+                                <h6 class="name_heading">MAX AMOUNT</h6>
+                                <mat-form-field>
+                                    <input class="cstm_input" matInput type="text" placeholder="Enter"
+                                        formControlName="maxAmount" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="discount_input">
+                                <h6 class="name_heading">SELECT A PRODUCT</h6>
+                                <mat-form-field>
+                                    <mat-select placeholder="Select">
+                                        <mat-option>None</mat-option>
+                                        <mat-option value="Leptop">Leptop</mat-option>
+                                        <mat-option value="Mobile">Mobile</mat-option>
+                                        <mat-option value="TP-Link">TP-Link</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="till_input" *ngIf="isSetOpen || isEditOpen">
+                                <h6 class="name_heading">TILL</h6>
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="tillPickerSet" placeholder="MM/DD/YYYY"
+                                        formControlName="tillDateSet">
+                                    <mat-datepicker-toggle matIconSuffix [for]="tillPickerSet"></mat-datepicker-toggle>
+                                    <mat-datepicker #tillPickerSet></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="addon_discount">
+                                <h6 class="name_heading">DISCOUNT ON ADDON</h6>
+                                <mat-slide-toggle class="custom-slide-toggle"></mat-slide-toggle>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="discription_input">
+                                <h6 class="name_heading">DESCRIPTION MAX 150 CHARACTERS</h6>
+                                <mat-form-field>
+                                    <textarea class="cstm_input" matInput type="text" placeholder="Enter"
+                                        formControlName="description">
+                            </textarea>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="cancel-button" (click)="closeDialog()">Cancel</button>
+                        <button type="submit" class="add-button">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

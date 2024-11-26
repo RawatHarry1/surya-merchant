@@ -1,0 +1,99 @@
+{
+  "merchants": [
+    {
+      "id": "74b8",
+      "name": "Arjun Sharma",
+      "address": "V.P.O. Bhuntar, Teh- Kullu, Dist- Kullu (H.P.)",
+      "phone": "7019283746",
+      "email": "arjun.sharma@gmail.com",
+      "rating": "4.2",
+      "servicable": "Yes",
+      "status": ""
+    },
+    {
+      "id": "1664",
+      "name": "Meena Verma",
+      "address": "Sector 17, Chandigarh, Punjab",
+      "phone": "9812345678",
+      "email": "meena.verma@yahoo.com",
+      "rating": "3.8",
+      "servicable": "No",
+      "status": ""
+    },
+    {
+      "id": "19d8",
+      "name": "Rajesh Mehta",
+      "address": "H.No. 32, Kasauli, Dist- Solan (H.P.)",
+      "phone": "7896541230",
+      "email": "rajesh.mehta@hotmail.com",
+      "rating": "4",
+      "servicable": "Yes",
+      "status": ""
+    },
+    {
+      "id": "2e26",
+      "name": "Pooja Thakur",
+      "address": "V.P.O. Dharamshala, Dist- Kangra (H.P.)",
+      "phone": "7023456781",
+      "email": "pooja.thakur@gmail.com",
+      "rating": "3.9",
+      "servicable": "No",
+      "status": ""
+    },
+    {
+      "id": "a63c",
+      "name": "Vikram Negi",
+      "address": "H.No. 50, Mall Road, Shimla, Dist- Shimla (H.P.)",
+      "phone": "7890123456",
+      "email": "vikram.negi@outlook.com",
+      "rating": "N/A",
+      "servicable": "Yes",
+      "status": ""
+    }
+  ],
+  "promotions": [
+    {
+      "name": "Rebuild20off",
+      "discount": "",
+      "discription": "",
+      "maxDiscount": "",
+      "allowedUsers": "",
+      "minimumOrder": "",
+      "applicationMode": "",
+      "promoOrderNo": "",
+      "assignStore": "",
+      "dateFrom": "",
+      "dateTill": "",
+      "id": "7e26"
+    },
+    {
+      "name": "Rebuild20off",
+      "discount": "",
+      "description": "This is only applied for the customer buy the min 10000 $ Item ",
+      "maxDiscount": "500",
+      "allowedUsers": "5",
+      "minimumOrder": "5000",
+      "applicationMode": "N/A",
+      "promoOrderNo": "N/A",
+      "assignStore": "",
+      "dateFrom": "2024-09-12T18:30:00.000Z",
+      "dateTill": "2024-09-18T18:30:00.000Z",
+      "id": "1523"
+    },
+    {
+      "id": "baa0",
+      "name": "jhdsfkhk",
+      "discount": "",
+      "discription": "dsfakjfkjjhkasdf",
+      "maxDiscount": "sdfsd",
+      "allowedUsers": "ffsd",
+      "minimumOrder": "sdf",
+      "applicationMode": "sdfsd",
+      "promoOrderNo": "",
+      "assignStore": "",
+      "dateFrom": "",
+      "dateTill": ""
+    }
+  ],
+  "discounts": []
+}

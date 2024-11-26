@@ -1,0 +1,243 @@
+<div class="promotions-header">
+    <div class="promotions-header-spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2" *ngIf="isAddOpen && !isEditOpen">Add Coupon</h2>
+            <h2 class="heading_h2" *ngIf="isEditOpen && !isAddOpen">Edit Coupon</h2>
+
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+        <div class="promotions-form">
+            <form [formGroup]="promotionsForm" (ngSubmit)="onAdd() ">
+                <div class="first-row">
+                    <h3 class="promotions-input-label">Promotion Type <span class="text-danger m-0 h4">*</span></h3>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="promotion-flat-discount">
+                                <mat-radio-group formControlName="discountType" aria-label="Select discount type">
+                                    <mat-radio-button [value]="1">PERCENTAGE DISCOUNT</mat-radio-button>
+                                    <mat-radio-button [value]="2">FLAT DISCOUNT</mat-radio-button>
+                                </mat-radio-group>
+                                @if(promotionsForm.get('discountType')?.hasError('required')&&
+                                promotionsForm.get('discountType')?.touched){ <mat-error>
+                                    {{ 'validations.required' | translate }}
+                                </mat-error>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="promotion-name">
+                            <mat-form-field class="add-promotion-form" appearance="outline">
+                                <mat-label>Coupon Code</mat-label>
+                                <input matInput id="promotion-name" placeholder="Enter_Coupon_Code"
+                                    formControlName="title" />
+                            </mat-form-field>
+                            @if(promotionsForm.get('title')?.hasError('required')&&
+                            promotionsForm.get('title')?.touched){ <mat-error>
+                                {{ 'validations.required' | translate }}
+                            </mat-error>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="discount" *ngIf="promotionsForm.get('discountType')?.value === ''">
+                            <mat-form-field class="add-promotion-form" appearance="outline">
+                                <mat-label>Choose the Discount Type First</mat-label>
+                                <!-- Percentage Discount Input -->
+                                <input *ngIf="promotionsForm.get('discountType')?.value === ''" matInput id="discount"
+                                    placeholder="Choose the Discount Type First" type="number"
+                                    formControlName="discount" />
+                            </mat-form-field>
+                            @if(promotionsForm.get('discount')?.hasError('required') &&
+                            promotionsForm.get('discount')?.touched){ <mat-error>
+                                {{ 'validations.required' | translate }}
+                            </mat-error>
+                            }
+                        </div>
+
+                        <div class="discount" *ngIf="promotionsForm.get('discountType')?.value === 1">
+                            <mat-form-field class="add-promotion-form" appearance="outline">
+                                <mat-label>Discount 1 - 99 (%)</mat-label>
+                                <!-- Percentage Discount Input -->
+                                <input *ngIf="promotionsForm.get('discountType')?.value === 1" matInput id="discount"
+                                    placeholder="Enter" type="number" formControlName="discount" />
+                            </mat-form-field>
+                            <!-- Display error messages based on specific validation errors -->
+                            @if(promotionsForm.get('discount')?.hasError('required') &&
+                            promotionsForm.get('discount')?.touched){ <mat-error>
+                                {{ 'validations.required' | translate }}
+                            </mat-error>}@else if (promotionsForm.get('discount')?.hasError('min')) {
+                            <mat-error>
+                                {{ 'validations.min' | translate: { number: 1 } }}
+                            </mat-error>}@else if(promotionsForm.get('discount')?.hasError('max')){
+                            <mat-error>
+                                {{ 'validations.max' | translate: { number: 99 } }}
+                            </mat-error>
+                            }
+
+                        </div>
+                        <div class="discount" *ngIf="promotionsForm.get('discountType')?.value === 2">
+                            <mat-form-field class="add-promotion-form" appearance="outline">
+                                <mat-label>Discount ($)</mat-label>
+
+                                <!-- Flat Discount Input -->
+                                <input *ngIf="promotionsForm.get('discountType')?.value === 2" matInput id="discount"
+                                    placeholder="Enter" type="number" formControlName="discount" />
+                            </mat-form-field>
+                            @if(promotionsForm.get('discount')?.hasError('required') &&
+                            promotionsForm.get('discount')?.touched){ <mat-error>
+                                {{ 'validations.required' | translate }}
+                            </mat-error>
+                            }
+                            @if(promotionsForm.get('discount')?.hasError('min') &&
+                            promotionsForm.get('discount')?.touched){ <mat-error>
+                                {{ 'validations.min' | translate: { number: 1 } }}
+                            </mat-error>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="discription">
+                    <mat-form-field class="add-promotion-form" appearance="outline">
+                        <mat-label>Description Max 150 Characters</mat-label>
+                        <textarea matInput id="discription" placeholder="Enter"
+                            formControlName="description"> </textarea>
+                    </mat-form-field>
+                    @if(promotionsForm.get('description')?.hasError('required')&&
+                    promotionsForm.get('description')?.touched){ <mat-error>
+                        {{ 'validations.required' | translate }}
+                    </mat-error>
+                    }@if(promotionsForm.get('description')?.hasError('maxlength')&&
+                    promotionsForm.get('description')?.touched){ <mat-error>
+                        {{ 'validations.maxlength' | translate :{ number: 150} }}
+                    </mat-error>
+                    }
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="start_date">
+                            <h3 class="date-from">From <span class="text-danger h4">*</span></h3>
+                            <mat-form-field appearance="outline">
+                                <mat-label>From Date</mat-label>
+                                <input matInput [matDatepicker]="pickerFrom" placeholder="MM/DD/YYYY"
+                                    formControlName="startDate" [min]="todayDate">
+                                <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+                                <mat-datepicker #pickerFrom></mat-datepicker>
+                            </mat-form-field>
+                            @if(promotionsForm.get('startDate')?.hasError('required')&&
+                            promotionsForm.get('startDate')?.touched){ <mat-error>
+                                {{ 'validations.required' | translate }}
+                            </mat-error>
+                            }@else if (promotionsForm.get('startDate')?.hasError('pattern')&&
+                            promotionsForm.get('startDate')?.touched) {
+                            <mat-error>
+                                {{ 'validations.pattern' | translate }}
+                            </mat-error>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="end_date">
+                            <h3 class="date-till">To <span class="text-danger m-0 h4">*</span></h3>
+                            <mat-form-field appearance="outline">
+                                <mat-label>To Date</mat-label>
+                                <input matInput [matDatepicker]="pickerTill" placeholder="MM/DD/YYYY"
+                                    formControlName="endDate" [min]="todayDate">
+                                <mat-datepicker-toggle matSuffix [for]="pickerTill"></mat-datepicker-toggle>
+                                <mat-datepicker #pickerTill></mat-datepicker>
+                            </mat-form-field>
+                            @if(promotionsForm.get('endDate')?.hasError('required') &&
+                            promotionsForm.get('endDate')?.touched){ <mat-error>
+                                {{ 'validations.required' | translate }}
+                            </mat-error>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="max-discount">
+                            <mat-form-field class="add-promotion-form" appearance="outline">
+                                <mat-label>Max Discount Amount</mat-label>
+                                <input type="number" matInput id="max-discount" placeholder="Enter"
+                                    formControlName="maxDiscountAmount" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="allowed-users">
+                            <mat-form-field class="add-promotion-form" appearance="outline">
+                                <mat-label>Max No Of Allowed Users</mat-label>
+                                <input type="number" matInput id="allowed-users" placeholder="Enter"
+                                    formControlName="maxUser" />
+                            </mat-form-field>
+                            @if(promotionsForm.get('maxUser')?.hasError('required') &&
+                            promotionsForm.get('maxUser')?.touched){ <mat-error>
+                                {{ 'validations.required' | translate }}
+                            </mat-error>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="minimum-order">
+                            <mat-form-field class="add-promotion-form" appearance="outline">
+                                <mat-label>Min Order Amount</mat-label>
+                                <input type="number" matInput id="minimum-order" placeholder="Enter"
+                                    formControlName="minAmount" />
+                            </mat-form-field>
+                            @if(promotionsForm.get('minAmount')?.hasError('required') &&
+                            promotionsForm.get('minAmount')?.touched){ <mat-error>
+                                {{ 'validations.required' | translate }}
+                            </mat-error>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="per_day_users">
+                            <mat-form-field class="add-promotion-form" appearance="outline">
+                                <mat-label>Per Day Users</mat-label>
+                                <input type="number" matInput id="promotion-application-mode" placeholder="Enter"
+                                    formControlName="maxPerDayUser" />
+                            </mat-form-field>
+                            @if(promotionsForm.get('maxPerDayUser')?.hasError('required') &&
+                            promotionsForm.get('maxPerDayUser')?.touched){ <mat-error>
+                                {{ 'validations.required' | translate }}
+                            </mat-error>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="promotion-code-permission">
+                            <h3 class="promotion-code-permission-heading">
+                                Allow Single User To Use The Code Multiple Times? *
+                            </h3>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <mat-radio-group formControlName="multiUseByCustomer"
+                                        aria-label="Select discount type">
+                                        <mat-radio-button [value]="true">Yes</mat-radio-button>
+                                        <mat-radio-button [value]="false">No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" (click)="closeDialog()">Cancel</button>
+                    <button type="submit" class="add-button" *ngIf="isAddOpen">Add</button>
+                    <button type="submit" class="add-button" *ngIf="isEditOpen">save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

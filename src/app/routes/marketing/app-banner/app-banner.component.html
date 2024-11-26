@@ -1,0 +1,85 @@
+<div class="banners">
+    <div class="banners-header">
+        <h3 class="banners-heading">{{'AppBanner.appBannerList' | translate}}</h3>
+
+
+        <div class="header-right">
+            <div class="btn-add">
+                <button class="add" (click)="openAddBanner()">{{'AppBanner.bannerTitle' | translate}}
+                    <img src="images/add-circle-trans.png" alt="image">
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="category_filter">
+        <h6 class="category_filter_heading"></h6>
+        @for (banner of bannerList; track $index; let i = $index) {
+        <div class="d-flex category_filter_container flex-wrap" [ngClass]="{'mt-3':i > 0}">
+            <div class="col-sm-3 col-12 margin-top-bottom">
+                <div class="category_name_input">
+                    <h6 class="category_name_input_heading">{{banner.title}}</h6>
+                    <p></p>
+                </div>
+            </div>
+            <div class="col-sm-4 col-12">
+                <div class="category_name_input h-100">
+                    <div class="h-100" *ngIf="!isContainerVisible[i]">
+                        <div class="d-flex justify-content-center h-100">
+                            <img class="banner-logo rounded-4 fit" [src]="banner.image" />
+                        </div>
+                    </div>
+                    <div>
+                        <div *ngIf="isContainerVisible[i]" class="d-flex justify-content-center">
+                            <img class="product-image rounded-4 fit" [src]="banner.image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 col-12 margin-top-bottom">
+                <div class="category_name_input text-center">
+                    <button (click)="toggleContainer(i)" class="dropDown-button">
+                        <mat-icon>{{ isContainerVisible[i] ? 'expand_less' : 'expand_more' }}</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-1 col-12 margin-top-bottom">
+                <mat-slide-toggle class="custom-slide-toggle" [(ngModel)]="banner.isActive"
+                    (change)="onToggleChange(banner.id)">
+                </mat-slide-toggle>
+            </div>
+            <div class="col-sm-1 col-12 margin-top-bottom">
+                <div class="category_name_input">
+                    <mat-card>
+                        <mat-card-content>
+                            <section>
+                                <mat-menu #menu2="matMenu">
+                                    <!-- <button (click)="changeStatusById(banner.id)" class="block-btn all-menu-btn" mat-menu-item>Show/Hide</button> -->
+                                    <button (click)="openAddBanner(banner, true)" class="edit-btn all-menu-btn"
+                                        mat-menu-item>Edit</button>
+                                    <button (click)="deleteBannerById(banner.id)" class="delete-btn all-menu-btn"
+                                        mat-menu-item>Delete</button>
+                                </mat-menu>
+                                <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Open Menu">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+                            </section>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+
+        </div>
+        }@empty {
+        <div class="d-flex justify-content-center category_filter_container">
+            <h6 class="category_filter_heading">{{'paginator.range_page_label_1' | translate}}</h6>
+        </div>
+        }
+    </div>
+    <div class="mt-2 banner-footer">
+        <mat-paginator class="products-pagination" #paginator1 [length]="totalItems1" [pageSizeOptions]="[5, 10, 20]"
+            (page)="onPageChange($event)" aria-label="Select page of periodic elements" showFirstLastButtons>
+        </mat-paginator>
+    </div>
+</div>

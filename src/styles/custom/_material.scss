@@ -1,0 +1,319 @@
+/** Override Material styles */
+
+@use '@angular/material' as mat;
+
+.mat-mdc-card {
+  margin-bottom: var(--gutter);
+}
+
+.mat-mdc-card-header {
+  margin-bottom: var(--gutter);
+}
+
+.mat-mdc-accordion {
+  display: block;
+  margin-bottom: var(--gutter);
+}
+
+.mat-mdc-menu-panel {
+  @include mat.elevation(2);
+}
+
+.form-field-full {
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+}
+
+body{
+  background-color: var(--light-theme-color-white) !important;
+}
+
+/*
+* Content Backgrount As PER Theme Color 
+*/
+mat-sidenav-content.mat-drawer-content.mat-sidenav-content.matero-content {
+  background: var(--light-theme-color-white) !important;
+}
+/*
+* Content Backgrount As PER Theme Color 
+*/
+
+/*ACTION Buttions CSS STARTED*/
+.mat-mdc-menu-content {
+  min-width: 135px !important;
+  padding: 0;
+  background-color: var(--primary-color-white-shade);
+}
+
+.mat-mdc-menu-item:hover {
+  color: var(--primary-color-white-shade);
+  background-color: var(--select-button-hover-background-color-shade) !important;
+}
+
+/*ACTION Buttions CSS ENDED*/
+
+
+/* Search Input CSS *****/
+.search-entry::placeholder {
+  color: var(--light-shade-text-gray-shade) !important;
+}
+
+.cstm_search .mat-mdc-form-field-infix {
+  padding: 0px 0px !important;
+  min-height: unset !important;
+}
+
+.cstm_search .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: var(--primary-color-white-shade) !important;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 5px !important;
+  min-width: 270px;
+  width: 85%;
+  padding: 0 10px;
+}
+
+
+.cstm_search .mdc-line-ripple {
+  display: none;
+}
+
+.cstm_search {
+  padding: 5px 0px;
+}
+
+.cstm_search .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+  height: 0;
+}
+
+.cstm_search .mat-mdc-form-field-infix {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+}
+
+.entries-info {
+  .search-btn1 {
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Search Input CSS ended *****/
+
+
+/* TAB ACTIVE START*/
+span.mdc-tab-indicator__content.mdc-tab-indicator__content--underline {
+  display: none;
+}
+
+
+.mdc-tab--active {
+  background-color: var(--secondary-color-orange-shade) !important;
+  transition: background-color 1s ease-in-out;
+  border-radius: 12px;
+}
+
+.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+  color: var(--primary-color-white-shade) !important;
+}
+
+.mat-mdc-tab.mdc-tab--active:hover .mdc-tab__text-label {
+  color: var(--primary-color-white-shade) !important;
+}
+
+.mat-mdc-tab {
+  background-color: var(--border-color-gray-shade);
+  border-radius: 14px;
+  margin: 3px;
+}
+
+/* TAB ACTIVE END*/
+
+
+/*--------------Table Css Over Ride START-------*/
+.mat-mdc-header-cell {
+  background-color: black !important;
+  color: var(--primary-color-white-shade);
+}
+
+.mat-sort-header-arrow {
+  color: var(--primary-color-white-shade);
+
+}
+
+/* Header of the Table NoWrap*/
+th.mat-mdc-header-cell.mdc-data-table__header-cell.cdk-header-cell {
+  text-wrap: nowrap;
+}
+
+/*--------------Table Css Over Ride END-------*/
+
+/*   This is the Pagination css to over ride the Mat UI START*/
+
+/*NO DATA FOUND START*/
+.mat_cell_no_data {
+  text-align: center;
+  padding: 80px 0;
+  height: 50vh;
+}
+
+/*NO DATA FOUND END*/
+
+.mat-mdc-paginator-container {
+  justify-content: space-between !important;
+  width: 100% !important;
+}
+
+button.mat-mdc-tooltip-trigger {
+  background-color: var(--pagination-color-shade) !important;
+  border-radius: 10px !important;
+  margin: 0 0 0 4px;
+
+}
+
+.mat-mdc-paginator-icon {
+  fill: var(--primary-color-white-shade) !important;
+}
+
+.mat-mdc-icon-button[disabled] {
+  background-color: var(--light-shade-text-gray-shade) !important;
+  cursor: not-allowed !important;
+}
+
+/*   This is the Pagination css to over ride the Mat UI END*/
+
+
+/* Category Action edit button CSS start **/
+
+.mat-mdc-card {
+  border-radius: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+
+}
+
+mat-card.mat-mdc-card.mdc-card {
+  background: transparent;
+}
+
+/*   Table cell edit delete and block button*/
+button,
+select {
+  border: none;
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color-white-shade);
+}
+
+.mat-menu .mat-mdc-menu-content {
+  padding: 0 !important;
+  width: 13vw;
+}
+
+.mat-menu .mat-mdc-menu-item {
+  background-color: var(--primary-color-white-shade);
+}
+
+.mat-menu .mat-mdc-menu-item:hover {
+  background-color: var(--background-color-blue-shade);
+  color: var(--primary-color-white-shade);
+}
+
+
+
+.mat-menu .mat-mdc-menu-item,
+.mat-mdc-menu-item:visited,
+.mat-mdc-menu-item:link {
+  color: var(--menu-text-color-gray-shade);
+}
+
+.mat-sort-header-arrow,
+[dir=rtl] .mat-sort-header-position-before .mat-sort-header-arrow {
+  color: var(--primary-color-white-shade) !important;
+}
+
+
+/*  ----- Specific Slide toggle Size CSS START------*/
+
+.custom-slide-toggle {
+  /* Adjust the overall size of the toggle */
+  transform: scale(0.7);
+  /* Scale the entire toggle component */
+
+
+  /* Adjust padding and margin if needed */
+  margin: 8px;
+  padding: 2px;
+}
+
+
+.custom-slide-toggle .mat-slide-toggle-thumb {
+  /* Resize the toggle knob */
+  width: 15px;
+  height: 15px;
+}
+
+
+.custom-slide-toggle .mat-slide-toggle-bar {
+  /* Resize the toggle track */
+  width: 40px;
+  /* Adjust the width */
+  height: 20px;
+  /* Adjust the height */
+}
+
+
+.custom-slide-toggle .mat-slide-toggle-label {
+  font-size: 1.5rem !important;
+}
+
+.banners-dialog .mat-mdc-slide-toggle .mdc-switch:enabled+.mdc-label {
+  /* Adjust the label font size if needed */
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0 15px 0 0;
+}
+
+
+
+/* Checked state color styles */
+.custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+  background: var(--mat-slider-switch-green-shade) !important;
+}
+
+
+.custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+  background: var(--mat-slider-switch-green-shade) !important;
+}
+
+/*  ----- Specific Slide toggle Size CSS END------*/
+
+
+/*  INPUT CSS OverRide Start*/
+
+.mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+  display: none;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: var(--mdc-filled-text-field-container-color);
+  border-radius: 14px;
+}
+
+mat-form-field.mat-mdc-form-field.mat-mdc-form-field-type-mat-input.mat-form-field-appearance-fill.mat-primary {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled),
+.mat-mdc-standard-chip {
+  background-color: var(--input-background-color-gray-shade) !important;
+}
+
+.mdc-line-ripple {
+  display: none;
+}
+
+/*  INPUT CSS OverRide END*/

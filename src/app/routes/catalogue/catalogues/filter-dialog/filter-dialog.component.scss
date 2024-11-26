@@ -1,0 +1,119 @@
+/*  Style to make the catalouge Borde-radius --0 */
+::ng-deep .mdc-dialog--open .mat-mdc-dialog-surface,
+.mdc-dialog--closing .mat-mdc-dialog-surface {
+    border-radius: 0;
+}
+
+::ng-deep .cdk-overlay-pane.mat-mdc-dialog-panel {
+    max-width: 80vw !important;
+    min-width: 35vw !important;
+}
+
+/*----------------Common Styling---------------- */
+.close-button {
+    font-size: 1.8rem;
+    color: var(--primary-color-white-shade);
+    padding: 0 14px 6px 0;
+    border: none;
+    background: transparent;
+}
+
+/*  Heading of the Add Filter Dialog*/
+.filter-header {
+    width: 35vw;
+    max-height: 70vh;
+
+    .filter-header-spacer {
+
+
+        .dialog-header {
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            color: var(--primary-color-white-shade);
+
+            .heading_h2 {
+                font-size: 1.5rem;
+                position: relative;
+                left: 30px;
+                // width: fit-content;
+                box-sizing: border-box;
+                padding: 10px 5px;
+            }
+        }
+    }
+
+    .filter-container {
+        padding: 30px;
+        background-color: var(--primary-color-white-shade);
+
+
+        .filter-section {
+            margin-bottom: 20px;
+        }
+
+        .filter-name {
+            background-color: var(--background-color-blue-shade);
+            color: var(--primary-color-white-shade);
+            text-align: center;
+            padding: 5px;
+            font-size: 1.1rem;
+            border-radius: 6px;
+
+            .filter_text{
+                margin: 0;
+            }
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: var(--primary-color-white-shade);
+            border: 1px solid var(--border-color-gray-shade);
+            border-radius: 5px;
+
+
+            .option {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 10px;
+
+                .option-image {
+                    max-width: 75px;
+                    height: 60px;
+                    margin-bottom: 5px;
+                    border-radius: 8px;
+                }
+            }
+
+            .if_image_text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 8px;
+                padding: 0 0 4px 0;
+
+                .text_in_image {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    overflow: hidden;
+                }
+            }
+        }
+
+        .only_text {
+            background-color: var(--border-color-gray-shade);
+            font-size: 1.1rem;
+            border-radius: 8px;
+            padding: 7px;
+            margin: 0;
+            min-width: 60px;
+            text-align: center;
+            overflow: hidden;
+        }
+    }
+
+}

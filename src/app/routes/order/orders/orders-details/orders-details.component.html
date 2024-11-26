@@ -1,0 +1,191 @@
+<div class="order-spacer">
+    <div class="order-header">
+        <div class="left-order">
+            <span class="order-text">ORDER DETAILS</span>
+        </div>
+        <div class="right-order">
+            <button class="back_button" (click)="goBack()"><mat-icon>arrow_back</mat-icon>Back</button>
+        </div>
+    </div>
+    <div class="order_details">
+        <div class="order_top_details">
+            <div class="order_top_details_left">
+                <div class="order_dare">
+                    <mat-icon>date_range</mat-icon>
+                    <span class="h6 p-2 m-0">{{mainOrder?. orderDate | date: 'medium' }}</span>
+                </div>
+                <div class="order_id">
+                    <span class="h6 pe-2">Order Id :</span>
+                    <span class="h6 text-secondary">{{orderId}}</span>
+                </div>
+            </div>
+            <!-- <div class="order_top_details_right">
+                <div class="status_drop">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="selectedStatus" >
+                            <mat-option *ngFor="let order of status" [value]="order.value">
+                                {{ order.viewValue }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="save_button">
+                    <button class="button">Save</button>
+                </div>
+            </div> -->
+        </div>
+        <div class="customer_details">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="customer_info">
+                        <div class="customer_image">
+                            <mat-icon class="image1">person</mat-icon>
+                        </div>
+                        <div class="customer">
+                            <div><span class="h6">Customer</span></div>
+                            <div><span class="">{{mainOrder?.customerName}}</span></div>
+                            <div><span class="">{{mainOrder?.customerEmail}}</span></div>
+                            <div><span class="">{{mainOrder?.customerCountryCode+" "+mainOrder?.customerPhone}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="merchant_info">
+                        <div class="merchant_image">
+                            <mat-icon class="image2">supervisor_account</mat-icon>
+                        </div>
+                        <div class="merchant">
+                            <div><span class="h6">Merchant</span></div>
+                            <div><span class="">Name: {{mainOrder?.merchantName}}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="courier_info">
+                        <div class="courier_image">
+                            <mat-icon class="image3">local_shipping</mat-icon>
+                        </div>
+                        <div class="courier">
+                            <div><span class="h6">Courier</span></div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="deliver_to">
+                        <div class="location_image">
+                            <mat-icon class="image4">place</mat-icon>
+                        </div>
+                        <div class="location">
+                            <div><span class="h6">Location</span></div>
+                            <div><span class="">City: {{customerAddress?.city}}</span></div>
+                            <div><span class="">Street: {{customerAddress?.locality}}</span></div>
+                            <div><span class="">Landmark: {{customerAddress?.landmark}}</span></div>
+                            <div><span class="">State: {{customerAddress?.state}}</span></div>
+                            <div><span class="">Address: {{customerAddress?.address}}</span></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product_details">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class=" table-container">
+                        <table mat-table [dataSource]="dataSource1" matSort #sort1="matSort">
+                            <!-- Product  Column -->
+                            <ng-container matColumnDef="product">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
+                                <td mat-cell class="product" *matCellDef="let element">
+                                    <div class="order_img_name d-flex align-items-center ">
+                                        <img class="product_images py-1" src="{{element.productImage}}"
+                                            alt="{{element.productImage}}"> <span class="h6"
+                                            [matTooltip]="element.productName">{{element.productName |
+                                            truncate:30}}</span>
+                                    </div>
+                                </td>
+                            </ng-container>
+
+                            <!-- Quantity Column -->
+                            <ng-container matColumnDef="quantity">
+                                <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                                <td mat-cell *matCellDef="let element">{{element.productQuantity}}</td>
+                            </ng-container>
+
+                            <!-- Unit Price Column -->
+                            <ng-container matColumnDef="unitPrice">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Unit Price </th>
+                                <td mat-cell *matCellDef="let element"> {{element.subOrderPrice | inrToUsd }}</td>
+                            </ng-container>
+
+                            <!-- Total Price Column -->
+                            <ng-container matColumnDef="totalPrice">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Price </th>
+                                <td mat-cell *matCellDef="let element">{{element.totalSubOrderPrice | inrToUsd}}</td>
+                            </ng-container>
+
+                            <!-- Status Column -->
+                            <ng-container matColumnDef="status">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <mat-form-field>
+                                        <mat-select [(ngModel)]="element.selectedSubOrderStatus" (selectionChange)="onStatusChange($event.value, element.subOrderId)">
+                                            <mat-option *ngFor="let subOrder of SubOrderStatus"
+                                                [value]="subOrder.value">
+                                                {{ subOrder.viewValue }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+                            </ng-container>
+
+
+                            <!-- Header Row -->
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+                            <!-- Data Rows -->
+                            <tr mat-row class="category_select" *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                            <tr class="mat-row" *matNoDataRow>
+                                <td class="mat_cell_no_data text-center" colspan="5">
+                                    {{'paginator.range_page_label_1' | translate}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="col-sm-4">
+                    <div class="payment_notes">
+                        <div class="payment_info">
+                            <div class="m-3 d-flex align-items-center"><mat-icon
+                                    class="image5 me-2">payment</mat-icon><span class="h5">Invoice Summary</span></div>
+                            <div class="payment_text">
+                                <span class="">Order Price:</span>
+                                <span class="h6"> {{mainOrder?.totalPrice | inrToUsd}}</span>
+                            </div>
+                            <div class="payment_text">
+                                <span class="">Discount:</span>
+                                <span class="h6"> - {{ mainOrder?.totalDiscountPrice | inrToUsd}}</span>
+                            </div>
+                            <div class="payment_text">
+                                <span class="">Delivery Charges:</span>
+                                <span class="h6"> + {{ mainOrder?.deliveryCharges | inrToUsd}}</span>
+                            </div>
+                            <div class="payment_text">
+                                <span class="">Payable Amount: </span>
+                                <span class="h5"> {{mainOrder?.totalPriceToPay | inrToUsd}}</span>
+                            </div>
+                        </div>
+                        <!-- <div class="notes">
+                            This is a good Product.
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

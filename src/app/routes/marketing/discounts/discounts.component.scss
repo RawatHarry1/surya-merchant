@@ -1,0 +1,109 @@
+.discounts {
+    padding: 0 30px;
+    height: 90vh;
+
+    .discounts-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .discounts-heading {
+            padding: 5px 0 0 0px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header_dropdown {
+            display: flex;
+        }
+    }
+
+    .main_discounts_container {
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .main_discounts_first,
+        .main_discounts_second {
+            border-radius: 14px;
+            border: 2px solid var(--border-color-gray-shade);
+            margin: 0 0 20px 0;
+            padding: 10px;
+
+            .heading_first_table,
+            .heading_second_table {
+                display: flex;
+                margin: 10px;
+
+                .main_discounts_heading {
+                    padding: 5px 0 0 0px;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                }
+
+                .main_discounts_header_right {
+                    position: absolute;
+                    right: 0;
+
+                    .btn-add {
+                        margin: 0 0 0 40px;
+
+                        .add {
+                            border: none;
+                            color: var(--primary-color-white-shade);
+                            font-weight: 500;
+                            border-radius: 6px;
+                            margin: 0 10px 0 5px;
+                            padding: 8px 6px;
+                            background-color: var(--button-background-color-shade);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*   This is the Pagination css to over ride the Mat UI*/
+
+::ng-deep.discounts-pagination .mat-mdc-paginator-container {
+    justify-content: space-between !important;
+    width: 100% !important;
+}
+
+
+::ng-deep.discounts-pagination .mat-mdc-icon-button {
+    background-color: var(--secondary-color-orange-shade);
+    border-radius: 10px !important;
+    margin: 0 4px 0 0;
+}
+
+::ng-deep.discounts-pagination .mat-mdc-paginator-icon {
+    fill: var(--primary-color-white-shade) !important;
+}
+
+
+
+/*--------------Table Css Over Ride-------*/
+::ng-deep .discounts .mat-mdc-header-cell {
+    background-color: black !important;
+    color: var(--primary-color-white-shade);
+}
+
+::ng-deep .discounts .mat-sort-header-arrow {
+    color: var(--primary-color-white-shade);
+
+}
+
+
+
+::ng-deep .mat-menu .mat-mdc-menu-item,
+.mat-mdc-menu-item:visited,
+.mat-mdc-menu-item:link {
+    color: var(--menu-text-color-gray-shade);
+}

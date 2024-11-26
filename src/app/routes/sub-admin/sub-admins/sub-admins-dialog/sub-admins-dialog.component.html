@@ -1,0 +1,59 @@
+<div class="admin-header">
+    <div class="admin-header-spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2">Add Admin</h2>
+
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+        <div class="admin-form">
+            <form [formGroup]="subAdminForm" (ngSubmit)="onAdd()">
+                <div class="first-row">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="id">
+                                <h6 class="sub_admins_heading">ID</h6>
+                                <mat-form-field class="add-admin-form" appearance="outline">
+                                    <input matInput id="id" placeholder="Enter" formControlName="id" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="admin-email">
+                                <h6 class="sub_admins_heading">Email</h6>
+                                <mat-form-field class="add-admin-form" appearance="outline">
+                                    <input matInput id="admin-email" placeholder="Enter"
+                                        formControlName="email" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="admin-registrationDate">
+                            <h6 class="sub_admins_heading">Registration Date</h6>
+                            <mat-form-field class="add-admin-form" appearance="outline">
+                                <input matInput id="admin-registrationDate" type="date" placeholder="Enter"
+                                    formControlName="registrationDate" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="admin-phone-no">
+                            <h6 class="sub_admins_heading">Phone No</h6>
+                            <mat-form-field class="add-admin-form" appearance="outline">
+                                <input matInput id="admin-phone-no" placeholder="Enter"
+                                    formControlName="phone" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" (click)="closeDialog()">Cancel</button>
+                    <button type="submit" class="add-button">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

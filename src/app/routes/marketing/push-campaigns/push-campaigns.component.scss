@@ -1,0 +1,114 @@
+.campaigns {
+    padding: 0 30px;
+    height: 90vh;
+
+    .campaigns-header {
+
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .campaigns-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+    }
+
+    .main-campaigns-container {
+
+        .contact-us {
+            padding: 15px;
+            background-color: var(--drowpdown-background-color-shade);
+            width: 40%;
+            border-radius: 14px;
+
+            .dropDown-button {
+                display: flex;
+                align-items: center;
+                background: transparent;
+                border: none;
+            }
+
+            .contact-us-heading {
+                padding: 5px 0 0 0px;
+                font-size: 1rem;
+                font-weight: 500;
+            }
+        }
+
+        // .way-of-contact {
+        //     // color: ;
+        // }
+
+        .campaigns-footer {
+            position: sticky;
+            bottom: 0;
+            z-index: 10;
+            /* Ensure the pagination is above other content */
+
+        }
+    }
+}
+
+
+
+/* ----------Way OF Contact Text FONT-SIZE Change*/
+::ng-deep .campaigns span.mat-mdc-list-item-unscoped-content.mdc-list-item__primary-text {
+    font-size: 0.85rem;
+}
+
+/* ----------Way Of Contact Chack Box Margin Change ----------------*/
+::ng-deep .campaigns .mdc-list-item--with-trailing-checkbox .mdc-list-item__end {
+    margin-left: 0px !important;
+}
+
+/* ----------Way OF Contact Massage Box TextArea width Change*/
+.campaigns .mat-mdc-form-field {
+    width: 100%;
+}
+
+/* ----------Way OF Contact Massage Box TextArea width Change END*/
+
+
+
+::ng-deep .campaigns .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    height: 0;
+}
+
+::ng-deep .campaigns .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    border-radius: 14px;
+}
+
+/*--------------Table Css Over Ride-------*/
+::ng-deep .campaigns .mat-mdc-header-cell {
+    background-color: black !important;
+    color: var(--primary-color-white-shade);
+}
+
+::ng-deep .campaigns .mat-sort-header-arrow {
+    color: var(--primary-color-white-shade);
+
+}
+
+
+/*   This is the Pagination css to over ride the Mat UI*/
+
+::ng-deep.campaigns-pagination .mat-mdc-paginator-container {
+    justify-content: space-between !important;
+    width: 100% !important;
+}
+
+
+::ng-deep.campaigns-pagination .mat-mdc-icon-button {
+    background-color: var(--secondary-color-orange-shade);
+    border-radius: 10px !important;
+    margin: 0 4px 0 0;
+    // fill: white !important;
+}
+
+::ng-deep.campaigns-pagination .mat-mdc-paginator-icon {
+    fill: var(--primary-color-white-shade) !important;
+}

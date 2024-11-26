@@ -1,0 +1,41 @@
+<div class="add_card_header">
+    <div class="add_card_header_spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2">Add Card</h2>
+
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+        <div class="add-card-form">
+            <form [formGroup]="addCardForm" (ngSubmit)="onAdd() ">
+                <div class="card_no">
+                    <p class="card_no_heading">CARD NUMBER</p>
+                    <mat-form-field class="add-card-form">
+                        <input matInput id="card_no" placeholder="Enter" formControlName="cardNo" />
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="valid_upto">
+                            <p class="valid_upto_heading">VALID UPTO</p>
+                            <mat-form-field class="add-card-form">
+                                <input matInput id="valid_upto" placeholder="Enter" formControlName="validUpto" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="cvv">
+                            <p class="cvv_heading">CVV</p>
+                            <mat-form-field class="add-card-form">
+                                <input matInput id="cvv" placeholder="Enter" formControlName="cvv" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" (click)="closeDialog()">Cancel</button>
+                    <button type="submit" class="add-button">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

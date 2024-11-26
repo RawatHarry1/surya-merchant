@@ -1,0 +1,99 @@
+.banners {
+    padding: 0 30px;
+    height: 90vh;
+
+    .banners-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .banners-heading {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-right {
+            display: flex;
+            position: absolute;
+            right: 0px;
+
+            .btn-add {
+                margin: 0 0 0 40px;
+
+                .add {
+                    border: none;
+                    color: var(--primary-color-white-shade);
+                    font-weight: 500;
+                    border-radius: 6px;
+                    margin: 0 0 0 5px;
+                    padding: 8px 6px;
+                    background-color: var(--button-background-color-shade);
+                }
+            }
+        }
+    }
+
+    .main-banners-container {
+        .heading-main-banners-container {
+            display: flex;
+
+            h4.heading-main-banners {
+                font-size: 1.2rem;
+                min-width: 12%;
+                margin: 0 15px 0 0;
+            }
+        }
+    }
+}
+
+
+.category_filter {
+    padding-top: 35px;
+
+    .category_filter_container {
+        padding: 12px;
+        box-shadow: 0px 0px 9px -5px var(--button-background-color-black-shade);
+        border-radius: 14px;
+    }
+}
+
+.product-image {
+    // max-width: 50%;
+    height: 20vh;
+    margin: auto;
+    border-radius: 14px
+}
+
+.banner-logo {
+    height: 50px;
+    margin: auto;
+    border-radius: 5px
+}
+
+@media (max-width: 576px) {
+    .category_name_input_heading {
+        font-size: 1rem;
+    }
+
+    .product-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .dropDown-button {
+        width: 100%;
+    }
+}
+
+.margin-top-bottom {
+    margin: auto 0;
+}
+
+.banner-footer {
+    bottom: 12px;
+    z-index: 10;
+    position: sticky;
+}

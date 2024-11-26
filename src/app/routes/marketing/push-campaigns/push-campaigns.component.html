@@ -1,0 +1,72 @@
+<div class="campaigns">
+    <div class="campaigns-header">
+
+        <h3 class="campaigns-heading">Push Campaigns</h3>
+    </div>
+    <div class="main-campaigns-container">
+        <div class="contact-us">
+            <button (click)="toggleContainer()" class="dropDown-button">
+                <h5 class="contact-us-heading">Send notification / Email to Users</h5>
+                <!-- Arrow Icon -->
+                <mat-icon>{{ isContainerVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
+            </button>
+            <div class="container" *ngIf="isContainerVisible">
+                <div class="way-of-contact">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <mat-selection-list> <mat-list-option>Send as
+                                    notification</mat-list-option></mat-selection-list>
+                        </div>
+                        <div class="col-sm-6">
+                            <mat-selection-list> <mat-list-option>Send as Email</mat-list-option></mat-selection-list>
+                        </div>
+                    </div>
+                    <mat-form-field class="massage">
+                        <textarea matInput id="massage" placeholder="Enter"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="table-campaigns">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                    <th class="id" mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                    <td id="id" mat-cell *matCellDef="let element">{{element.id}}</td>
+                </ng-container>
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th class="name" mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                    <td id="name" mat-cell *matCellDef="let element">{{element.name}}</td>
+                </ng-container>
+                <!-- Phone Column -->
+                <ng-container matColumnDef="phone">
+                    <th class="phone" mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+                    <td id="phone" mat-cell *matCellDef="let element">{{element.phone}}</td>
+                </ng-container>
+                <!-- Registration Date Column -->
+                <ng-container matColumnDef="registrationDate">
+                    <th class="registration-date" mat-header-cell *matHeaderCellDef mat-sort-header>Registration Date
+                    </th>
+                    <td id="registration-date" mat-cell *matCellDef="let element">{{element.registrationDate}}</td>
+                </ng-container>
+                <!-- Total Order Column -->
+                <ng-container matColumnDef="totalOrder">
+                    <th class="total-order" mat-header-cell *matHeaderCellDef mat-sort-header>Total Order</th>
+                    <td id="total-order" mat-cell *matCellDef="let element">{{element.totalOrder}}</td>
+                </ng-container>
+
+                <!-- Header Row Display -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <!-- Data Row Display -->
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+            <div class="campaigns-footer">
+                <mat-paginator class="campaigns-pagination" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

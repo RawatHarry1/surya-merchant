@@ -1,0 +1,62 @@
+<div class="subCategory-header">
+    <div class="subCategory-header-spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2">Add Sub Category</h2>
+
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+
+    </div>
+    <div class="subCategory-form">
+        <form [formGroup]="subCategoryForm" (ngSubmit)="onSubmit() ">
+
+            <div class="option_name">
+                <h6 class="category_image_input_heading">Category <span class="text-danger h4">*</span></h6>
+                <input formControlName="categoryName" [typeahead]="categoryList" [typeaheadOptionsLimit]="8"
+                    (typeaheadOnSelect)="onCategorySelect($event.item)" [typeaheadMinLength]=" 0"
+                    placeholder="Search a category" class="searchable-select form-control">
+                    <mat-error
+                    *ngIf="subCategoryForm.get('categoryName')?.hasError('required') && subCategoryForm.get('categoryName')?.touched">
+                    Select a Category first
+                </mat-error>
+            </div>
+
+            <div class="subCategory_name">
+                <h6 class="subCategory_image_input_heading">Sub Category Name <span class="text-danger h4">*</span></h6>
+                <mat-form-field class="add-filter-form" appearance="outline">
+                    <input matInput id="subCategory_name" placeholder="Enter" formControlName="subCategoryName" />
+                </mat-form-field>
+                <mat-error
+                    *ngIf="subCategoryForm.get('subCategoryName')?.hasError('required') && subCategoryForm.get('subCategoryName')?.touched">
+                    Sub Category name is required
+                </mat-error>
+            </div>
+
+            <div class="upload_file">
+                <h6 class="subCategory_image_input_heading">Sub Category Image <span class="text-danger h4">*</span>
+                </h6>
+                <div class="subCategory_image_input">
+                    <!-- Selected Images Preview -->
+                    <div class="preview" *ngIf="selectedFiles.thumbnail">
+                        <div class="image-container">
+                            <span class="delete-icon" (click)="removeSelectedFile()">
+                                <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                            </span>
+                            <img class="preview-images" [src]="selectedFiles.thumbnail" alt="Image" />
+                        </div>
+                    </div>
+                    <input type="file" #fileInput (change)="onFileSelected($event)" formControlName="subCategoryImage" accept="image/*" />
+                </div>
+                <mat-error
+                *ngIf="subCategoryForm.get('subCategoryImage')?.hasError('required') && subCategoryForm.get('subCategoryImage')?.touched">
+                Image is required
+            </mat-error>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="cancel-button" (click)="closeDialog()">Cancel</button>
+                <button type="submit" class="add-button">Add</button>
+            </div>
+        </form>
+    </div>
+</div>

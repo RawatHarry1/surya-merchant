@@ -1,0 +1,133 @@
+<div class="customer-header">
+    <div class="customer-header-spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2">Create Customer</h2>
+
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+        <div class="customer-form">
+            <form [formGroup]="customerForm" (ngSubmit)="onAdd() ">
+                <div class="first_row mt-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="firstName">
+                                <mat-form-field class="add-customer-form" appearance="outline">
+                                    <mat-label>First Name</mat-label>
+                                    <input matInput id="customer-name" placeholder="Enter First Name"
+                                        formControlName="firstName" />
+                                </mat-form-field>
+                                @if(customerForm.get('firstName')?.hasError('required')&&
+                                customerForm.get('firstName')?.touched){ <mat-error>
+                                    {{ 'validations.required' | translate }}
+                                </mat-error>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="lastName">
+                                <mat-form-field class="add-customer-form" appearance="outline">
+                                    <mat-label>Last Name</mat-label>
+                                    <!-- last Name Input -->
+                                    <input matInput id="lastName" placeholder="Enter Last Name" type="text"
+                                        formControlName="lastName" />
+                                </mat-form-field>
+                                @if(customerForm.get('lastName')?.hasError('required') &&
+                                customerForm.get('lastName')?.touched){ <mat-error>
+                                    {{ 'validations.required' | translate }}
+                                </mat-error>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="second_row mt-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="email">
+                                <mat-form-field class="add-customer-form" appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput id="customer-name" type="email" placeholder="Enter Email"
+                                        formControlName="email" />
+                                </mat-form-field>
+                                @if(customerForm.get('email')?.hasError('required')&&
+                                customerForm.get('email')?.touched){ <mat-error>
+                                    {{ 'validations.required' | translate }}
+                                </mat-error>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="phoneNumber">
+                                <div class="custom-tel">
+                                    <!-- last Name Input -->
+                                    <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+                                        [enableAutoCountrySelect]="true" [enablePlaceholder]="false"
+                                        [searchCountryFlag]="true"
+                                        [searchCountryField]="[SearchCountryField.Name, SearchCountryField.Iso2]"
+                                        [selectFirstCountry]="false" [selectedCountryISO]="CountryISO.India"
+                                        [separateDialCode]="true" placeholder="Enter Mobile No."
+                                        formControlName="phoneNumber" [phoneValidation]="true">
+                                    </ngx-intl-tel-input>
+                                    <div *ngIf="submitted">
+                                        <div class="alert text-danger p-0" *ngIf="!customerForm.value.phoneNumber">
+                                            This field is Required
+                                        </div>
+                                        <div class="alert text-danger p-0"
+                                            *ngIf="customerForm.value.phoneNumber && customerForm.controls['phoneNumber'].errors">
+                                            Invalid Phone Number
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="second_row mt-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="start_date">
+                                <!-- <span class="text-danger h4">*</span> -->
+                                <mat-form-field appearance="outline">
+                                    <mat-label>DOB</mat-label>
+                                    <input matInput [matDatepicker]="pickerFrom" placeholder="MM/DD/YYYY"
+                                        formControlName="dob" [min]="minDate">
+                                    <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+                                    <mat-datepicker #pickerFrom></mat-datepicker>
+                                </mat-form-field>
+                                @if(customerForm.get('dob')?.hasError('required')&&
+                                customerForm.get('dob')?.touched){ <mat-error>
+                                    {{ 'validations.required' | translate }}
+                                </mat-error>
+                                }@else if (customerForm.get('dob')?.hasError('pattern')&&
+                                customerForm.get('dob')?.touched) {
+                                <mat-error>
+                                    {{ 'validations.pattern' | translate }}
+                                </mat-error>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="gender">
+                                <mat-radio-group aria-label="Select an gender" formControlName="gender">
+                                    <mat-radio-button value="1"> Male</mat-radio-button>
+                                    <mat-radio-button value="2">Female</mat-radio-button>
+                                    <mat-radio-button value="3">Others</mat-radio-button>
+                                </mat-radio-group>
+                                @if(customerForm.get('gender')?.hasError('required') &&
+                                customerForm.get('gender')?.touched){ <mat-error>
+                                    {{ 'validations.required' | translate }}
+                                </mat-error>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions mt-3">
+                    <button type="button" class="cancel-button" (click)="closeDialog()">Cancel</button>
+                    <button type="submit" class="add-button">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

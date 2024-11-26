@@ -1,0 +1,58 @@
+@use '../style/breakpoints';
+
+.matero-sidebar-header {
+  overflow: hidden;
+
+  mat-toolbar {
+    width: var(--sidenav-width);
+    padding: 0.5rem 0.5rem;
+    // background-color: var(--sidemenu-active-heading-hover-background-color);
+    background: transparent !important;
+  }
+
+  // Remove redundant padding in the slide toggle
+  mat-slide-toggle .mdc-label {
+    display: none;
+  }
+}
+
+.mat-drawer-inner-container {
+  overflow: hidden !important;
+}
+
+.main-menu {
+  display: flex;
+  align-items: center;
+  // position: relative;
+  // width: fit-content;
+  // left: 20px;
+  margin-top: 20px;
+
+  h4 {
+    color: black;
+    font-size: 1.1rem;
+    height: 13px;
+  }
+}
+
+.matero-sidebar-main {
+  // height: calc(100% - var(--mat-toolbar-standard-height));
+  height: 75vh;
+  padding: 0 0.5rem 0.5rem;
+  overflow: auto;
+  scrollbar-width: none;
+  margin-top: 15px;
+  // background-color: var(--light-theme-color-white);
+  background: transparent !important;
+
+  @include breakpoints.bp-lt(small) {
+    & {
+      height: calc(100% - var(--mat-toolbar-mobile-height));
+    }
+  }
+}
+
+.mat-drawer {
+  background-color: var(--primary-color-white-shade);
+  box-shadow: 0px 0px 300px -100px;
+}

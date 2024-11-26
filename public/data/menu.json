@@ -1,0 +1,34 @@
+{
+  "menu": [
+    {
+      "route": "dashboard",
+      "name": "dashboard",
+      "type": "link",
+      "icon": "dashboard"
+    },
+    {
+      "route": "catalogues",
+      "name": "catalogues",
+      "type": "link",
+      "icon": "category"
+    },
+    {
+      "route": "customerlist",
+      "name": "customer",
+      "type": "link",
+      "icon": "category"
+    },
+    {
+      "route": "product",
+      "name": "products",
+      "type": "link",
+      "icon": "category"
+    },
+    {
+      "route": "orders",
+      "name": "orders",
+      "type": "link",
+      "icon": "local_grocery_store"
+    }
+  ]
+}

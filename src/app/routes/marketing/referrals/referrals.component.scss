@@ -1,0 +1,182 @@
+.referrals {
+    padding: 0 30px;
+    height: 90vh;
+
+    .referrals-header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .referrals-heading {
+            padding: 5px 0 0 0px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+    }
+
+    .main-referrals-container {
+        padding: 0 40px;
+
+        .about-referrals {
+
+            .text-about-referrals {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .sec-referrals-container {
+
+        .col-sm-1,
+        .col-sm-2,
+        .col-sm-4,
+        .col-sm-6,
+        .col-sm-8 {
+            align-self: center;
+        }
+
+        .each-row {
+            margin: 0 0 10px 0;
+
+            .heading-referrals {
+                .heading {
+                    padding: 5px 0 0 0px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                }
+            }
+
+            .mat-mdc-form-field {
+                width: 100%;
+            }
+
+            .input-referrals {
+                width: 100%;
+                height: 40px;
+                padding: 5px 20px;
+                border-radius: 6px;
+                background-color: var(--border-color-gray-shade);
+            }
+
+            .input-field-referrals {
+
+                .mat-mdc-form-field {
+                    width: 100%;
+
+                    mat-label {
+                        font-size: 1rem;
+                        padding: 5px 8px;
+                        color: var(--light-shade-text-gray-shade);
+
+                    }
+                }
+            }
+        }
+
+        .referrals-footer {
+            position: sticky;
+            /* Sticky position */
+            bottom: 0;
+            /* Stick to the bottom */
+            z-index: 10;
+            /* Ensure the pagination is above other content */
+
+
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            border-bottom: 30px solid transparent;
+
+            .cancel-button {
+                padding: 8px 18px;
+                background-color: var(--cancel-button-red-color-shade);
+                border-radius: 5px;
+                width: 130px;
+                color: var(--primary-color-white-shade);
+                border: none;
+                font-size: 1.1rem;
+            }
+
+            .add-button {
+                padding: 8px 18px;
+                background-color: var(--background-color-blue-shade);
+                border-radius: 5px;
+                width: 130px;
+                color: var(--primary-color-white-shade);
+                border: none;
+                font-size: 1.1rem;
+            }
+
+        }
+    }
+}
+
+
+::ng-deep .referrals .mat-mdc-header-cell {
+    background-color: black !important;
+    color: var(--primary-color-white-shade);
+}
+
+::ng-deep .referrals .mat-sort-header-arrow {
+    color: var(--primary-color-white-shade);
+
+}
+
+.ng-select.ng-select-single .ng-select-container .ng-value-container,
+.ng-select.ng-select-single .ng-select-container .ng-value-container .ng-value {
+    height: 40px !important;
+    padding: 0 20px !important;
+}
+
+/* ---------Over ride the Mat Css ---------- */
+
+::ng-deep .sec-referrals-container .mat-mdc-form-field-infix {
+    padding: 0 !important;
+    min-height: 40px !important;
+}
+
+::ng-deep .sec-referrals-container .mat-mdc-text-field-wrapper {
+    padding: 0 !important;
+}
+
+::ng-deep .sec-referrals-container .mdc-line-ripple.mdc-line-ripple--deactivating {
+    display: none !important;
+}
+
+::ng-deep .sec-referrals-container .mat-mdc-text-field-wrapper.mdc-text-field.mdc-text-field--filled.mdc-text-field--no-label {
+    border-radius: 14px !important;
+}
+
+::ng-deep .sec-referrals-container .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align {
+    height: 0;
+}
+
+
+
+
+/*   This is the Pagination css to over ride the Mat UI*/
+
+::ng-deep.referrals-pagination .mat-mdc-paginator-container {
+    justify-content: space-between !important;
+    width: 100% !important;
+}
+
+
+::ng-deep.referrals-pagination .mat-mdc-icon-button {
+    background-color: var(--secondary-color-orange-shade);
+    border-radius: 10px !important;
+    margin: 0 4px 0 0;
+    // fill: white !important;
+}
+
+::ng-deep.referrals-pagination .mat-mdc-paginator-icon {
+    fill: var(--primary-color-white-shade) !important;
+}

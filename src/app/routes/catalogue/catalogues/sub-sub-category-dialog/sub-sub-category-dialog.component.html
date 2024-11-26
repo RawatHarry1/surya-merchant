@@ -1,0 +1,60 @@
+<div class="filter-header">
+    <div class="filter-header-spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2">Add Sub SubCategory</h2>
+
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+        <div class="filter-form">
+            <form [formGroup]="subSubCategoryForm" (ngSubmit)="onSubmit()">
+                <div class="option_name">
+                    <h6 class="category_image_input_heading">Category <span class="text-danger h4">*</span></h6>
+                    <input formControlName="category" [typeahead]="categoryList" [typeaheadOptionsLimit]="8"
+                        (typeaheadOnSelect)="onCategorySelect($event.item, 'category')" [typeaheadMinLength]=" 0"
+                        placeholder="Search a category" class="searchable-select form-control">
+                </div>
+
+                <div class="option_name">
+                    <h6 class="category_image_input_heading">Sub Category <span class="text-danger h4">*</span></h6>
+                    <input formControlName="subCategory" [typeahead]="subCategoryList" [typeaheadOptionsLimit]="8"
+                        (typeaheadOnSelect)="onCategorySelect($event.item, 'subCategory')" [typeaheadMinLength]="0"
+                        placeholder="Search a sub category" class="searchable-select form-control">
+                </div>
+
+                <div class="option_name">
+                    <h6 class="category_image_input_heading">Name <span class="text-danger h4">*</span></h6>
+                    <mat-form-field class="add-filter-form" appearance="outline">
+                        <input matInput formControlName="name" id="option_name" placeholder="Enter"
+                            formControlName="name" />
+                    </mat-form-field>
+                    <mat-error
+                    *ngIf="subSubCategoryForm.get('name')?.hasError('required') && subSubCategoryForm.get('name')?.touched">
+                    Sub Sub Category name is required
+                </mat-error>
+                </div>
+
+                <div class="upload_file mt-3">
+                    <h6 class="category_image_input_heading">Sub SubCategory Image <span class="text-danger h4">*</span></h6>
+                    <div class="category_image_input">
+                        <!-- Selected Images Preview -->
+                        <div class="preview" *ngIf="selectedImage?.thumbnail">
+                            <div class="image-container">
+                                <span class="delete-icon" (click)="removeSelectedFile()">
+                                    <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                                </span>
+                                <img class="preview-images" [src]="selectedImage?.thumbnail" alt="Image" />
+                            </div>
+                        </div>
+                        <input type="file" #fileInput (change)="onFileSelected($event)" formControlName="image"
+                            accept="image/*" />
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" (click)="closeDialog()">Cancel</button>
+                    <button type="submit" class="add-button">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

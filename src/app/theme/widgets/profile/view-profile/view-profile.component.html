@@ -1,0 +1,68 @@
+<div class="profile">
+    <div class="profile-header">
+
+        <h3 class="profile-heading">My Profile</h3>
+
+        <div class="header-right">
+            <button class="back_button" (click)="goBack()"><mat-icon>arrow_back</mat-icon>Back</button>
+        </div>
+    </div>
+    <div class="profile">
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="profile_img">
+                    <!-- <img class="profile_pic" src="./images/profile.png" alt="Profile"> -->
+                    <mat-icon class="profile_pic">account_circle</mat-icon>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <div class="profile_data">
+                    <span class="m-0 h6">John Doe</span>
+                    <span>Admin</span>
+                    <span>Leeds United Kingdom</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="personal_info">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="personal_info_header">
+                    <div class="personal_info_header_left">
+                        <span class="m-0 h4">Personal Information</span>
+                    </div>
+                    <div class="personal_info_header_right">
+                        <button class="edit_button" (click)="editProfile()" type="button">Edit <mat-icon>edit</mat-icon></button>
+                    </div>
+                </div>
+                <div class="personal_info_details">
+                    <div class="first_row">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="first_name d-flex flex-column">
+                                    <span class="h6">Name</span>
+                                    <span>John Doe</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="email d-flex flex-column">
+                                    <span class="h6">Email Address</span>
+                                    <span>surya&#64;yopmail.com</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="role d-flex flex-column">
+                                    <span class="h6">User Role</span>
+                                    <span>Admin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

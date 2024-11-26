@@ -1,0 +1,74 @@
+<div class="agent-header">
+    <div class="agent-header-spacer">
+        <div class="dialog-header">
+            <h2 class="heading_h2"  *ngIf="isAddOpen &&!isEditOpen">Add Agent</h2>
+            <h2 class="heading_h2"  *ngIf="isEditOpen">Edit Agent</h2>
+            <button class="close-button" (click)="closeDialog()">&#x2715;</button>
+        </div>
+        <div class="agent-form">
+            <form [formGroup]="agentForm" (ngSubmit)="onAdd() ">
+                <div class="first-row">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="name">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Name</mat-label>
+                                    <input matInput id="name" placeholder="Enter" formControlName="name" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="agent-email">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput id="agentEmail" placeholder="Enter" formControlName="agentEmail" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="agent-phone">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Phone</mat-label>
+                                    <input matInput id="agentPhone" placeholder="Enter"
+                                        formControlName="agentPhone" />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="agent-address">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Address</mat-label>
+                                <input matInput id="agentAddress" placeholder="Enter"
+                                    formControlName="agentAddress" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="agent-display-address">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Display Address</mat-label>
+                                <input matInput id="agent-display-address" placeholder="Enter"
+                                    formControlName="agentDisplayAddress" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="agent-name">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Merchant Name</mat-label>
+                                <input matInput id="agent-name" placeholder="Enter" formControlName="merchantName" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="add-button" *ngIf="isAddOpen">Add</button>
+                    <button type="submit" class="add-button" *ngIf="isEditOpen">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

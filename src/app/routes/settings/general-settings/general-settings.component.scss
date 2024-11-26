@@ -1,0 +1,240 @@
+.general_setting {
+    padding: 0 30px;
+
+    .general_setting_header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .header_left {
+            display: flex;
+            justify-content: start;
+
+            .general_setting_heading {
+                padding: 5px 0 0 0px;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+        }
+    }
+
+    .currency,
+    .currency_formating,
+    .timezone,
+    .time_format,
+    .date_format,
+    .appliances_share,
+    .delivery_address,
+    .aerial_distance,
+    .favourite_stores,
+    .auto_refund,
+    .order_status,
+    .distance_unit,
+    .customer_rating {
+        border-bottom: 1px solid var(--border-color-gray-shade);
+    }
+
+    .currency_left,
+    .currency_formating_left,
+    .timezone_left,
+    .time_format_left,
+    .date_format_left,
+    .appliances_share_left,
+    .delivery_address_left,
+    .aerial_distance_left,
+    .favourite_stores_left,
+    .auto_refund_left,
+    .order_status_left,
+    .distance_unit_left,
+    .customer_rating_left {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        .currency_left_heading,
+        .currency_formating_left_heading,
+        .timezone_left_heading,
+        .time_format_left_heading,
+        .date_format_left_heading,
+        .appliances_share_left_heading,
+        .delivery_address_left_heading,
+        .aerial_distance_left_heading,
+        .favourite_stores_left_heading,
+        .auto_refund_left_heading,
+        .order_status_left_heading,
+        .distance_unit_left_heading,
+        .customer_rating_left_heading {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+    }
+
+    .currency_mid,
+    .currency_formating_mid,
+    .timezone_mid,
+    .time_format_mid,
+    .date_format_mid,
+    .appliances_share_mid,
+    .delivery_address_mid,
+    .aerial_distance_mid,
+    .favourite_stores_mid,
+    .auto_refund_mid,
+    .order_status_mid,
+    .distance_unit_mid,
+    .customer_rating_mid {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        .currency_instruction_text,
+        .currency_formating_instruction_text,
+        .timezone_instruction_text,
+        .time_format_instruction_text,
+        .date_format_instruction_text,
+        .appliances_share_instruction_text,
+        .delivery_address_instruction_text,
+        .aerial_distance_instruction_text,
+        .favourite_stores_instruction_text,
+        .auto_refund_instruction_text,
+        .order_status_instruction_text,
+        .distance_unit_instruction_text,
+        .customer_rating_instruction_text {
+            margin: 0;
+        }
+    }
+
+    .customer_rating_left {
+        display: flex;
+        align-items: center;
+
+    }
+
+    .sponsored_dropdown {
+        display: flex;
+        justify-content: end;
+
+        .dropDown-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            border: none;
+            gap: 8px;
+            padding: 10px 10px;
+            margin: 8px 10px;
+            border-radius: 9px;
+            background-color: var(--drowpdown-background-color-shade);
+
+            .sponsored_heading {
+                margin: 0;
+                font-size: 0.8rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .right_slide_toggle {
+        display: flex;
+        justify-content: end;
+    }
+
+    .form-actions {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        height: 100%;
+
+        .add-button {
+            padding: 8px 18px;
+            background-color: var(--background-color-blue-shade);
+            border-radius: 5px;
+            color: var(--primary-color-white-shade);
+            border: none;
+            font-size: 1.1rem;
+        }
+
+
+    }
+
+}
+
+/*  ----- Specific Slide toggle Size CSS------*/
+::ng-deep .custom-slide-toggle {
+    /* Adjust the overall size of the toggle */
+    transform: scale(0.7);
+    /* Scale the entire toggle component */
+
+
+    /* Adjust padding and margin if needed */
+    margin: 8px;
+    padding: 2px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-thumb {
+    /* Resize the toggle knob */
+    width: 15px;
+    height: 15px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-bar {
+    /* Resize the toggle track */
+    width: 40px;
+    /* Adjust the width */
+    height: 20px;
+    /* Adjust the height */
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-label {
+    font-size: 1.5rem !important;
+}
+
+::ng-deep .banners-dialog .mat-mdc-slide-toggle .mdc-switch:enabled+.mdc-label {
+    /* Adjust the label font size if needed */
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0 15px 0 0;
+}
+
+
+
+
+/* Checked state color styles */
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}
+
+
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}
+
+/* ----------------Table Header of the Marchant  Table ------------------ */
+::ng-deep .general_setting .mat-mdc-header-cell {
+    background-color: black !important;
+    color: var(--primary-color-white-shade);
+}
+
+/* Table Header Color Change */
+.general_setting .mat-mdc-table .mat-mdc-header-cell {
+    color: var(--primary-color-white-shade) !important;
+}
+
+.general_setting .mat-table {
+    width: 100%;
+}
+
+/* Set sort arrow color to  var( --primary-color-white-shade) */
+::ng-deep .general_setting .mat-sort-header-arrow {
+    color: var(--primary-color-white-shade) !important;
+}
+
+/* Set sort arrow color to  var( --primary-color-white-shade) END */

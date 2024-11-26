@@ -1,0 +1,159 @@
+.notification {
+    padding: 0 30px;
+    height: 90vh;
+
+    .notification_header {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        padding: 8px 0px;
+        box-shadow: inset 0px -1px var(--border-color-gray-shade);
+
+        .header_left {
+            display: flex;
+            justify-content: start;
+
+            .notification_heading {
+                padding: 5px 0 0 0px;
+                font-size: 1.5rem;
+                font-weight: 700;
+            }
+
+        }
+    }
+
+    .info_notification,
+    .notification_sound,
+    .notification_whatsapp,
+    .admin_store_notification,
+    .customer_store_notification {
+        border-bottom: 1px solid var(--border-color-gray-shade);
+        padding: 10px 0;
+
+        .notification_sound_checkbox {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 80%;
+            margin-top: 20px;
+
+            .cancel-button {
+                padding: 8px 18px;
+                background-color: var(--cancel-button-red-color-shade);
+                border-radius: 5px;
+                width: 130px;
+                color: var(--primary-color-white-shade);
+                border: none;
+                font-size: 1.1rem;
+            }
+
+
+            .add-button {
+                padding: 8px 18px;
+                background-color: var(--background-color-blue-shade);
+                border-radius: 5px;
+                width: 130px;
+                color: var(--primary-color-white-shade);
+                border: none;
+                font-size: 1.1rem;
+            }
+        }
+
+        .notification_left {
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            .notification_left_heading {
+                font-size: 1rem;
+                font-weight: 700;
+            }
+        }
+
+        .notification_right {
+
+            .notification_instruction_with_toggle {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .notification_instruction_text {
+                    font-size: 0.95rem;
+                    margin: 0;
+                    padding-bottom: 10px;
+                }
+            }
+
+            .notification_toggle {
+                justify-content: end;
+            }
+        }
+    }
+
+}
+
+/* Make the checkbox circle START */
+
+::ng-deep .notification .mdc-checkbox__background {
+    border-radius: 50%;
+}
+
+/* Make the checkbox circle END */
+
+
+/*  ----- Specific Slide toggle Size CSS------*/
+::ng-deep .custom-slide-toggle {
+    /* Adjust the overall size of the toggle */
+    transform: scale(0.7);
+    /* Scale the entire toggle component */
+
+
+    /* Adjust padding and margin if needed */
+    margin: 8px;
+    padding: 2px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-thumb {
+    /* Resize the toggle knob */
+    width: 15px;
+    height: 15px;
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-bar {
+    /* Resize the toggle track */
+    width: 40px;
+    /* Adjust the width */
+    height: 20px;
+    /* Adjust the height */
+}
+
+
+::ng-deep .custom-slide-toggle .mat-slide-toggle-label {
+    font-size: 1.5rem !important;
+}
+
+::ng-deep .banners-dialog .mat-mdc-slide-toggle .mdc-switch:enabled+.mdc-label {
+    /* Adjust the label font size if needed */
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0 15px 0 0;
+}
+
+/* Checked state color styles */
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}
+
+
+::ng-deep .custom-slide-toggle .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--mat-slider-switch-green-shade) !important;
+}
