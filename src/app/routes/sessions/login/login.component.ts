@@ -41,7 +41,7 @@ export class LoginComponent {
   isSubmitting = false;
   showPassword: boolean = false;
 
-  constructor(private auth2: LoginService, private http: HttpClient,
+  constructor(
     public settingsService:SettingsService
   ) { }
 

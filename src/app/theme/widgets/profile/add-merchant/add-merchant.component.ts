@@ -1,33 +1,29 @@
 import { CommonModule, Location } from '@angular/common';
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { EditProfileComponent } from '../edit-profile/edit-profile.component';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MerchantService } from '@shared/services/merchant.service';
-import { CommonService } from '@shared/services/common.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Router } from '@angular/router';
+import { CommonService } from '@shared/services/common.service';
+import { MerchantService } from '@shared/services/merchant.service';
 
 @Component({
-  selector: 'app-view-profile',
+  selector: 'app-add-merchant',
   standalone: true,
   imports: [
     CommonModule,
-    MatIconModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule
   ],
-  templateUrl: './view-profile.component.html',
-  styleUrl: './view-profile.component.scss'
+  templateUrl: './add-merchant.component.html',
+  styleUrl: './add-merchant.component.scss'
 })
-export class ViewProfileComponent {
-
+export class AddMerchantComponent {
 
   type: string = "add";
   merchantForm!: FormGroup;
@@ -37,8 +33,6 @@ export class ViewProfileComponent {
   selectedFiles: any = [];
   selectedFiles2: any = [];
 
-  public dialog = inject(MatDialog);
-
   @ViewChild('fileInput') fileInput!: ElementRef;
   @ViewChild('fileInput2') fileInput2!: ElementRef;
 
@@ -46,51 +40,12 @@ export class ViewProfileComponent {
     public fb: FormBuilder,
     private merchantService: MerchantService,
     private location: Location,
-    private commonService: CommonService,
-    private router: Router
-  ) { }
+    private commonService: CommonService
+  ) {
 
-  cards = [
-    {
-      title: 'Business Details',
-      fields: [
-        { name: 'Business Name', value: 'My Business' },
-        { name: 'Business Type', value: 'Retail' },
-        { name: 'Owner Name', value: 'John Doe' },
-        { name: 'Phone', value: '1234567890' },
-        { name: 'Email', value: 'john@example.com' },
-        { name: 'Address', value: '123 Main St' }
-      ]
-    },
-    {
-      title: 'Operational Information',
-      fields: [
-        { name: 'Availability', value: '9 AM - 5 PM' },
-        { name: 'Service Type', value: 'Delivery' },
-        { name: 'Business Category', value: 'Restaurant' }
-      ]
-    },
-    {
-      title: 'Bank Details',
-      fields: [
-        { name: 'Bank Name', value: 'Example Bank' },
-        { name: 'Account Holder Name', value: 'John Doe' },
-        { name: 'Account Number', value: '123456789012' },
-        { name: 'IFSC Code', value: 'EXAMP12345' }
-      ]
-    },
-    {
-      title: 'Identification Documents',
-      fields: [
-        { name: 'Business License Number', value: '987654' },
-        { img: 'Business License Image', value: '/images/doc.png' },
-        { name: 'Tax Identification Number', value: '123456789' },
-        { img: 'Tax Identification Image', value: '/images/doc.png' }
-      ]
-    }
-  ];
-  
 
+
+  }
 
   ngOnInit(): void {
     if (this.isEditOpen) {
@@ -120,17 +75,15 @@ export class ViewProfileComponent {
     });
   }
 
-
-
   onAdd(): void {
     if (this.id) {
       this.type = 'update';
     }
 
     if (this.merchantForm.valid) {
+     
 
-
-      const payload = {
+      const payload = {             
         ...this.merchantForm.value
       };
 
@@ -206,26 +159,8 @@ export class ViewProfileComponent {
     this.fileInput2.nativeElement.value = '';
   }
 
-  
-
-  editProfile() {
-    const dialogRef = this.dialog.open(EditProfileComponent, {
-      data: {
-        isEditOpen: false,
-        isAddOpen: true
-      }
-    });
-  }
-
-  editMerchant(): void {
-    this.router.navigate(['dashboard/edit_merchant'])
-
-  }
-
-  onAddOpen() {
-  }
-
   goBack(): void {
     this.location.back();
   }
+
 }

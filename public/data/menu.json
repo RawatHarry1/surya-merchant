@@ -16,19 +16,31 @@
       "route": "customerlist",
       "name": "customer",
       "type": "link",
-      "icon": "category"
+      "icon": "people"
     },
     {
       "route": "product",
       "name": "products",
       "type": "link",
-      "icon": "category"
+      "icon": "store"
     },
     {
       "route": "orders",
       "name": "orders",
       "type": "link",
       "icon": "local_grocery_store"
+    },
+    {
+      "route": "setting",
+      "name": "setting",
+      "type": "link",
+      "icon": "settings"
+    },
+    {
+      "route": "auth/login",
+      "name": "logout",
+      "type": "link",
+      "icon": "exit_to_app"
     }
   ]
 }

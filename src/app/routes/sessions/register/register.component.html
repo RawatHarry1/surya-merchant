@@ -1,59 +1,594 @@
-<div class="d-flex w-full h-full">
-  <mat-card class="m-auto" style="max-width: 380px;">
-    <mat-card-header class="m-b-24">
-      <mat-card-title>
-        {{'register_welcome' | translate}}, <br />
-        {{'register_title' | translate}}
-      </mat-card-title>
-    </mat-card-header>
+<div class="main-block">
+  <div class="login-banner">
+    <img src="images/surya-logo.png" alt="">
+  </div>
+  <div class="login-form-block">
+    <div class="login-logo">
+      <img src="favicon.png" alt="">
+      <div class="arrowBack" *ngIf="screenStep != 1" (click)="gobackArraw(screenStep)"><svg
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <g data-name="Double left">
+            <path
+              d="M12 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L9.414 12l3.293 3.293A1 1 0 0 1 12 17z"
+              style="fill:#1c1b1e" />
+            <path
+              d="M16 17a1 1 0 0 1-.707-.293l-4-4a1 1 0 0 1 0-1.414l4-4a1 1 0 1 1 1.414 1.414L13.414 12l3.293 3.293A1 1 0 0 1 16 17z"
+              style="fill:#1c1b1e" />
+          </g>
+        </svg>
+        <!-- <span class="mdi mdi-chevron-double-left"></span> -->
+      </div>
+    </div>
+    <div class="">
+      <mat-card-header class="login-heading">
+        @if(screenStep===1)
+        {
+        <mat-card-title>{{'merchant_signup' | translate}}</mat-card-title>
+        }@else if(screenStep===2)
+        {
+        <mat-card-title>{{'verify_phonenumber' | translate}}</mat-card-title>
+        }@else if(screenStep===3)
+        {
+        <mat-card-title>{{'setup_password' | translate}}</mat-card-title>
+        }
+        @else if(screenStep===4)
+        {
+        <mat-card-title>{{'whats_your_name' | translate}}</mat-card-title>
+        }
+        @else if(screenStep===5)
+        {
+        <mat-card-title>{{'what_is_your_email' | translate}}</mat-card-title>
+        }
+        @else if(screenStep===8)
+        {
+        <mat-card-title>{{'add_address' | translate}}</mat-card-title>
+        }
+        @else if(screenStep===9)
+        {
+        <mat-card-title>{{'standard_offer' | translate}}</mat-card-title>
+        }
+        @else if(screenStep===10)
+        {
+        <mat-card-title>{{'upload_docs' | translate}}</mat-card-title>
+        }
 
-    <mat-card-content>
-      <form class="form-field-full" [formGroup]="registerForm">
-        <mat-form-field appearance="outline">
-          <mat-label>{{'username' | translate}}</mat-label>
-          <input matInput formControlName="username" required>
-          @if (registerForm.get('username')?.invalid) {
-            <mat-error>
-              <span>{{'validations.required' | translate}}</span>
-            </mat-error>
-          }
-        </mat-form-field>
+      </mat-card-header>
+      @if(screenStep===1)
+      {
+      <mat-card-content>
+        <form class="form-field-full" [formGroup]="mobileNumberForm">
+          <div class="contact_rad" style="width: 100%;">
+            <mat-label class="h6">{{'enter_mobile' | translate}}</mat-label>
+            <div class="custom-tel">
+              <ngx-intl-tel-input [cssClass]="'custom'" [preferredCountries]="preferredCountries"
+                [enableAutoCountrySelect]="true" [enablePlaceholder]="false" [searchCountryFlag]="true"
+                [searchCountryField]="[SearchCountryField.Name, SearchCountryField.Iso2]" [selectFirstCountry]="false"
+                [selectedCountryISO]="CountryISO.India" [separateDialCode]="true" [phoneValidation]="true"
+                placeholder="Enter Mobile No." formControlName="phoneNumber" required>
+              </ngx-intl-tel-input>
+              @if(mobileNumberForm.get('phoneNumber')?.hasError('required') &&
+              mobileNumberForm.get('phoneNumber')?.touched){
+              <mat-error class="mb-2 small invalid_error"> {{'validations.required'| translate}}</mat-error>
+              }
+              @if(mobileNumberForm.get('phoneNumber')?.value?.number?.length > 0 &&
+              mobileNumberForm.get('phoneNumber')?.errors &&
+              mobileNumberForm.get('phoneNumber')?.touched){ <mat-error class="mb-2 small invalid_error">
+                {{'validations.invalid_phone'| translate}}
+              </mat-error>
+              }
+            </div>
+          </div>
 
-        <mat-form-field appearance="outline">
-          <mat-label>{{'password' | translate}}</mat-label>
-          <input matInput type="password" formControlName="password" required>
-          @if (registerForm.get('password')?.invalid) {
-            <mat-error>
-              <span>{{'validations.required' | translate}}</span>
-            </mat-error>
-          }
-        </mat-form-field>
+          <button class="w-full m-y-16" style="height: 50px; 
+      border-radius: 5px;
+      font-size: 20px;" mat-flat-button (click)="phoneSubmit()">{{'register' | translate}}</button>
 
-        <mat-form-field appearance="outline">
-          <mat-label>{{'confirm_password' | translate}}</mat-label>
-          <input matInput type="password" formControlName="confirmPassword" required>
-          @if (registerForm.get('confirmPassword')?.hasError('required')) {
-            <mat-error>
-              <span>{{'validations.required' | translate}}</span>
-            </mat-error>
-          }
-          @if (registerForm.get('confirmPassword')?.hasError('mismatch')) {
-            <mat-error
-              translate [translateParams]="{value: 'login.password' | translate}">
-              <span>{{'validations.inconsistent'}}</span>
-            </mat-error>
-          }
-        </mat-form-field>
+          <div class="already-have-account">
+            <span>{{'have_an_account' | translate}}? </span>
+            <a routerLink="/auth/login">{{'login' | translate}}</a>
+          </div>
+        </form>
+      </mat-card-content>
 
-        <mat-checkbox>{{'read_and_agree' | translate}}</mat-checkbox>
+      }@else if(screenStep===2)
+      {
+      <mat-card-content>
+        <form class="form-field-full">
+          <div class="contact_rad" style="width: 100%;">
+            <!-- <mat-label>{{'enter_mobile' | translate}}</mat-label> -->
+            <mat-label style="margin-bottom: 20px">
+              <div class="" style="margin-bottom: 8px">{{'we_have_sent' | translate}}</div>
+              <div class=""><b>{{ phoneNumberForOtp }}</b></div>
+            </mat-label>
+            <div class="">
+              <ngx-otp-input #otpInput [options]="otpOptions" (otpChange)="onOtpChange($event)">
+              </ngx-otp-input>
+              <div class="verification-resend-both">
+                <p>
+                  The verificaiton code will expire in
+                  <span class="countDown">{{ formatTimer() }}</span>
+                </p>
+                <a class="resend-button" [ngClass]="{ disabled: isResendDisabled }" (click)="resendOTP()">Resend
+                  code</a>
+              </div>
+            </div>
+          </div>
 
-        <button class="w-full m-y-16" mat-flat-button>{{'register' | translate}}</button>
+          <button class="w-full m-y-16" style="height: 50px; 
+      border-radius: 5px;
+      font-size: 20px;" mat-flat-button [disabled]="isSubmitDisabled" (click)="onVerfyOtp()">{{'register' |
+            translate}}</button>
 
-        <div>
-          <span>{{'have_an_account' | translate}}? </span>
-          <a routerLink="/auth/login">{{'login' | translate}}</a>
+          <div class="already-have-account">
+            <span>{{'have_an_account' | translate}}? </span>
+            <a routerLink="/auth/login">{{'login' | translate}}</a>
+          </div>
+        </form>
+      </mat-card-content>
+      }@else if(screenStep===3)
+      {
+      <mat-card-content>
+        <form class="form-field-full" [formGroup]="setupPasswordForm">
+
+          <!-- <mat-form-field appearance="outline">
+        <mat-label>{{'password' | translate}}</mat-label>
+        <input matInput type="password" formControlName="password" required>
+        @if (setupPasswordForm.get('password')?.invalid) {
+          <mat-error>
+            <span>{{'validations.required' | translate}}</span>
+          </mat-error>
+        }
+      </mat-form-field> -->
+          <div class="contact_rad" style="width: 100%;">
+            <mat-label class="h6">{{'password' | translate}}</mat-label>
+            <div class="suray_input">
+              <mat-form-field appearance="outline" class="margin-bottom-form">
+
+                <div class="for-cross-block">
+                  <input matInput placeholder="Enter password" type="{{ showPassword ? 'text' : 'password' }}"
+                    formControlName="password" required>
+                  <div class="eye-icon" (click)="togglePasswordVisibility(1)">
+                    <!-- <i class="{{ showPassword ? 'mdi mdi-eye' : 'mdi mdi-eye-off' }}"></i> -->
+                    <mat-icon aria-hidden="false" aria-label="Toggle password visibility"
+                      [fontIcon]="showPassword ? 'visibility' : 'visibility_off'"></mat-icon>
+                  </div>
+                </div>
+                @if (setupPasswordForm.get('password')?.invalid) {
+                <mat-error>
+                  <span>{{'validations.required' | translate}}</span>
+                </mat-error>
+                }
+
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="contact_rad" style="width: 100%;"></div>
+          <mat-label class="h6">{{'confirm_password' | translate}}</mat-label>
+          <div class="suray_input">
+            <mat-form-field appearance="outline" class="margin-bottom-form">
+
+              <div class="for-cross-block">
+                <input matInput placeholder="Enter confirm password" type="{{ showPassword2 ? 'text' : 'password' }}"
+                  formControlName="confirmPassword" required>
+                <div class="eye-icon" (click)="togglePasswordVisibility(2)">
+                  <!-- <i class="{{ showPassword ? 'mdi mdi-eye' : 'mdi mdi-eye-off' }}"></i> -->
+                  <mat-icon aria-hidden="false" aria-label="Toggle password visibility"
+                    [fontIcon]="showPassword2 ? 'visibility' : 'visibility_off'"></mat-icon>
+                </div>
+              </div>
+              @if (setupPasswordForm.get('confirmPassword')?.hasError('required') &&
+              setupPasswordForm.get('confirmPassword')?.touched) {
+              <mat-error>
+                <span>{{'validations.required' | translate}}</span>
+              </mat-error>
+              }
+              @if (setupPasswordForm.get('confirmPassword')?.hasError('mismatch') &&
+              setupPasswordForm.get('confirmPassword')?.touched) {
+              <mat-error translate [translateParams]="{ value: 'login.password' | translate }">
+                {{ 'validations.mismatch' | translate}}
+              </mat-error>
+              }
+
+            </mat-form-field>
+          </div>
+
+          <button class="w-full m-y-16" style="height: 50px; 
+      border-radius: 5px;
+      font-size: 20px;" mat-flat-button [disabled]="setupPasswordForm.invalid"
+            (click)="submitSetupPasswordForm()">{{'register' | translate}}</button>
+        </form>
+      </mat-card-content>
+      }
+      @else if(screenStep===4)
+      {
+      <mat-card-content>
+        <form class="form-field-full" [formGroup]="nameForm">
+          <div class="contact_rad" style="width: 100%;">
+            <mat-label class="h6">{{'name' | translate}}</mat-label>
+            <div class="suray_input">
+              <mat-form-field appearance="outline" class="margin-bottom-form">
+                <input matInput placeholder="Enter name" type="text" formControlName="name" required>
+                @if (nameForm.get('name')?.invalid) {
+                <mat-error>
+                  <span>{{'validations.required' | translate}}</span>
+                </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="contact_rad" style="width: 100%;">
+            <mat-label class="h6">{{'username' | translate}}</mat-label>
+            <div class="suray_input">
+              <mat-form-field appearance="outline" class="margin-bottom-form">
+                <input matInput placeholder="Enter username" type="text" formControlName="userName" required>
+                @if (nameForm.get('userName')?.invalid) {
+                <mat-error>
+                  <span>{{'validations.required' | translate}}</span>
+                </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+          <button class="w-full m-y-16" style="height: 50px; 
+      border-radius: 5px;
+      font-size: 20px;" mat-flat-button [disabled]="nameForm.invalid" (click)="submitNameForm()">{{'register' |
+            translate}}</button>
+        </form>
+      </mat-card-content>
+      }
+      @else if(screenStep===5)
+      {
+      <mat-card-content>
+        <form class="form-field-full" [formGroup]="emailForm">
+          <div class="contact_rad" style="width: 100%;">
+            <mat-label class="h6">{{'email' | translate}}</mat-label>
+            <div class="suray_input">
+              <mat-form-field appearance="outline" class="margin-bottom-form">
+                <input matInput placeholder="Enter email" type="text" formControlName="email" required>
+                @if (emailForm.get('email')?.invalid) {
+                <mat-error>
+                  <span>{{'validations.required' | translate}}</span>
+                </mat-error>
+                }
+              </mat-form-field>
+            </div>
+          </div>
+          <button class="w-full m-y-16" style="height: 50px; 
+      border-radius: 5px;
+      font-size: 20px;" mat-flat-button [disabled]="emailForm.invalid" (click)="submitEmailForm()">{{'register' |
+            translate}}</button>
+        </form>
+      </mat-card-content>
+      }
+      @else if(screenStep===6)
+      {
+      <mat-card-content>
+        <form class="form-field-full">
+          <div class="contact_rad" style="width: 100%;">
+            <!-- <mat-label>{{'enter_mobile' | translate}}</mat-label> -->
+            <mat-label style="margin-bottom: 20px">
+              <div class="" style="margin-bottom: 8px">{{'we_have_sent' | translate}}</div>
+              <div class=""><b>{{ emailForOtp }}</b></div>
+            </mat-label>
+            <div class="">
+              <ngx-otp-input #otpInput2 [options]="otpOptions" (otpChange)="onOtpChange2($event)">
+              </ngx-otp-input>
+              <div class="verification-resend-both">
+                <p>
+                  The verificaiton code will expire in
+                  <span class="countDown">{{ formatTimer2() }}</span>
+                </p>
+                <a class="resend-button" [ngClass]="{ disabled: isResendDisabled2 }" (click)="resendEmailOTP()">Resend
+                  code</a>
+              </div>
+            </div>
+          </div>
+
+          <button class="w-full m-y-16" style="height: 50px; 
+      border-radius: 5px;
+      font-size: 20px;" mat-flat-button [disabled]="isSubmitDisabled2" (click)="onEmailVerfyOtp()">{{'register' |
+            translate}}</button>
+
+        </form>
+      </mat-card-content>
+      }
+      @else if(screenStep===7)
+      {
+      <mat-card-content>
+        <form class="form-field-full" [formGroup]="merchantForm" (ngSubmit)="submitMerchantInfo()">
+          <div class="contact_rad" style="width: 100%;">
+            <div class="details_heading">
+              <span class="h4 m-0">{{'basic_details'|translate}}</span>
+            </div>
+            <div class="suray_input">
+              <div class="first-row">
+                <div class="row mt-2">
+                  <div class="col-sm-12">
+                    <div class="name">
+                      <span class="h6 m-0">{{'business_name'|translate}}</span>
+                      <mat-form-field appearance="outline">
+                        <input matInput id="name" placeholder="Enter Business Name" formControlName="businessName" />
+                        <!-- Error message for required field -->
+                        <mat-error
+                          *ngIf="merchantForm.get('businessName')?.hasError('required') && merchantForm.get('businessName')?.touched">
+                          <span>{{ 'validations.required' | translate }}</span>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="business-Type">
+                      <span class="h6 m-0">{{'business_type'|translate}}</span>
+                      <mat-form-field appearance="outline">
+                        <input matInput id="businessType" placeholder="Enter" formControlName="businessType" />
+                        <!-- Error message for required field -->
+                        <mat-error
+                          *ngIf="merchantForm.get('businessType')?.hasError('required') && merchantForm.get('businessType')?.touched">
+                          <span>{{ 'validations.required' | translate }}</span>
+                        </mat-error>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="w-full m-y-16" style="height: 50px; 
+      border-radius: 5px;
+      font-size: 20px;" mat-flat-button [disabled]="merchantForm.invalid" (click)="submitMerchantInfo()">{{'register' |
+            translate}}</button>
+        </form>
+      </mat-card-content>
+      }
+      @else if(screenStep===8)
+      {
+      <mat-card-content>
+        <div class="address-block-upper">
+          <form class="form-field-full" [formGroup]="addressForm">
+            <div class="contact_rad" style="width: 100%;">
+              <mat-label class="h6">{{'flat_no' | translate}}</mat-label>
+              <div class="suray_input">
+                <mat-form-field appearance="outline" class="margin-bottom-form">
+                  <input matInput placeholder="Enter flat no" type="text" formControlName="flatNumber"
+                    (keydown)="preventStartingSpace($event)" required>
+                  @if (addressForm.get('flatNumber')?.invalid) {
+                  <mat-error>
+                    <span>{{'validations.required' | translate}}</span>
+                  </mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="contact_rad" style="width: 100%;">
+              <mat-label class="h6">{{'street_name' | translate}}</mat-label>
+              <div class="suray_input">
+                <mat-form-field appearance="outline" class="margin-bottom-form">
+                  <input matInput placeholder="Enter street name" (keydown)="preventStartingSpace($event)" type="text"
+                    formControlName="streetAddress" required>
+                  @if (addressForm.get('streetAddress')?.invalid) {
+                  <mat-error>
+                    <span>{{'validations.required' | translate}}</span>
+                  </mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="contact_rad" style="width: 100%;">
+              <mat-label class="h6">{{'city' | translate}}</mat-label>
+              <div class="suray_input">
+                <mat-form-field appearance="outline" class="margin-bottom-form">
+                  <input matInput placeholder="Enter city name" type="text" formControlName="city"
+                    (keydown)="preventStartingSpace($event)" required>
+                  @if (addressForm.get('city')?.invalid) {
+                  <mat-error>
+                    <span>{{'validations.required' | translate}}</span>
+                  </mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="contact_rad" style="width: 100%;">
+              <mat-label class="h6">{{'country' | translate}}</mat-label>
+              <div class="suray_input">
+                <mat-form-field appearance="outline" class="margin-bottom-form">
+                  <input matInput placeholder="Enter country name" type="text" formControlName="state"
+                    (keydown)="preventStartingSpace($event)" required>
+                  @if (addressForm.get('state')?.invalid) {
+                  <mat-error>
+                    <span>{{'validations.required' | translate}}</span>
+                  </mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="contact_rad" style="width: 100%;">
+              <mat-label class="h6">{{'ZipCode' | translate}}</mat-label>
+              <div class="suray_input">
+                <mat-form-field appearance="outline" class="margin-bottom-form">
+                  <input matInput placeholder="Enter zipcode" type="text" formControlName="postalCode"
+                    (keydown)="preventStartingSpace($event)" required>
+                  @if (addressForm.get('postalCode')?.invalid) {
+                  <mat-error>
+                    <span>{{'validations.required' | translate}}</span>
+                  </mat-error>
+                  }
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="contact_rad" style="width: 100%;">
+              <div class="con_radio">
+                <mat-radio-group name="item" formControlName="selectedAddress" aria-label="Seasons"
+                  (change)="selectWorkType()">
+                  <mat-radio-button *ngFor="let item of addressOption" [value]="item">
+                    {{ item }}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </div>
+            <button class="w-full m-y-16" style="height: 50px; 
+              border-radius: 5px;
+              font-size: 20px;" mat-flat-button [disabled]="addressForm.invalid || addressTypeValue === null"
+              (click)="submitAddressForm()">{{'register' | translate}}</button>
+          </form>
         </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
+      </mat-card-content>
+      }
+      @else if(screenStep===9)
+      {
+      <mat-card-content>
+        <div class="address-block-upper">
+          <form class="form-field-full" [formGroup]="bankDetailsForm">
+
+            <div class="contact_rad" style="width: 100%;">
+              <div class="suray_input">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="merchant-bankName">
+                      <mat-label class="h6">{{'bank_name' | translate}}</mat-label>
+                      <mat-form-field appearance="outline">
+                        <input matInput id="merchant-bankName" placeholder="Enter Bank Name"
+                          formControlName="bankName" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="merchant-accountHolderName">
+                      <mat-label class="h6">{{'account_holder_name' | translate}}</mat-label>
+                      <mat-form-field appearance="outline">
+                        <input matInput id="merchant-accountHolderName" placeholder="Enter Account Holder Name"
+                          formControlName="accountHolderName" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="merchant-accountNumber">
+                      <mat-label class="h6">{{'account_number' | translate}}</mat-label>
+                      <mat-form-field appearance="outline">
+                        <input matInput id="merchant-accountNumber" placeholder="Enter Cuisine or Business Category"
+                          formControlName="accountNumber" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="merchant-ifscCode">
+                      <mat-label class="h6">{{'ifsc_code ' | translate}}</mat-label>
+                      <mat-form-field appearance="outline">
+                        <input matInput id="merchant-ifscCode" placeholder="Enter IFSC Code"
+                          formControlName="ifscCode" />
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="w-full m-y-16" style="height: 50px; 
+              border-radius: 5px;
+              font-size: 20px;" mat-flat-button [disabled]="bankDetailsForm.invalid"
+              (click)="onSubmitStandard()">{{'register'
+              | translate}}</button>
+          </form>
+        </div>
+      </mat-card-content>
+      }
+      @else if(screenStep===10)
+      {
+      <mat-card-content>
+        <form class="form-field-full" [formGroup]="documentForm">
+          <div class="contact_rad" style="width: 100%;">
+            <div class="suray_input">
+              <div class="details_heading d-flex flex-column">
+                <span class="h6 m-0">{{'docs_label1' | translate}}</span>
+              </div>
+              <div class="row mt-2">
+                <div class="col-sm-12">
+                  <div class="merchant-businessLicenseNumber">
+                    <mat-label class="h6">{{'business_license_number' | translate}}</mat-label>
+                    <mat-form-field appearance="outline">
+                      <input matInput type="number" id="merchant-businessLicenseNumber"
+                        placeholder="Enter Business License Number" formControlName="businessLicenseNumber" />
+                      <mat-error
+                        *ngIf="documentForm.get('businessLicenseNumber')?.hasError('required') && documentForm.get('businessLicenseNumber')?.touched">
+                        {{'validations.required' |translate}}
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="merchant-businessLicenseImage">
+                    <div class="upload_file">
+                      <mat-label class="subCategory_image_input_heading h6">{{'business_license_image'| translate}}
+                        <span class="text-danger h4">*</span>
+                      </mat-label>
+                      <div class="merchant_image_input">
+                        <!-- Selected Images Preview -->
+                        <div class="preview" *ngIf="selectedFiles.thumbnail">
+                          <div class="image-container">
+                            <span class="delete-icon" (click)="removeSelectedFile()">
+                              <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                            </span>
+                            <img class="preview-images" [src]="selectedFiles.thumbnail" alt="Image" />
+                          </div>
+                        </div>
+                        <input type="file" #fileInput (change)="onFileSelected($event)"
+                          formControlName="businessLicenseImage" accept="image/*" />
+                      </div>
+                      <mat-error
+                        *ngIf="documentForm.get('businessLicenseImage')?.hasError('required') && documentForm.get('businessLicenseImage')?.touched">
+                        {{'validations.required' |translate}}
+                      </mat-error>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="merchant-taxIdentificationNumber">
+                    <mat-label class="h6">{{'tax_identification_number'| translate}}</mat-label>
+                    <mat-form-field appearance="outline">
+                      <input matInput type="number" id="merchant-taxIdentificationNumber"
+                        placeholder="Enter Tax Identification Number" formControlName="taxIdentificationNumber" />
+                      <mat-error
+                        *ngIf="documentForm.get('taxIdentificationNumber')?.hasError('required') && documentForm.get('taxIdentificationNumber')?.touched">
+                        {{'validations.required' |translate}}
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="merchant-taxIdentificationImage">
+                    <div class="upload_file">
+                      <mat-label class="subCategory_image_input_heading h6">{{'tax_identification_image'|
+                        translate}}<span class="text-danger h4">*</span>
+                      </mat-label>
+                      <div class="merchant_image_input">
+                        <!-- Selected Images Preview -->
+                        <div class="preview" *ngIf="selectedFiles2.thumbnail">
+                          <div class="image-container">
+                            <span class="delete-icon" (click)="removeSelectedFile2()">
+                              <mat-icon aria-hidden="false" aria-label="clear" fontIcon="clear"></mat-icon>
+                            </span>
+                            <img class="preview-images" [src]="selectedFiles2.thumbnail" alt="Image" />
+                          </div>
+                        </div>
+                        <input type="file" #fileInput2 (change)="onFileSelected2($event)"
+                          formControlName="taxIdentificationImage" accept="image/*" />
+                      </div>
+                      <mat-error
+                        *ngIf="documentForm.get('taxIdentificationImage')?.hasError('required') && documentForm.get('taxIdentificationImage')?.touched">
+                        Image is required
+                      </mat-error>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <button class="w-full m-y-16" style="height: 50px; 
+      border-radius: 5px;
+      font-size: 20px;" mat-flat-button [disabled]="documentForm.invalid" (click)="submitDocsForm()">{{'register' |
+            translate}}</button>
+        </form>
+      </mat-card-content>
+      }
+    </div>
+  </div>
 </div>

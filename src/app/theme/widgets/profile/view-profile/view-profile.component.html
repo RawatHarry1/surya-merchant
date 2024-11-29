@@ -18,7 +18,7 @@
             <div class="col-sm-10">
                 <div class="profile_data">
                     <span class="m-0 h6">John Doe</span>
-                    <span>Admin</span>
+                    <span>Merchant</span>
                     <span>Leeds United Kingdom</span>
                 </div>
             </div>
@@ -34,7 +34,8 @@
                         <span class="m-0 h4">Personal Information</span>
                     </div>
                     <div class="personal_info_header_right">
-                        <button class="edit_button" (click)="editProfile()" type="button">Edit <mat-icon>edit</mat-icon></button>
+                        <button class="edit_button" (click)="editProfile()" type="button">Edit
+                            <mat-icon>edit</mat-icon></button>
                     </div>
                 </div>
                 <div class="personal_info_details">
@@ -49,19 +50,58 @@
                             <div class="col-sm-4">
                                 <div class="email d-flex flex-column">
                                     <span class="h6">Email Address</span>
-                                    <span>surya&#64;yopmail.com</span>
+                                    <span>surya_merchant&#64;yopmail.com</span>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="role d-flex flex-column">
                                     <span class="h6">User Role</span>
-                                    <span>Admin</span>
+                                    <span>Merchant</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </div>
+
+    <div class="merchants_info">
+        <div class="merchants-header">
+            <h3 class="merchants-heading">Merchant Info</h3>
+            <div class="header-right">
+                <button class="edit_button" (click)="editMerchant()" type="button">Edit
+                    <mat-icon>edit</mat-icon></button>
+            </div>
+        </div>
+
+        <div class="merchant-form">
+
+            <div *ngFor="let card of cards">
+                <div class="card">
+                    <span class="h5 m-0 card_title">{{ card.title }}</span>
+
+                    <div class="row">
+
+                        <div [ngClass]="{ 'col-sm-6': card.title === 'Identification Documents' || card.title === 'Bank Details',
+    'col-sm-4': card.title !== 'Identification Documents' && card.title !== 'Bank Details'}"
+                            *ngFor="let field of card.fields">
+
+                            <div class="form-group d-flex flex-column mt-3">
+                                @if(field.name){
+                                <span class="h6">{{ field.name }}</span>
+                                <span class="field-value">{{ field.value || 'N/A' }}</span>
+                                }
+                                @else if(field.img){
+                                <span class="h6">{{ field.img }}</span>
+                                <img class="doc_img" src="{{ field.value }}" alt="">
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>

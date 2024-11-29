@@ -28,101 +28,102 @@
     <div class="user_table_data mt-2 w-100">
         <div class="table_container">
             <h5>Customer List</h5>
-            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+            <div class="products-data">
+                <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-                <!-- Image Column -->
-                <ng-container matColumnDef="profileImage">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Image</th>
-                    <td mat-cell *matCellDef="let customer"><img *ngIf="customer.profileImage; else iconFallback"
-                            class="customer_image" [src]="customer.profileImage" alt="Customer Profile Image">
+                    <!-- Image Column -->
+                    <ng-container matColumnDef="profileImage">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Image</th>
+                        <td mat-cell *matCellDef="let customer"><img *ngIf="customer.profileImage; else iconFallback"
+                                class="customer_image" [src]="customer.profileImage" alt="Customer Profile Image">
 
-                        <ng-template #iconFallback>
-                            <mat-icon class="customer-icon">account_circle</mat-icon>
-                        </ng-template>
-                    </td>
-                </ng-container>
+                            <ng-template #iconFallback>
+                                <mat-icon class="customer-icon">account_circle</mat-icon>
+                            </ng-template>
+                        </td>
+                    </ng-container>
 
-                <!-- Customer ID Column -->
-                <ng-container matColumnDef="customerId">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer ID</th>
-                    <td mat-cell *matCellDef="let element" [matTooltip]="element.id">{{element.id
-                        |truncate:5}}</td>
-                </ng-container>
+                    <!-- Customer ID Column -->
+                    <ng-container matColumnDef="customerId">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer ID</th>
+                        <td mat-cell *matCellDef="let element" [matTooltip]="element.id">{{element.id
+                            |truncate:5}}</td>
+                    </ng-container>
 
 
-                <!-- Name Column -->
-                <ng-container matColumnDef="customerName">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer Name</th>
-                    <td mat-cell *matCellDef="let element">{{element.firstName}}{{' '+
-                        element.lastName}}</td>
-                </ng-container>
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="customerName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer Name</th>
+                        <td mat-cell *matCellDef="let element">{{element.firstName}}{{' '+
+                            element.lastName}}</td>
+                    </ng-container>
 
-                <!-- Gender Column -->
-                <ng-container matColumnDef="gender">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender/DOB</th>
-                    <td mat-cell *matCellDef="let element">@if(element.gender===1){
-                        <div class="d-flex flex-column">
-                            <div class="d-flex gndr_space">
-                                <span class="cstm_gender h6">♂
-                                </span><span>Male</span>
+                    <!-- Gender Column -->
+                    <ng-container matColumnDef="gender">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender/DOB</th>
+                        <td mat-cell *matCellDef="let element">@if(element.gender===1){
+                            <div class="d-flex flex-column">
+                                <div class="d-flex gndr_space">
+                                    <span class="cstm_gender h6">♂
+                                    </span><span>Male</span>
+                                </div>
+                                <span>{{element.dob}}</span>
                             </div>
-                            <span>{{element.dob}}</span>
-                        </div>
-                        }@else if(element.gender===2){
-                        <div class="d-flex  gndr_space"><span class="cstm_gender h6">♀
-                            </span><span> Female</span>
-                        </div>}
-                        @else{<span>Others</span> }
-                    </td>
-                </ng-container>
+                            }@else if(element.gender===2){
+                            <div class="d-flex  gndr_space"><span class="cstm_gender h6">♀
+                                </span><span> Female</span>
+                            </div>}
+                            @else{<span>Others</span> }
+                        </td>
+                    </ng-container>
 
-                <!-- Email Column -->
-                <ng-container matColumnDef="email">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
-                    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
-                </ng-container>
+                    <!-- Email Column -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+                        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+                    </ng-container>
 
-                <!-- Phone Number Column -->
-                <ng-container matColumnDef="phoneNumber">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone Number</th>
-                    <td mat-cell *matCellDef="let element"><span>{{element.countryCode}}</span>
-                        <span>-{{element.phoneNumber}}</span>
-                    </td>
-                </ng-container>
+                    <!-- Phone Number Column -->
+                    <ng-container matColumnDef="phoneNumber">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone Number</th>
+                        <td mat-cell *matCellDef="let element"><span>{{element.countryCode}}</span>
+                            <span>-{{element.phoneNumber}}</span>
+                        </td>
+                    </ng-container>
 
-                <!-- Action Column -->
-                <ng-container matColumnDef="action">
-                    <th mat-header-cell *matHeaderCellDef> Action </th>
-                    <td mat-cell *matCellDef="let element">
-                        <div class="category-edit-btn">
-                            <mat-card>
-                                <mat-card-content>
-                                    <section>
-                                        <mat-menu #menu1="matMenu">
-                                            <button class="edit-btn all-menu-btn" mat-menu-item
-                                            (click)="viewCustomerOpen(element.id)">View</button>
-                                            <button class="edit-btn all-menu-btn" mat-menu-item
-                                                (click)="onEditOpen()">Edit</button>
-                                            <button class="delete-btn all-menu-btn" mat-menu-item
-                                                (click)="onDelete()">Delete</button>
-                                            <!-- <button class="block-btn all-menu-btn" mat-menu-item>Block</button> -->
-                                        </mat-menu>
-                                        <button mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Open Menu">
-                                            <mat-icon>more_vert</mat-icon>
-                                        </button>
-                                    </section>
-                                </mat-card-content>
-                            </mat-card>
-                        </div>
-                    </td>
-                </ng-container>
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div class="category-edit-btn">
+                                <mat-card>
+                                    <mat-card-content>
+                                        <section>
+                                            <mat-menu #menu1="matMenu">
+                                                <button class="edit-btn all-menu-btn" mat-menu-item
+                                                    (click)="viewCustomerOpen(element.id)">View</button>
+                                                <button class="edit-btn all-menu-btn" mat-menu-item
+                                                    (click)="onEditOpen()">Edit</button>
+                                                <button class="delete-btn all-menu-btn" mat-menu-item
+                                                    (click)="onDelete()">Delete</button>
+                                                <!-- <button class="block-btn all-menu-btn" mat-menu-item>Block</button> -->
+                                            </mat-menu>
+                                            <button mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Open Menu">
+                                                <mat-icon>more_vert</mat-icon>
+                                            </button>
+                                        </section>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </td>
+                    </ng-container>
 
-                <!-- Table Header and Row Definitions -->
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
+                    <!-- Table Header and Row Definitions -->
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
         </div>
-
         <!-- Pagination Controls -->
         <div class="row">
             <div class="col-sm-12">

@@ -68,6 +68,12 @@
                 }
             }
 
+            .text-danger {
+                position: relative;
+                color: var(--color-red-warning) !important;
+                left: -14px;
+            }
+
             .category_image_input {
                 display: flex;
                 margin: 20px 0;
