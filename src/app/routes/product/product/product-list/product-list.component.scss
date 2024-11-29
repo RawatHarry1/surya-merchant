@@ -64,6 +64,7 @@
 
         .products-data {
             overflow: auto;
+            border-radius: 15px !important;
         }
 
         .table_image {
@@ -81,7 +82,7 @@
         }
     }
 
-    .products-footer{
+    .products-footer {
         position: sticky;
         bottom: 12px;
         z-index: 10;

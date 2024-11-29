@@ -35,13 +35,13 @@ html {
   // --topmenu-dropdown-item-active-text-color: #{mat.get-theme-color($theme, primary)};
 
   /*  ****************Rajat Thakur added color Blue Theme ******************** */
-  --primary-color-shade: #{if(mat.get-theme-type($theme) == dark, '#571793', '#FF8E29')};
-  --pagination-color-shade:#{if(mat.get-theme-type($theme)== dark, '#AE2C66','#FF8E29')};
-  --button-background-color-shade: #{if(mat.get-theme-type($theme)== dark,'#571793','#FF8E29')};
-  --icon-background-color-shade: #{if(mat.get-theme-type($theme)== dark,'#571793','#FF8E29')};
-  --sidemenu-active-heading-background-color: #{if(mat.get-theme-type($theme)== dark,'#571793','#FF8E29')};
-  --sidemenu-active-heading-hover-background-color: #{if(mat.get-theme-type($theme)== dark,'#571793','#FF8E29')};
-  --select-button-hover-background-color-shade: #{if(mat.get-theme-type($theme)== dark, '#571793','#FF8E29')};
+  --primary-color-shade: #{if(mat.get-theme-type($theme) == dark, '#571793', '#0057E0')};
+  --pagination-color-shade:#{if(mat.get-theme-type($theme)== dark, '#AE2C66','#0057E0')};
+  --button-background-color-shade: #{if(mat.get-theme-type($theme)== dark,'#571793','#0057E0')};
+  --icon-background-color-shade: #{if(mat.get-theme-type($theme)== dark,'#571793','#0057E0')};
+  --sidemenu-active-heading-background-color: #{if(mat.get-theme-type($theme)== dark,'#571793','#0057E0')};
+  --sidemenu-active-heading-hover-background-color: #{if(mat.get-theme-type($theme)== dark,'#571793','#0057E0')};
+  --select-button-hover-background-color-shade: #{if(mat.get-theme-type($theme)== dark, '#571793','#0057E0')};
 
   // --primary-color-shade: #0057E0;
   --primary-bg-color-shade: #1d1e25;
@@ -52,6 +52,7 @@ html {
   --cancel-button-red-color-shade: #f74141;
   --button-background-color-black-shade: #202020;
   --background-color-blue-shade: #0057E0;
+  --color-red-warning: #ba1a1a;
   --mat-switch-background-color-green-shade: #40A80F;
   --light-shade-background-gray-shade: #ededed;
   --light-shade-text-gray-shade: #B6B6B6;

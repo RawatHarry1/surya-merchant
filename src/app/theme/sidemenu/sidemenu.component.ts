@@ -9,11 +9,11 @@ import {
 } from '@angular/core';
 import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxPermissionsModule } from 'ngx-permissions';
 
-import { MenuService } from '@core';
+import { AuthService, MenuService, SettingsService } from '@core';
 import { NavAccordionItemDirective } from './nav-accordion-item.directive';
 import { NavAccordionToggleDirective } from './nav-accordion-toggle.directive';
 import { NavAccordionDirective } from './nav-accordion.directive';
@@ -51,9 +51,13 @@ import { NavAccordionDirective } from './nav-accordion.directive';
   ],
 })
 export class SidemenuComponent {
-openSubMenu(_t11: any,_t6: any) {
-throw new Error('Method not implemented.');
-}
+
+  private readonly router = inject(Router);
+  private readonly auth = inject(AuthService);
+
+  openSubMenu(_t11: any, _t6: any) {
+    throw new Error('Method not implemented.');
+  }
   // The ripple effect makes page flashing on mobile
   @Input() ripple = false;
 
@@ -62,6 +66,18 @@ throw new Error('Method not implemented.');
   menu$ = this.menu.getAll();
 
   buildRoute = this.menu.buildRoute;
-subMenuPosition: any;
-currentParentRoute: any;
+  subMenuPosition: any;
+  currentParentRoute: any;
+
+
+
+
+  logout(menuItem: any) {
+    if (menuItem.name=="menu.logout") {
+      this.auth.logout().subscribe(() => {
+        this.router.navigateByUrl('/auth/login');
+        localStorage.removeItem('ng-matero-settings');
+      });
+    }
+  }
 }

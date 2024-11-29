@@ -13,7 +13,7 @@
         <li #navItem="navAccordionItem" navAccordionItem class="menu-item"
           routerLinkActive="active" [route]="menuItem.route" [type]="menuItem.type">
           @if (menuItem.type==='link') {
-            <a class="menu-heading"
+            <a (click)="logout(menuItem)" class="menu-heading"
               [routerLink]="buildRoute(parentRoute.concat([menuItem.route]))"
               matRipple [matRippleDisabled]="!ripple">
               <ng-container

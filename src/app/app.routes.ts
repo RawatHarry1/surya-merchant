@@ -14,6 +14,7 @@ import { ReportsComponent } from './routes/reports/reports.component';
 import { CataloguesComponent } from './routes/catalogue/catalogues/catalogues.component';
 import { ProductListComponent } from './routes/product/product/product-list/product-list.component';
 import { CustomerComponent } from './routes/customer/customer.component';
+import { ForgotPasswordComponent } from './routes/sessions/forgot-password/forgot-password.component';
 
 
 
@@ -86,6 +87,7 @@ export const routes: Routes = [
         path: 'settings',
         loadChildren: () => import('./routes/settings/settings.routes').then(m => m.routes),
       },
+
     ],
   },
   {
@@ -94,6 +96,7 @@ export const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
+      { path: 'forgot', component: ForgotPasswordComponent }
     ],
   },
   { path: '**', redirectTo: 'dashboard' },

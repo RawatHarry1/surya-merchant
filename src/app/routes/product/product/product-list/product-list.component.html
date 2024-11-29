@@ -43,7 +43,7 @@
         </div>
     </div>
     <div class="table-data">
-
+        <h5>Products List</h5>
         <div class="products-data">
             <div class="mat-elevation-z8 table-container">
                 <table mat-table [dataSource]="dataSource" matSort>
@@ -59,8 +59,7 @@
                     <!--  Product Name Column -->
                     <ng-container matColumnDef="name">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Product Name </th>
-                        <td class="product-name" mat-cell
-                            *matCellDef="let element" [matTooltip]="element.name">
+                        <td class="product-name" mat-cell *matCellDef="let element" [matTooltip]="element.name">
                             {{element.name| truncate:50}} </td>
                     </ng-container>
 

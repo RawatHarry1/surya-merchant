@@ -65,8 +65,8 @@ export class CustomerComponent {
   search: string = '';
 
   displayedColumns: string[] = [
-    'profileImage',
     'customerId',
+    'profileImage',
     'customerName',
     'email',
     'phoneNumber',

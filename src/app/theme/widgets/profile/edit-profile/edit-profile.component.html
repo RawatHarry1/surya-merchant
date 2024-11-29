@@ -14,12 +14,12 @@
                                     <mat-label>First Name</mat-label>
                                     <input matInput id="first-name" placeholder="Enter First Name"
                                         formControlName="fristName" />
+                                        @if(editProfileForm.get('fristName')?.hasError('required')&&
+                                        editProfileForm.get('fristName')?.touched){ <mat-error>
+                                            {{ 'validations.required' | translate }}
+                                        </mat-error>
+                                        }
                                 </mat-form-field>
-                                @if(editProfileForm.get('fristName')?.hasError('required')&&
-                                editProfileForm.get('fristName')?.touched){ <mat-error>
-                                    {{ 'validations.required' | translate }}
-                                </mat-error>
-                                }
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -28,12 +28,12 @@
                                     <mat-label>Last Name</mat-label>
                                     <input matInput id="last-name" placeholder="Enter Last Name"
                                         formControlName="lastName" />
+                                        @if(editProfileForm.get('lastName')?.hasError('required')&&
+                                        editProfileForm.get('lastName')?.touched){ <mat-error>
+                                            {{ 'validations.required' | translate }}
+                                        </mat-error>
+                                        }
                                 </mat-form-field>
-                                @if(editProfileForm.get('lastName')?.hasError('required')&&
-                                editProfileForm.get('lastName')?.touched){ <mat-error>
-                                    {{ 'validations.required' | translate }}
-                                </mat-error>
-                                }
                             </div>
                         </div>
                     </div>

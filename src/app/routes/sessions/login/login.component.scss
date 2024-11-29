@@ -1,3 +1,99 @@
 .usernam_cstm{
     margin-bottom: 25px;
 }
+.for-cross-block {
+    position: relative;
+
+    .eye-icon {
+        position: absolute;
+        right: -4px;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        z-index: 99999;
+        max-width: 24px;
+        align-items: center;
+        mat-icon
+        {
+width: 100%;
+max-width: 24px;
+        }
+    }
+    button .login-submit-button
+    {
+        background-color: var(--primary-color-shade) !important;
+        color: var(--body-venus-white) !important;
+        border-radius: 5px !important;
+        height: 50px;
+    }
+    button{
+        border-radius: 5px !important;
+        height: 50px;
+    }
+}
+.login-banner {
+    width: 100%;
+    max-width: 400px;
+    img
+    {
+        width: 100%;
+        border-radius: 45px;
+    }
+}
+.login-form-block
+{
+    width: 100%;
+    max-width: 400px;
+}
+.login-logo
+{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+    img
+    {
+        width: 100%;
+        max-width: 50px;
+    }
+}
+.forgot-password-label
+{
+    text-align: right;
+    mat-label a
+    {
+        color:#000;
+        cursor: pointer;
+        text-decoration: none;
+    }
+}
+.create-account-link 
+{
+    width: 100%;
+    text-align: center;
+    a
+    {
+        text-decoration: none !important;
+        color: var(--primary-color-shade);
+        font-weight: 500 !important;
+    }
+}
+.main-block
+{
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+}
+.login-heading
+{
+    margin-bottom: 10px;
+    display: block;
+
+    mat-card-title{
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--primary-color-shade);
+    }
+}
